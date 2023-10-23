@@ -1,0 +1,25 @@
+<section class="flex flex-col justify-center items-center w-screen h-screen">
+  <div class="max-w-[80%] mx-auto">
+    <img
+      src="/assets/images/Login-Register-Screen.png"
+      alt="login or registration image"
+    />
+  </div>
+  <div class="text-center mb-10">
+    <h1 class="text-5xl font-agrandirBold tracking-[-4px]">
+      Med<span class="text-primary">Xpress</span>
+    </h1>
+    <p>Medicine at your door step.</p>
+  </div>
+  <div class="flex justify-around items-center w-[80%] mx-auto">
+    <button
+      (click)="onLoginClick()"
+      class="btn btn-outline btn-primary font-sspBold"
+    >
+      Login
+    </button>
+    <button (click)="onRegisterClick()" class="btn btn-primary font-sspBold">
+      Register
+    </button>
+  </div>
+</section>

@@ -1,0 +1,295 @@
+<section class="py-2 flex justify-center items-center h-screen w-full relative">
+  <form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
+    <h1 class="text-primary text-3xl text-center">Register</h1>
+    <div class="max-w-[80%] mx-auto">
+      <img src="/assets/images/Register.png" alt="Registration image" />
+    </div>
+    <!-- ! STEP:1 - EMAIL & PASSWORD -->
+    <div *ngIf="step === 1">
+      <!-- ? Steps -->
+
+      <div class="flex justify-center items-center">
+        <ul class="steps steps-horizontal lg:steps-horizontal">
+          <li class="step step-primary"></li>
+          <li class="step"></li>
+          <li class="step"></li>
+          <li class="step"></li>
+        </ul>
+      </div>
+      <!-- ? Form -->
+
+      <div class="grid justify-center items-center w-full mx-auto gap-2">
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Email</span>
+          </label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Your Email"
+            class="input input-primary w-full max-w-xs"
+            [class.input-error]="isFieldInvalid('email')"
+          />
+          <label class="label">
+            <span class="label-text-alt"></span>
+            <span
+              class="label-text-alt text-error"
+              [class.hidden]="!isFieldInvalid('email')"
+            >
+              *Invalid Email
+            </span>
+          </label>
+        </div>
+
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Password</span>
+          </label>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Type here"
+            class="input input-primary w-full max-w-xs"
+            [class.input-error]="isFieldInvalid('password')"
+          />
+          <!-- Invalid Form Input -->
+          <label class="label">
+            <span class="label-text-alt"></span>
+            <span
+              class="label-text-alt text-error hidden"
+              [class.hidden]="!isFieldInvalid('password')"
+              >*Invalid Password</span
+            >
+          </label>
+        </div>
+        <!-- NEXT Button -->
+        <div
+          class="text-center mt-2 absolute bottom-[8%] left-1/2 transform -translate-x-1/2 w-full"
+        >
+          <button
+            class="btn btn-primary px-6"
+            [disabled]="
+              isFieldInvalid('email') ||
+              isFieldInvalid('password') ||
+              !registerForm.get('email')?.valid ||
+              !registerForm.get('password')?.valid
+            "
+            (click)="increaseStep()"
+          >
+            Next
+          </button>
+          <p class="text-right mr-5 mt-5">
+            Already have a account? please
+            <a
+              href="/user/login"
+              class="text-primaryGreen hover:text-primaryGreenHover"
+              >Login</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ! STEP:2 - First Name & Last Name -->
+    <div *ngIf="step === 2">
+      <!-- ? Steps -->
+      <div class="flex justify-center items-center">
+        <ul class="steps steps-horizontal lg:steps-horizontal">
+          <li class="step step-primary"></li>
+          <li class="step step-primary"></li>
+          <li class="step"></li>
+          <li class="step"></li>
+        </ul>
+      </div>
+      <!-- ? Form -->
+
+      <div class="grid justify-center items-center w-full mx-auto gap-2">
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">First Name</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Ariful"
+            formControlName="firstName"
+            class="input input-primary w-full max-w-xs"
+            [class.input-error]="isFieldInvalid('firstName')"
+          />
+          <!-- Invalid Form Input -->
+          <label class="label">
+            <span class="label-text-alt"></span>
+            <span
+              class="label-text-alt text-error"
+              [class.hidden]="!isFieldInvalid('firstName')"
+              >*First Name Required</span
+            >
+          </label>
+        </div>
+
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Last Name</span>
+          </label>
+          <input
+            type="text"
+            formControlName="lastName"
+            placeholder="Islam"
+            class="input input-primary w-full max-w-xs"
+            [class.input-error]="isFieldInvalid('lastName')"
+          />
+          <!-- Invalid Form Input -->
+          <label class="label">
+            <span class="label-text-alt"></span>
+            <span
+              class="label-text-alt text-error"
+              [class.hidden]="!isFieldInvalid('lastName')"
+              >*Last Name Required.</span
+            >
+          </label>
+        </div>
+        <!-- NEXT Button -->
+        <div
+          class="text-center mt-2 absolute bottom-[8%] left-1/2 transform -translate-x-1/2 w-full"
+        >
+          <button
+            class="btn btn-primary px-6"
+            [disabled]="
+              isFieldInvalid('firstName') ||
+              isFieldInvalid('lastName') ||
+              !registerForm.get('firstName')?.valid ||
+              !registerForm.get('lastName')?.valid
+            "
+            (click)="increaseStep()"
+          >
+            Next
+          </button>
+          <p class="text-right mr-5 mt-5">
+            Already have a account? please
+            <a
+              href="/user/login"
+              class="text-primaryGreen hover:text-primaryGreenHover"
+              >Login</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ! STEP:3 - Address & Postal Code -->
+
+    <div *ngIf="step === 3">
+      <!-- ? Steps -->
+
+      <div class="flex justify-center items-center">
+        <ul class="steps steps-horizontal lg:steps-horizontal">
+          <li class="step step-primary"></li>
+          <li class="step step-primary"></li>
+          <li class="step step-primary"></li>
+          <li class="step"></li>
+        </ul>
+      </div>
+      <!-- ? Form -->
+      <div class="grid justify-center items-center w-full mx-auto gap-2">
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Address</span>
+          </label>
+          <input
+            type="text"
+            formControlName="address"
+            placeholder="House: 1, Road: 9, Dhaka"
+            class="input input-primary w-full max-w-xs"
+            [class.input-error]="isFieldInvalid('address')"
+          />
+          <!-- Invalid Form Input -->
+          <label class="label">
+            <span class="label-text-alt"></span>
+            <span
+              class="label-text-alt text-error"
+              [class.hidden]="!isFieldInvalid('address')"
+              >*Address required.</span
+            >
+          </label>
+        </div>
+
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Postal Code</span>
+          </label>
+          <input
+            type="number"
+            formControlName="postalCode"
+            placeholder="1212"
+            class="input input-primary w-full max-w-xs"
+            [class.input-error]="isFieldInvalid('postalCode')"
+          />
+          <!-- Invalid Form Input -->
+          <label class="label">
+            <span class="label-text-alt"></span>
+            <span
+              class="label-text-alt text-error"
+              [class.hidden]="!isFieldInvalid('postalCode')"
+              >*Invalid Postal Code</span
+            >
+          </label>
+        </div>
+        <!-- NEXT Button -->
+        <div
+          class="text-center mt-2 absolute bottom-[8%] left-1/2 transform -translate-x-1/2 w-full"
+        >
+          <button
+            class="btn btn-primary px-6"
+            type="submit"
+            [disabled]="
+              isFieldInvalid('address') ||
+              isFieldInvalid('postalCode') ||
+              !registerForm.get('address')?.valid ||
+              !registerForm.get('postalCode')?.valid
+            "
+          >
+            Submit
+          </button>
+          <p class="text-right mr-5 mt-5">
+            Already have a account? please
+            <a
+              href="/user/login"
+              class="text-primaryGreen hover:text-primaryGreenHover"
+              >Login</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ! STEP:4 - DONE -->
+    <div *ngIf="step === 4">
+      <div class="flex justify-center items-center">
+        <ul class="steps steps-horizontal lg:steps-horizontal">
+          <li class="step step-primary"></li>
+          <li class="step step-primary"></li>
+          <li class="step step-primary"></li>
+          <li class="step step-primary"></li>
+        </ul>
+      </div>
+      <div class="success-checkmark">
+        <div class="check-icon my-10">
+          <span class="icon-line line-tip"></span>
+          <span class="icon-line line-long"></span>
+          <div class="icon-circle"></div>
+          <div class="icon-fix"></div>
+        </div>
+      </div>
+      <!-- NEXT Button -->
+      <div
+        class="text-center mt-2 absolute bottom-[8%] left-1/2 transform -translate-x-1/2 w-full"
+      >
+        <button
+          class="btn btn-primary px-6"
+          (click)="handleRegistrationClick()"
+        >
+          Done
+        </button>
+      </div>
+    </div>
+  </form>
+</section>

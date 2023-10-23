@@ -1,0 +1,63 @@
+.body {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background-color: #067a46;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.animation-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* .medxpress {
+  font-size: 48px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+} */
+.white {
+  color: #fff;
+}
+
+.slide-in {
+  animation: slide 2s forwards;
+  opacity: 0;
+  white-space: nowrap;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.zoom-x {
+  display: inline-block;
+  animation: zoom-in 4s 2s forwards;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1000);
+  }
+}

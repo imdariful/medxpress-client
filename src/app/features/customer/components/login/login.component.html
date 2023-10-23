@@ -1,0 +1,77 @@
+<section class="py-2 grid justify-center items-center h-screen relative">
+  <div>
+    <h1 class="text-primary text-3xl text-center">Login</h1>
+    <div class="max-w-[80%] mx-auto">
+      <img src="/assets/images/Login.png" alt="login or registration image" />
+    </div>
+    <div class="grid justify-center items-center w-full mx-auto gap-2">
+      <div class="form-control w-full max-w-xs">
+        <label class="label">
+          <span class="label-text font-agrandirRegular">Email</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Type here"
+          class="input input-primary w-full max-w-xs"
+        />
+        <!-- Invalid Form Input -->
+        <label class="label">
+          <span class="label-text-alt"></span>
+          <span class="label-text-alt text-error">*Invalid Email</span>
+        </label>
+      </div>
+
+      <div class="form-control w-full max-w-xs">
+        <label class="label">
+          <span class="label-text font-agrandirRegular">Password</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Type here"
+          class="input input-primary w-full max-w-xs"
+        />
+        <!-- Invalid Form Input -->
+        <label class="label">
+          <span class="label-text-alt"></span>
+          <span class="label-text-alt text-error">*Invalid Password</span>
+        </label>
+      </div>
+      <!-- <div class="text-center mt-2">
+        <button class="btn btn-primary">Login</button>
+      </div> -->
+      <!-- NEXT Button -->
+      <div
+        class="text-center mt-2 absolute bottom-[10%] left-1/2 transform -translate-x-1/2 w-full"
+      >
+        <button class="btn btn-primary px-6" (click)="handleLoginClick()">
+          Login
+        </button>
+        <p class="text-right mr-5">
+          Don't have a account please
+          <a
+            href="/user/register"
+            class="text-primaryGreen hover:text-primaryGreenHover"
+            >Register</a
+          >
+        </p>
+      </div>
+      <!-- <div>
+        <p>
+          Don't have a account please
+          <a
+            href="/user/register"
+            class="text-primaryGreen hover:text-primaryGreenHover"
+            >Register</a
+          >
+        </p>
+      </div> -->
+    </div>
+
+    <!-- Toast -->
+    <!-- <div class="toast toast-end">
+      <div class="alert alert-error">
+        <span>Invalid Email or Password</span>
+      </div>
+    </div> -->
+  </div>
+</section>

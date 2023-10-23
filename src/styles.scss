@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+body {
+  height: 100%;
+}
+
+@layer components {
+  // FONT: Agrandir-Regular
+  @font-face {
+    font-family: "Agrandir-Regular";
+    font-weight: 400;
+    src: url("assets/fonts/Agrandir/woff2/Agrandir-Regular.woff2");
+  }
+
+  // FONT: Agrandir-Bold
+  @font-face {
+    font-family: "Agrandir-Bold";
+    font-weight: 700;
+    src: url("assets/fonts/Agrandir/woff2/Agrandir-TextBold.woff2");
+  }
+
+  // FONT: SourceSansPro-Regular
+  @font-face {
+    font-family: "SourceSansPro-Regular";
+    font-weight: 400;
+    src: url("assets/fonts/source-sans-pro/woff2/SourceSansPro-Regular.woff2");
+  }
+
+  // FONT: SourceSansPro-Italic
+  @font-face {
+    font-family: "SourceSansPro-Italic";
+    font-weight: 400;
+    src: url("assets/fonts/source-sans-pro/woff2/SourceSansPro-It.woff2");
+  }
+
+  // FONT: SourceSansPro-Bold
+  @font-face {
+    font-family: "SourceSansPro-Bold";
+    font-weight: 700;
+    src: url("assets/fonts/source-sans-pro/woff2/SourceSansPro-Bold.woff2");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Agrandir-Regular";
+  }
+  body {
+    font-family: "SourceSansPro-Regular";
+  }
+  button {
+    font-family: "SourceSansPro-Bold";
+  }
+}
