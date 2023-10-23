@@ -1,5 +1,5 @@
 <section class="py-2 grid justify-center items-center h-screen relative">
-  <div>
+  <form [formGroup]="loginForm" (ngSubmit)="handleLoginClick()">
     <h1 class="text-primary text-3xl text-center">Login</h1>
     <div class="max-w-[80%] mx-auto">
       <img src="/assets/images/Login.png" alt="login or registration image" />
@@ -13,11 +13,19 @@
           type="text"
           placeholder="Type here"
           class="input input-primary w-full max-w-xs"
+          formControlName="email"
+          [class.input-error]="isFieldInvalid('email')"
+          required
         />
         <!-- Invalid Form Input -->
         <label class="label">
           <span class="label-text-alt"></span>
-          <span class="label-text-alt text-error">*Invalid Email</span>
+          <span
+            class="label-text-alt text-error"
+            *ngIf="isFieldInvalid('email')"
+            class="text-error"
+            >*Invalid Email</span
+          >
         </label>
       </div>
 
@@ -26,24 +34,37 @@
           <span class="label-text font-agrandirRegular">Password</span>
         </label>
         <input
-          type="text"
+          type="password"
           placeholder="Type here"
           class="input input-primary w-full max-w-xs"
+          formControlName="password"
+          [class.input-error]="isFieldInvalid('password')"
+          required
         />
         <!-- Invalid Form Input -->
         <label class="label">
           <span class="label-text-alt"></span>
-          <span class="label-text-alt text-error">*Invalid Password</span>
+          <span
+            class="label-text-alt text-error"
+            *ngIf="isFieldInvalid('password')"
+            class="text-error"
+            >*Invalid Password</span
+          >
         </label>
       </div>
-      <!-- <div class="text-center mt-2">
-        <button class="btn btn-primary">Login</button>
-      </div> -->
-      <!-- NEXT Button -->
+
       <div
         class="text-center mt-2 absolute bottom-[10%] left-1/2 transform -translate-x-1/2 w-full"
       >
-        <button class="btn btn-primary px-6" (click)="handleLoginClick()">
+        <button
+          class="btn btn-primary px-6"
+          [disabled]="
+            isFieldInvalid('email') ||
+            isFieldInvalid('password') ||
+            !loginForm.get('email')?.valid ||
+            !loginForm.get('password')?.valid
+          "
+        >
           Login
         </button>
         <p class="text-right mr-5">
@@ -73,5 +94,5 @@
         <span>Invalid Email or Password</span>
       </div>
     </div> -->
-  </div>
+  </form>
 </section>

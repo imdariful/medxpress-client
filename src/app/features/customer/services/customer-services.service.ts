@@ -33,7 +33,12 @@ export class CustomerServicesService {
   saveAccessToken(access_token: string, expires_in: number): void {
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + expires_in);
-    this.cookieService.set(this.accessTokenKey, access_token, expirationDate);
+    this.cookieService.set(
+      this.accessTokenKey,
+      access_token,
+      expirationDate,
+      '/'
+    );
   }
 
   // Get the access token from cookies
