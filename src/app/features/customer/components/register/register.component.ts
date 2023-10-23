@@ -23,9 +23,11 @@ export class RegisterComponent {
         Validators.pattern(/^\d{4}$/), // exactly 4 digits
       ],
     ],
+    role: ['CUSTOMER'],
   });
   constructor(private fb: FormBuilder) {}
 
+  // Validate form
   isFieldInvalid(fieldName: string | number): boolean {
     const fieldControl = this.registerForm.get(String(fieldName));
 
@@ -44,7 +46,7 @@ export class RegisterComponent {
   }
 
   registerFormSubmit() {
-    console.log('submitted', this.registerForm.value, this.registerForm.valid);
+    console.log('submitted', this.registerForm.value);
   }
 
   handleRegistrationClick() {}

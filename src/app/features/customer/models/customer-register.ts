@@ -5,4 +5,5 @@ export interface CustomerRegister {
   password: string;
   address: string;
   postalCode: string;
+  role: string;
 }
