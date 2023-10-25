@@ -1,13 +1,18 @@
 <!-- ! Product Category with Product -->
 <section>
-  <h3 class="font-agrandirRegular">Covid - 19</h3>
+  <h3 class="font-agrandirRegular">Herbal</h3>
   <div
     class="py-3 flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto product-list"
   >
-    <app-product></app-product>
-    <app-product></app-product>
-    <app-product></app-product>
-    <app-product></app-product>
-    <app-product></app-product>
+    <span
+      class="loading loading-ring loading-lg"
+      *ngIf="isLoading; else loadProducts"
+    ></span>
+    <ng-template #loadProducts>
+      <app-product
+        *ngFor="let product of products"
+        [product]="product"
+      ></app-product>
+    </ng-template>
   </div>
 </section>

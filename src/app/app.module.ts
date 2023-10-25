@@ -7,17 +7,9 @@ import { HomeModule } from './features/home/home.module';
 import { CustomerModule } from './features/customer/customer.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HomeModule,
-    CustomerModule,
-
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, HomeModule, CustomerModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
