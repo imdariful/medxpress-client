@@ -32,6 +32,9 @@ dependencies:
   ngx-cookie-service:
     specifier: ^16.0.1
     version: 16.0.1(@angular/common@16.2.10)(@angular/core@16.2.10)
+  ngx-date-fns:
+    specifier: ^10.0.1
+    version: 10.0.1(@angular/common@16.2.10)(@angular/core@16.2.10)(date-fns@2.30.0)
   rxjs:
     specifier: ~7.8.0
     version: 7.8.1
@@ -1657,7 +1660,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -3351,6 +3353,13 @@ packages:
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.7.0
     dev: true
+
+  /date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
+    engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.22.6
+    dev: false
 
   /date-format@4.0.14:
     resolution: {integrity: sha512-39BOQLs9ZjKh0/patS9nrT8wc3ioX3/eA/zgbKNopnF2wCqJEoxywwwElATYvRsXdnOxA/OQeQoFZ3rFjVajhg==}
@@ -5309,6 +5318,19 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /ngx-date-fns@10.0.1(@angular/common@16.2.10)(@angular/core@16.2.10)(date-fns@2.30.0):
+    resolution: {integrity: sha512-8IdwrblaMULNQgqwA0Yo8HPpUMQDLKC1pvkoFTToElf7gZDPWroOva2cogUrrNXXWLkwA9YDpc1skZVfI+mmwA==}
+    peerDependencies:
+      '@angular/common': '>=14'
+      '@angular/core': '>=14'
+      date-fns: '>=2'
+    dependencies:
+      '@angular/common': 16.2.10(@angular/core@16.2.10)(rxjs@7.8.1)
+      '@angular/core': 16.2.10(rxjs@7.8.1)(zone.js@0.13.3)
+      date-fns: 2.30.0
+      tslib: 2.6.2
+    dev: false
+
   /nice-napi@1.0.2:
     resolution: {integrity: sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA==}
     os: ['!win32']
@@ -6077,7 +6099,6 @@ packages:
 
   /regenerator-runtime@0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: true
 
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}

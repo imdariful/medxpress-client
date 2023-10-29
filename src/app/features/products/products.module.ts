@@ -2,24 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
-import { ProductComponent } from './components/product/product.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { ProductsByCategoryComponent } from './components/products-by-category/products-by-category.component';
-import { CategoryListComponent } from './components/category-list/category-list.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    ProductComponent,
-    ProductDetailsComponent,
-    ProductsByCategoryComponent,
-    CategoryListComponent,
+  declarations: [ProductDetailsComponent],
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
   ],
-  imports: [CommonModule, ProductsRoutingModule],
-  exports: [
-    ProductComponent,
-    ProductDetailsComponent,
-    ProductsByCategoryComponent,
-    CategoryListComponent,
-  ],
+  exports: [ProductDetailsComponent],
 })
 export class ProductsModule {}

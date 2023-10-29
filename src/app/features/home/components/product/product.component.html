@@ -1,0 +1,34 @@
+<!-- ! Product -->
+
+<div
+  class="card card-compact w-96 bg-base-100 shadow-xl max-h-[300px] max-w-[150px] min-w-[150px] min-h-[200px]"
+>
+  <div (click)="productDetailsView()">
+    <figure>
+      <img
+        [src]="imgSrc"
+        alt="Shoes"
+        *ngIf="imgSrc.length !== 0"
+        class="max-h-[100px]"
+      />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title text-sm">{{ product?.name }}</h2>
+
+      <div class="flex justify-start items-center flex-wrap">
+        <span
+          class="badge text-[10px] badge-xs bg-secondaryLimeHover py-2 break-all"
+          *ngFor="let generic of product?.generics"
+        >
+          {{ generic }}
+        </span>
+      </div>
+      <p>৳ {{ product?.price }}</p>
+    </div>
+  </div>
+  <div class="card-actions justify-center">
+    <button class="btn btn-primary btn-sm mb-2" (click)="handleAddToCart()">
+      Add to cart
+    </button>
+  </div>
+</div>

@@ -1,0 +1,270 @@
+<!--
+  This example requires some changes to your config:
+  
+  
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+      require('@tailwindcss/aspect-ratio'),
+    ],
+  }
+  
+-->
+<div class="bg-white relative h-[calc(100vh-25px)]">
+  <app-header></app-header>
+  <main>
+    <div class="mx-auto max-w-2xl px-4 py-4 sm:px-6 lg:px-0">
+      <h1
+        class="text-center text-3xl font-bold tracking-tight text-primary sm:text-4xl"
+      >
+        Shopping Cart
+      </h1>
+
+      <form class="mt-12">
+        <section aria-labelledby="cart-heading">
+          <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
+
+          <ul
+            role="list"
+            class="divide-y divide-gray-200 border-b border-t border-gray-200"
+            *ngIf="cartItems.length !== 0; else emptyCart"
+          >
+            <li class="flex py-6" *ngFor="let item of cartItems">
+              <div class="flex-shrink-0">
+                <!-- <img
+                  src="src/assets/icons/capsule.svg"
+                  alt="Front of mint cotton t-shirt with wavey lines pattern."
+                  class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
+                /> -->
+                <svg
+                  width="200"
+                  height="200"
+                  viewBox="0 0 200 200"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M71.2561 5.00021C63.2163 4.97625 55.0586 6.97236 47.6402 11.2078C25.0327 24.1157 17.2707 53.202 30.367 75.7122L57.9637 123.078L58.0307 123.281C58.1129 123.421 58.2031 123.557 58.3006 123.686C58.3631 123.802 58.4308 123.914 58.5035 124.024L85.8977 171.188C93.5819 184.382 104.8 191.774 116.531 194.128C128.261 196.483 140.438 193.93 150.605 188.123C160.772 182.317 169.04 173.204 172.871 161.944C176.702 150.683 175.821 137.349 168.148 124.158L140.349 76.455C140.307 76.3634 140.261 76.2734 140.213 76.1851C140.15 76.0696 140.082 75.957 140.01 75.8477L112.617 28.684C103.803 13.5468 87.7187 5.04933 71.2561 5.00021ZM71.2561 13.6368C84.7393 13.6774 97.9027 20.6618 105.127 33.0691L130.565 76.7918L63.5639 115.589L37.8567 71.394C27.1275 52.9504 33.4492 29.2653 51.9585 18.6973C58.0322 15.2295 64.6711 13.6169 71.2561 13.6368ZM134.951 84.2813L160.725 128.476C167.299 139.776 167.765 150.187 164.707 159.177C161.648 168.167 154.807 175.767 146.286 180.633C137.765 185.5 127.634 187.517 118.218 185.626C108.8 183.736 99.9716 178.107 93.3873 166.801L67.9498 123.011L134.951 84.2813Z"
+                    fill="black"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M127.729 98.7036C126.979 98.7056 126.244 98.9025 125.594 99.2749C124.944 99.6473 124.401 100.182 124.021 100.828C123.64 101.473 123.434 102.206 123.422 102.955C123.41 103.704 123.594 104.443 123.954 105.1C129.821 116.162 137.74 126.17 141.69 134.755C143.665 139.048 144.613 142.842 144.306 146.148C144 149.453 142.613 152.546 138.762 156.084C138.334 156.465 137.986 156.927 137.738 157.444C137.49 157.96 137.348 158.521 137.319 159.094C137.29 159.666 137.375 160.238 137.569 160.777C137.764 161.316 138.064 161.811 138.451 162.233C138.839 162.655 139.307 162.996 139.827 163.235C140.348 163.475 140.911 163.608 141.484 163.628C142.056 163.647 142.627 163.553 143.163 163.35C143.699 163.147 144.189 162.839 144.604 162.444C149.667 157.794 152.399 152.41 152.906 146.945C153.412 141.48 151.867 136.212 149.536 131.146C144.873 121.012 136.921 111.116 131.584 101.053C131.221 100.344 130.668 99.7491 129.988 99.3345C129.307 98.9198 128.525 98.7015 127.729 98.7036Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
+
+              <div class="ml-4 flex flex-1 flex-col sm:ml-6">
+                <div>
+                  <div class="flex justify-between">
+                    <h4 class="text-md">
+                      <a
+                        routerLink="/products/{{ item._id }}"
+                        class="font-bold text-gray-700 hover:text-gray-800"
+                        >{{ item.name }}</a
+                      >
+                    </h4>
+                    <p class="ml-4 text-sm font-medium text-gray-900">
+                      {{ item.totalAmount | takaCurrency }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex flex-1 items-end justify-between">
+                  <div
+                    class="flex items-center space-x-2 text-sm text-gray-700"
+                  >
+                    <p
+                      class="text-primary text-2xl"
+                      (click)="increaseQuantity(item._id)"
+                    >
+                      +
+                    </p>
+                    <p>{{ item.quantity }}</p>
+                    <p
+                      class="text-error text-2xl"
+                      (click)="decreaseQuantity(item._id)"
+                    >
+                      -
+                    </p>
+                  </div>
+                  <div class="ml-4">
+                    <button
+                      type="button"
+                      class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                      (click)="handleRemoveFromCart(item._id)"
+                    >
+                      <span class="text-error">Remove</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ng-template #emptyCart>
+            <p class="text-center text-3xl">Cart is empty</p>
+            <div>
+              <a
+                routerLink="/home"
+                class="btn btn-primary text-white w-full mt-4"
+                >Continue Shopping</a
+              >
+            </div>
+          </ng-template>
+        </section>
+
+        <!-- Order summary -->
+        <section
+          aria-labelledby="summary-heading"
+          class="mt-10 absolute bottom-0 left-0 right-0"
+        >
+          <div class="">
+            <h2 id="summary-heading" class="sr-only">Order summary</h2>
+
+            <div class="">
+              <dl class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <dt class="text-base font-medium text-gray-900">Subtotal</dt>
+                  <dd class="ml-4 text-base font-medium text-gray-900">
+                    {{ total | takaCurrency }}
+                  </dd>
+                </div>
+              </dl>
+              <p class="mt-1 text-sm text-gray-500">
+                Shipping and taxes will be calculated at checkout.
+              </p>
+            </div>
+
+            <div class="mt-10" *ngIf="total !== 0">
+              <button type="submit" class="btn btn-primary w-full">
+                Checkout
+              </button>
+            </div>
+
+            <div class="mt-6 text-center text-sm text-gray-500">
+              <p>
+                or
+                <a
+                  routerLink="/home"
+                  class="font-medium text-primary hover:text-primaryGreenHover"
+                >
+                  Continue Shopping
+                  <span aria-hidden="true"> &rarr;</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+      </form>
+    </div>
+
+    <!-- Policy grid -->
+    <!-- <section
+      aria-labelledby="policies-heading"
+      class="border-t border-gray-200 bg-gray-50"
+    >
+      <h2 id="policies-heading" class="sr-only">Our policies</h2>
+
+      <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+        <div
+          class="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0"
+        >
+          <div
+            class="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
+          >
+            <div class="md:flex-shrink-0">
+              <div class="flow-root">
+                <img
+                  class="-my-1 mx-auto h-24 w-auto"
+                  src="https://tailwindui.com/img/ecommerce/icons/icon-returns-light.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6">
+              <h3 class="text-base font-medium text-gray-900">Free returns</h3>
+              <p class="mt-3 text-sm text-gray-500">
+                Not what you expected? Place it back in the parcel and attach
+                the pre-paid postage stamp.
+              </p>
+            </div>
+          </div>
+          <div
+            class="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
+          >
+            <div class="md:flex-shrink-0">
+              <div class="flow-root">
+                <img
+                  class="-my-1 mx-auto h-24 w-auto"
+                  src="https://tailwindui.com/img/ecommerce/icons/icon-calendar-light.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6">
+              <h3 class="text-base font-medium text-gray-900">
+                Same day delivery
+              </h3>
+              <p class="mt-3 text-sm text-gray-500">
+                We offer a delivery service that has never been done before.
+                Checkout today and receive your products within hours.
+              </p>
+            </div>
+          </div>
+          <div
+            class="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
+          >
+            <div class="md:flex-shrink-0">
+              <div class="flow-root">
+                <img
+                  class="-my-1 mx-auto h-24 w-auto"
+                  src="https://tailwindui.com/img/ecommerce/icons/icon-gift-card-light.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6">
+              <h3 class="text-base font-medium text-gray-900">
+                All year discount
+              </h3>
+              <p class="mt-3 text-sm text-gray-500">
+                Looking for a deal? You can use the code &quot;ALLYEAR&quot; at
+                checkout and get money off all year round.
+              </p>
+            </div>
+          </div>
+          <div
+            class="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
+          >
+            <div class="md:flex-shrink-0">
+              <div class="flow-root">
+                <img
+                  class="-my-1 mx-auto h-24 w-auto"
+                  src="https://tailwindui.com/img/ecommerce/icons/icon-planet-light.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6">
+              <h3 class="text-base font-medium text-gray-900">
+                For the planet
+              </h3>
+              <p class="mt-3 text-sm text-gray-500">
+                We’ve pledged 1% of sales to the preservation and restoration of
+                the natural environment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+  </main>
+</div>

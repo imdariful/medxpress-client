@@ -5,8 +5,8 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product.model';
 import { Observable, catchError, throwError } from 'rxjs';
+import { Product } from 'src/app/shared/models/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,39 +17,22 @@ export class ProductsService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  // fetchProducts by type herbal or allopathy
-  fetchProductsByType(type: string): Observable<Product[]> {
+  // fetchProducts by product id
+  fetchProductById(id: any): Observable<Product> {
+    const headers = this.getHeaders();
+
+    return this.http
+      .get<Product>(`${this.baseUrl}/medicines/${id}`, { headers })
+      .pipe(catchError(this.handleError));
+  }
+
+  // Get Headers
+
+  getHeaders() {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.tokenService.getAccessToken()}`,
     });
-    return this.http
-      .get<Product[]>(
-        `${this.baseUrl}/medicines/find?page=1&limit=10&type=${type}`,
-        { headers }
-      )
-      .pipe(catchError(this.handleError));
-  }
-
-  fetchProductsByNames(name: string): Observable<Product[]> {
-    return this.http
-      .get<Product[]>(
-        `${this.baseUrl}/medicines/find?page=1&limit=10&search=${name}`
-      )
-      .pipe(catchError(this.handleError));
-  }
-
-  fetchProductsByForm(dosage_form: string): Observable<Product[]> {
-    return this.http
-      .get<Product[]>(
-        `${this.baseUrl}/medicines/find?page=1&limit=10&dosage_form=${dosage_form}`
-      )
-      .pipe(catchError(this.handleError));
-  }
-
-  fetchProductById(id: string): Observable<Product> {
-    return this.http
-      .get<Product>(`${this.baseUrl}/medicines/${id}`)
-      .pipe(catchError(this.handleError));
+    return headers;
   }
 
   // handle error

@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../../services/products.service';
-import { Product } from '../../models/product.model';
+import { Component } from '@angular/core';
+import { ProductService } from '../../services/product.service';
+import { Product } from 'src/app/shared/models/product.model';
 
 @Component({
   selector: 'app-products-by-category',
   templateUrl: './products-by-category.component.html',
-  styleUrls: ['./products-by-category.component.scss'],
+  styleUrls: ['./products-by-category.component.scss']
 })
-export class ProductsByCategoryComponent implements OnInit {
-  constructor(private productService: ProductsService) {}
+export class ProductsByCategoryComponent {
+  constructor(private productService: ProductService) {}
 
   products: Product[] = [];
   isLoading: boolean = false;
