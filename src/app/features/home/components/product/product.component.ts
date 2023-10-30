@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/features/cart/services/cart.service';
 import { Product } from 'src/app/shared/models/product.model';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-product',
@@ -15,6 +16,7 @@ export class ProductComponent {
 
   showModal = false;
   imgSrc: string = '';
+  private toastService = inject(HotToastService);
 
   setImage() {
     if (this.product) {
@@ -50,6 +52,19 @@ export class ProductComponent {
   }
 
   handleAddToCart() {
-    this.showModal = true;
+    this.cartService.addToCart(this.product!, 1, 0, 1);
+
+    this.toastService.success('Added to cart', {
+      icon: '✔',
+      position: 'top-center',
+      duration: 2000,
+      style: {
+        border: '1px solid #067A46',
+        padding: '16px',
+        color: '#067A46',
+        background: '#D2F895',
+        fontFamily: 'Agrandir-Regular',
+      },
+    });
   }
 }

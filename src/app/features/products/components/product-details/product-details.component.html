@@ -8,12 +8,12 @@
           <img
             src="{{ product?.image }}"
             alt=""
-            class="h-[200px]"
+            class="h-[120px]"
             *ngIf="imgSrc.length !== 0"
           />
         </div>
         <div>
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col">
             <h1 class="font-bold text-xl">{{ product?.name }}</h1>
             <p>Size: {{ product?.package_size }}</p>
             <p>Form: {{ product?.dosage_form }}</p>
@@ -27,7 +27,7 @@
                 >{{ generic }}</span
               >
             </p>
-            <div class="border border-solid rounded p-2">
+            <div class="border border-solid rounded p-2 mt-2">
               <p>
                 Price (per unit):
                 <span class="font-bold">৳{{ product?.price }}</span>
@@ -37,8 +37,10 @@
                 <span class="font-bold">{{ totalPrice | takaCurrency }}</span>
               </p>
             </div>
-            <div class="flex flex-col justify-start items-start gap-3 w-full">
-              <div class="flex justify-around items-center gap-4 w-full h-full">
+            <div class="flex flex-col justify-start items-start w-full">
+              <div
+                class="flex justify-around items-center gap-4 w-full h-full py-2"
+              >
                 <div (click)="decreaseQuantity()" class="cursor-pointer">
                   <svg
                     width="50"
@@ -57,12 +59,6 @@
                   </svg>
                 </div>
                 <div>
-                  <!-- <label for="quantity" class="mr-2 sr-only">Quantity</label> -->
-                  <!-- <input
-                type="number"
-                class="bg-transparent rounded border border-solid border-primary"
-                [value]="totalQuantity"
-              /> -->
                   <p class="text-xl font-bold">{{ totalQuantity }}</p>
                 </div>
 
@@ -134,7 +130,7 @@
 
               <div class="self-center">
                 <button
-                  class="btn btn-primary"
+                  class="btn btn-primary mt-2"
                   (click)="handleAddToCartClick()"
                 >
                   Add to cart
