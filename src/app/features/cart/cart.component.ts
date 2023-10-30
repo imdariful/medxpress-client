@@ -4,6 +4,8 @@ import { CartItem } from './models/cart.model';
 import { PreviousUrlService } from 'src/app/shared/services/previous-url.service';
 import { Router } from '@angular/router';
 
+import { setImage } from '../../shared/utilityFunctions';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -24,6 +26,10 @@ export class CartComponent implements OnInit {
     console.log(this.cartItems);
 
     this.updateTotal();
+  }
+
+  getImage(product: any): string {
+    return setImage(product);
   }
 
   updateTotal(): void {

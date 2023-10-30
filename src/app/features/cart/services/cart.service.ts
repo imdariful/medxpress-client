@@ -136,6 +136,7 @@ export class CartService {
     } else {
       this.items.push({
         _id: product._id,
+        dosage_form: product.dosage_form,
         name: product.name,
         price: parseFloat(String(product.price)),
         quantity: quantity,

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomerServicesService } from '../../services/customer-services.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  private toastService = inject(HotToastService);
 
   constructor(
     private router: Router,
@@ -43,13 +46,24 @@ export class LoginComponent {
             data.access_token,
             data.expires_in
           );
-          this.router.navigate(['/home']);
+          this.toastService.success('Login Successful', {
+            icon: '😀',
+            position: 'top-center',
+            duration: 2000,
+            style: {
+              border: '1px solid #067A46',
+              padding: '16px',
+              color: '#067A46',
+              background: '#D2F895',
+              fontFamily: 'Agrandir-Regular',
+            },
+          });
         },
         error: (error) => {
           console.log(error);
         },
         complete: () => {
-          console.log('Registration complete');
+          this.router.navigate(['/home']);
         },
       });
     }

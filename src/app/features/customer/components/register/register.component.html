@@ -1,7 +1,7 @@
-<section class="py-2 flex justify-center items-center h-screen w-full relative">
+<section class="py-2 flex justify-center items-center h-screen w-full">
   <form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
     <h1 class="text-primary text-3xl text-center">Register</h1>
-    <div class="max-w-[80%] mx-auto">
+    <div class="max-w-[60%] mx-auto">
       <img src="/assets/images/Register.png" alt="Registration image" />
     </div>
     <!-- ! STEP:1 - EMAIL & PASSWORD -->
@@ -11,7 +11,6 @@
       <div class="flex justify-center items-center">
         <ul class="steps steps-horizontal lg:steps-horizontal">
           <li class="step step-primary"></li>
-          <li class="step"></li>
           <li class="step"></li>
           <li class="step"></li>
         </ul>
@@ -63,9 +62,7 @@
           </label>
         </div>
         <!-- NEXT Button -->
-        <div
-          class="text-center mt-2 absolute bottom-[8%] left-1/2 transform -translate-x-1/2 w-full"
-        >
+        <div class="text-center mt-2">
           <button
             class="btn btn-primary px-6"
             [disabled]="
@@ -97,7 +94,6 @@
         <ul class="steps steps-horizontal lg:steps-horizontal">
           <li class="step step-primary"></li>
           <li class="step step-primary"></li>
-          <li class="step"></li>
           <li class="step"></li>
         </ul>
       </div>
@@ -148,9 +144,7 @@
           </label>
         </div>
         <!-- NEXT Button -->
-        <div
-          class="text-center mt-2 absolute bottom-[8%] left-1/2 transform -translate-x-1/2 w-full"
-        >
+        <div class="text-center mt-2">
           <button
             class="btn btn-primary px-6"
             [disabled]="
@@ -185,7 +179,6 @@
           <li class="step step-primary"></li>
           <li class="step step-primary"></li>
           <li class="step step-primary"></li>
-          <li class="step"></li>
         </ul>
       </div>
       <!-- ? Form -->
@@ -234,9 +227,7 @@
           </label>
         </div>
         <!-- NEXT Button -->
-        <div
-          class="text-center mt-2 absolute bottom-[8%] left-1/2 transform -translate-x-1/2 w-full"
-        >
+        <div class="text-center mt-2">
           <button
             class="btn btn-primary px-6"
             type="submit"
@@ -261,16 +252,8 @@
       </div>
     </div>
 
-    <!-- ! STEP:4 - DONE -->
-    <div *ngIf="step === 4">
-      <div class="flex justify-center items-center">
-        <ul class="steps steps-horizontal lg:steps-horizontal">
-          <li class="step step-primary"></li>
-          <li class="step step-primary"></li>
-          <li class="step step-primary"></li>
-          <li class="step step-primary"></li>
-        </ul>
-      </div>
+    <!-- ! Success Screen -->
+    <div *ngIf="registrationCompleted">
       <div class="success-checkmark">
         <div class="check-icon my-10">
           <span class="icon-line line-tip"></span>
@@ -279,15 +262,9 @@
           <div class="icon-fix"></div>
         </div>
       </div>
-      <!-- NEXT Button -->
-      <div
-        class="text-center mt-2 absolute bottom-[8%] left-1/2 transform -translate-x-1/2 w-full"
-      >
-        <button
-          class="btn btn-primary px-6"
-          (click)="handleRegistrationClick()"
-        >
-          Done
+      <div class="text-center mt-2">
+        <button class="btn btn-primary px-6" (click)="HandleHomeBtnClick()">
+          Go To Home
         </button>
       </div>
     </div>

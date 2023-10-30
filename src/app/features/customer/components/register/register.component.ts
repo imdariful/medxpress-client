@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomerRegister } from '../../models/customer-register';
 import { CustomerServicesService } from '../../services/customer-services.service';
 import { Router } from '@angular/router';
+
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   step = 1;
+  private toastService = inject(HotToastService);
+  registrationCompleted: boolean = false;
 
   registerForm = this.fb.group({
     firstName: ['', Validators.required],
@@ -71,18 +75,46 @@ export class RegisterComponent {
             data.access_token,
             data.expires_in
           );
-          this.router.navigate(['/home']);
+          this.increaseStep();
+
+          this.toastService.success('Registration Successful', {
+            icon: '😀',
+            position: 'top-center',
+            duration: 2000,
+            style: {
+              border: '1px solid #067A46',
+              padding: '16px',
+              color: '#067A46',
+              background: '#D2F895',
+              fontFamily: 'Agrandir-Regular',
+            },
+          });
         },
         error: (error) => {
           console.log(error);
+          this.registerForm.reset();
+          this.toastService.error('Something Went Wrong', {
+            icon: '☹',
+            position: 'top-center',
+            duration: 2000,
+            style: {
+              border: '1px solid #067A46',
+              padding: '16px',
+              color: '#067A46',
+              background: '#D2F895',
+              fontFamily: 'Agrandir-Regular',
+            },
+          });
         },
         complete: () => {
-          console.log('Registration complete');
+          this.registrationCompleted = true;
         },
       });
     }
     console.log('submitted', this.registerForm.value);
   }
 
-  handleRegistrationClick() {}
+  HandleHomeBtnClick() {
+    this.router.navigate(['/home']);
+  }
 }

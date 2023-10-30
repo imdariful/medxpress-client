@@ -1,4 +1,4 @@
-<section class="py-2 grid justify-center items-center h-screen relative">
+<section class="grid justify-center items-center min-h-screen">
   <form [formGroup]="loginForm" (ngSubmit)="handleLoginClick()">
     <h1 class="text-primary text-3xl text-center">Login</h1>
     <div class="max-w-[80%] mx-auto">
@@ -53,9 +53,7 @@
         </label>
       </div>
 
-      <div
-        class="text-center mt-2 absolute bottom-[10%] left-1/2 transform -translate-x-1/2 w-full"
-      >
+      <div class="text-center mt-2 w-full">
         <button
           class="btn btn-primary px-6"
           [disabled]="
