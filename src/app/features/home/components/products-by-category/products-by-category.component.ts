@@ -5,7 +5,7 @@ import { Product } from 'src/app/shared/models/product.model';
 @Component({
   selector: 'app-products-by-category',
   templateUrl: './products-by-category.component.html',
-  styleUrls: ['./products-by-category.component.scss']
+  styleUrls: ['./products-by-category.component.scss'],
 })
 export class ProductsByCategoryComponent {
   constructor(private productService: ProductService) {}

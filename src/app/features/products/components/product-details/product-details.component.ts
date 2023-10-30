@@ -19,8 +19,8 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService
   ) {
     this.quantityForm = this.formBuilder.group({
-      days: ['', Validators.required],
-      times: ['', Validators.required],
+      days: [0, Validators.required],
+      times: [1, Validators.required],
     });
   }
 
@@ -78,8 +78,7 @@ export class ProductDetailsComponent implements OnInit {
   decreaseQuantity() {
     if (this.totalQuantity > 1) {
       this.totalQuantity--;
-      this.totalPrice =
-        this.totalQuantity * parseFloat(this.product!.price);
+      this.totalPrice = this.totalQuantity * parseFloat(this.product!.price);
     }
   }
   calculateTotalQuantity() {
@@ -89,7 +88,12 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   handleAddToCartClick() {
-    this.cartService.addToCart(this.product!, this.totalQuantity);
+    this.cartService.addToCart(
+      this.product!,
+      this.totalQuantity,
+      this.quantityForm.value.days,
+      this.quantityForm.value.times
+    );
     this.totalPrice = this.totalQuantity * parseFloat(this.product!.price);
   }
 }

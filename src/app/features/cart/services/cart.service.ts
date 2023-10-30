@@ -121,7 +121,12 @@ export class CartService {
     localStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 
-  addToCart(product: Product, quantity: number): void {
+  addToCart(
+    product: Product,
+    quantity: number,
+    days: number,
+    times: number
+  ): void {
     const existingItem = this.items.find((item) => item._id === product._id);
 
     if (existingItem) {
@@ -135,6 +140,8 @@ export class CartService {
         price: parseFloat(String(product.price)),
         quantity: quantity,
         totalAmount: quantity * parseFloat(String(product.price)),
+        days: days,
+        times: times,
       });
     }
 

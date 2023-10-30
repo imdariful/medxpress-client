@@ -8,4 +8,5 @@ export interface Product {
   generics: string[];
   package_size: string;
   price: string;
+  image: string;
 }

@@ -1,33 +1,40 @@
 <div class="mb-[40px]">
+  <!-- ! Header -->
   <app-header></app-header>
   <div *ngIf="product !== undefined || null">
-    <div>
+    <div class="flex justify-center items-center">
       <img
-        [src]="imgSrc"
+        src="{{ product?.image }}"
         alt=""
-        class="w-full h-[200px]"
+        class="h-[200px]"
         *ngIf="imgSrc.length !== 0"
       />
     </div>
     <div>
       <div class="flex flex-col gap-2">
         <h1 class="font-bold text-xl">{{ product?.name }}</h1>
-        <p>{{ product?.type }}</p>
+        <p>Size: {{ product?.package_size }}</p>
+        <p>Form: {{ product?.dosage_form }}</p>
+        <!-- <p>Type: {{ product?.type | uppercase }}</p> -->
+        <p>Manufacturer: {{ product?.manufacturer }}</p>
         <p class="flex justify-start items-center gap-3">
+          Generics:
           <span
             class="badge bg-secondaryLimeHover"
             *ngFor="let generic of product?.generics"
             >{{ generic }}</span
           >
         </p>
-        <p>
-          Price (per unit):
-          <span class="font-bold">৳ {{ product?.price }}</span>
-        </p>
-        <p class="font-bold" *ngIf="totalQuantity">
-          Total Price:
-          <span class="font-bold">{{ totalPrice }}</span>
-        </p>
+        <div class="border border-solid rounded p-2">
+          <p>
+            Price (per unit):
+            <span class="font-bold">৳{{ product?.price }}</span>
+          </p>
+          <p class="font-bold" *ngIf="totalQuantity">
+            Total Price:
+            <span class="font-bold">{{ totalPrice | takaCurrency }}</span>
+          </p>
+        </div>
         <div class="flex flex-col justify-start items-start gap-3 w-full">
           <div class="flex justify-around items-center gap-4 w-full h-full">
             <div (click)="decreaseQuantity()" class="cursor-pointer">
@@ -132,4 +139,6 @@
       </div>
     </div>
   </div>
+  <!-- ! Bottom navbar -->
+  <app-bottom-menu></app-bottom-menu>
 </div>
