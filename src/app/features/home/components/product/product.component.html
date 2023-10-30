@@ -6,7 +6,7 @@
   <div (click)="productDetailsView()">
     <figure>
       <img
-        [src]="imgSrc"
+        src="{{ product?.image }}"
         alt="Shoes"
         *ngIf="imgSrc.length !== 0"
         class="max-h-[100px]"

@@ -1,10 +1,11 @@
 import { CartService } from 'src/app/features/cart/services/cart.service';
 import { ProductsService } from './../../services/products.service';
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/shared/models/product.model';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-product-details',
@@ -23,6 +24,8 @@ export class ProductDetailsComponent implements OnInit {
       times: [1, Validators.required],
     });
   }
+
+  private toastService = inject(HotToastService);
 
   id: string | null = this.route.snapshot.paramMap.get('id');
 
@@ -95,5 +98,17 @@ export class ProductDetailsComponent implements OnInit {
       this.quantityForm.value.times
     );
     this.totalPrice = this.totalQuantity * parseFloat(this.product!.price);
+    this.toastService.success('Added to cart', {
+      icon: '✔',
+      position: 'top-center',
+      duration: 2000,
+      style: {
+        border: '1px solid #067A46',
+        padding: '16px',
+        color: '#067A46',
+        background: '#D2F895',
+        fontFamily: 'Agrandir-Regular',
+      },
+    });
   }
 }

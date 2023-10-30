@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
   <ul
     class="menu menu-horizontal shadow bg-base-200 py-0.5 fixed bottom-0 left-1/2 transform -translate-x-1/2 w-screen flex justify-around max-h-[50px]"
   >
@@ -20,7 +20,7 @@
       </a>
     </li>
     <li>
-      <a class="tooltip" data-tip="Home">
+      <a class="tooltip" data-tip="Home" [class.active]="highlight === 'home'">
         <svg
           width="22"
           height="22"
@@ -36,7 +36,8 @@
         </svg>
       </a>
     </li>
-    <!-- ? Cart -->
+
+    
     <li>
       <a routerLink="/cart" class="tooltip" data-tip="Cart" class="relative">
         <svg
@@ -55,8 +56,6 @@
             stroke-linecap="round"
           />
         </svg>
-        <!-- ? Cart Count -->
-        <!-- <span class="badge badge-sm absolute top-0">{{ CartItem.length }}</span> -->
       </a>
     </li>
     <li>
@@ -79,3 +78,74 @@
     </li>
   </ul>
 </section>
+ -->
+
+<div class="btm-nav">
+  <a
+    [routerLink]="['/']"
+    routerLinkActive="router-link-active"
+    class="text-primary"
+    [class.active]="currentLocation === 'menu'"
+  >
+    <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M2 4h21M2 11.72h13.125M2 19.442h6.563"
+        stroke="#000"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </a>
+  <a
+    [routerLink]="['/home']"
+    routerLinkActive="router-link-active"
+    class="text-primary"
+    [ngClass]="{ active: currentLocation === '/home' }"
+  >
+    <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M23 12.714v1.597c0 4.096 0 6.144-1.23 7.416C20.54 23 18.56 23 14.6 23h-4.2c-3.96 0-5.94 0-7.17-1.273C2 20.456 2 18.407 2 14.311v-1.597c0-2.403 0-3.604.545-4.6.545-.996 1.541-1.614 3.533-2.85l2.1-1.304C10.284 2.653 11.337 2 12.5 2c1.163 0 2.216.653 4.322 1.96l2.1 1.304c1.992 1.236 2.988 1.854 3.533 2.85M16.843 20.23h-6.777"
+        stroke="#000"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  </a>
+  <a
+    [routerLink]="['/cart']"
+    routerLinkActive="router-link-active"
+    class="text-primary"
+    [class.active]="currentLocation === '/cart'"
+  >
+    <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M8.144 18.489a1.633 1.633 0 1 1 0 3.267 1.633 1.633 0 0 1 0-3.267ZM18.022 18.489c.945 0 1.711.731 1.711 1.633s-.766 1.634-1.71 1.634c-.946 0-1.712-.732-1.712-1.634 0-.902.766-1.633 1.711-1.633Z"
+        stroke="#000"
+        stroke-width="2"
+      />
+      <path
+        d="m2 2 .289.1c1.438.502 2.158.752 2.569 1.349.411.596.411 1.389.411 2.973v2.981c0 3.221.07 4.284 1.028 5.285.958 1 2.499 1 5.581 1h1.175m4.686 0c1.726 0 2.588 0 3.198-.492.61-.492.784-1.329 1.132-3.003l.553-2.656c.383-1.904.575-2.856.085-3.488-.491-.632-2.168-.632-4.03-.632h-6.704m-6.704 0h2.257"
+        stroke="#000"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  </a>
+  <a
+    [routerLink]="['/profile']"
+    routerLinkActive="router-link-active"
+    class="text-primary"
+    [class.active]="currentLocation === '/profile'"
+  >
+    <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M12.225 11.403a1.927 1.927 0 0 0-.35 0 4.686 4.686 0 0 1-4.527-4.696A4.703 4.703 0 0 1 12.055 2a4.702 4.702 0 0 1 .17 9.403ZM6.924 15.315c-2.565 1.717-2.565 4.516 0 6.222 2.915 1.95 7.696 1.95 10.611 0 2.566-1.717 2.566-4.516 0-6.222-2.904-1.94-7.685-1.94-10.611 0Z"
+        stroke="#000"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </a>
+</div>

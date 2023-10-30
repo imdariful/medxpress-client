@@ -12,7 +12,7 @@ export class WelcomeScreenComponent {
   ngOnInit() {
     setTimeout(() => {
       this.ngZone.run(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['customer/select']);
       });
     }, 4000);
   }

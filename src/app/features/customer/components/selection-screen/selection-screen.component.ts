@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 export class SelectionScreenComponent {
   constructor(private router: Router) {}
   onLoginClick() {
-    this.router.navigate(['/user/login']);``
+    this.router.navigate(['/customer/login']);``
   }
 
   onRegisterClick() {
-    this.router.navigate(['/user/register']);
+    this.router.navigate(['/customer/register']);
   }
 }
