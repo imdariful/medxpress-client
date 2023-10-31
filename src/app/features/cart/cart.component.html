@@ -106,9 +106,13 @@
               </div>
 
               <div class="mt-10" *ngIf="total !== 0">
-                <button type="submit" class="btn btn-primary w-full">
+                <div
+                  (click)="onCheckout()"
+                  type="submit"
+                  class="btn btn-primary w-full"
+                >
                   Checkout
-                </button>
+                </div>
               </div>
 
               <div class="mt-6 text-center text-sm text-gray-500">

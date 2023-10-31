@@ -35,9 +35,15 @@ dependencies:
   '@ngneat/overview':
     specifier: ^5.1.0
     version: 5.1.1(@angular/core@16.2.10)
+  '@stripe/stripe-js':
+    specifier: ^2.1.10
+    version: 2.1.10
   ngx-cookie-service:
     specifier: ^16.0.1
     version: 16.0.1(@angular/common@16.2.10)(@angular/core@16.2.10)
+  ngx-stripe:
+    specifier: ^16.2.0
+    version: 16.2.0(@angular/common@16.2.10)(@angular/core@16.2.10)(@stripe/stripe-js@2.1.10)
   rxjs:
     specifier: ~7.8.0
     version: 7.8.1
@@ -2152,6 +2158,10 @@ packages:
   /@socket.io/component-emitter@3.1.0:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
+
+  /@stripe/stripe-js@2.1.10:
+    resolution: {integrity: sha512-h79zhwvxAJVAvtVjtMoz++DtwI7GdcEItmTC0P2gciZoFUeAO6XX9DL+UXm9uADiEaUvTKqrExYwtBTlMYAaPA==}
+    dev: false
 
   /@tootallnate/once@1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
@@ -5332,6 +5342,19 @@ packages:
     dependencies:
       '@angular/common': 16.2.10(@angular/core@16.2.10)(rxjs@7.8.1)
       '@angular/core': 16.2.10(rxjs@7.8.1)(zone.js@0.13.3)
+      tslib: 2.6.2
+    dev: false
+
+  /ngx-stripe@16.2.0(@angular/common@16.2.10)(@angular/core@16.2.10)(@stripe/stripe-js@2.1.10):
+    resolution: {integrity: sha512-KLzfDNkfPNQMAG9H98p8g9qVsNXMHqea+CJKeJ8xVf3m4AMxhWUyd0N5uF9pMlOwGOV5c0S2n4OaUk2USnBj5w==}
+    peerDependencies:
+      '@angular/common': '>=16.0.0 <17.0.0'
+      '@angular/core': '>=16.0.0 <17.0.0'
+      '@stripe/stripe-js': ^1.54.1 <2.0.0
+    dependencies:
+      '@angular/common': 16.2.10(@angular/core@16.2.10)(rxjs@7.8.1)
+      '@angular/core': 16.2.10(rxjs@7.8.1)(zone.js@0.13.3)
+      '@stripe/stripe-js': 2.1.10
       tslib: 2.6.2
     dev: false
 

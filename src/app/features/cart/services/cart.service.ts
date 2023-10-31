@@ -1,6 +1,8 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cart.model';
 import { Product } from 'src/app/shared/models/product.model';
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -110,7 +112,7 @@ export class CartService {
   private storageKey = 'cartItems';
   items: CartItem[] = [];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     const storedItems = localStorage.getItem(this.storageKey);
     if (storedItems) {
       this.items = JSON.parse(storedItems);
@@ -120,6 +122,8 @@ export class CartService {
   private saveToLocalStorage() {
     localStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
+
+
 
   addToCart(
     product: Product,
@@ -213,5 +217,19 @@ export class CartService {
       this.items.splice(index, 1);
       this.saveToLocalStorage();
     }
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      console.error('An error occurred:', error.error);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, body was: `,
+        error.error
+      );
+    }
+    return throwError(
+      () => new Error('Something bad happened; please try again later.')
+    );
   }
 }

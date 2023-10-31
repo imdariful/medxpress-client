@@ -5,6 +5,9 @@ import { PreviousUrlService } from 'src/app/shared/services/previous-url.service
 import { Router } from '@angular/router';
 
 import { setImage } from '../../shared/utilityFunctions';
+import { HttpClient } from '@angular/common/http';
+
+import { loadStripe } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +21,8 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private previousUrlService: PreviousUrlService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -73,5 +77,23 @@ export class CartComponent implements OnInit {
     this.cartService.removeFromCart(id);
     this.cartItems = this.cartService.getItems();
     this.updateTotal();
+  }
+
+  onCheckout(): void {
+    this.http
+      .post('http://localhost:3000/checkout', {
+        items: this.cartItems,
+      })
+      .subscribe(async (res: any) => {
+        let stripe = await loadStripe(
+          'pk_test_51O7BlTI3fhUzlLHID14wOqnQbm460zgooTPbs6orv9XG6q7p1dLye1wU3svqjItgKvMxCrvvxdxh2bP9Tbp0me9O00RNX3DmHd'
+        );
+
+        console.log(res.session.id);
+
+        stripe?.redirectToCheckout({
+          sessionId: res.session.id,
+        });
+      });
   }
 }
