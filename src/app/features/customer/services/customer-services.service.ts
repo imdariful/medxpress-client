@@ -29,6 +29,28 @@ export class CustomerServicesService {
     return this.http.post(loginUrl, loginData);
   }
 
+  // Get customer id from jtw token
+  getCustomerId(): string | null {
+    const token = this.getAccessToken();
+    if (token) {
+      const payload = token.split('.')[1];
+      const decodedPayload = atob(payload);
+      const customerId = JSON.parse(decodedPayload).id;
+      return customerId;
+    }
+    return null;
+  }
+
+  // Get customer details
+  getCustomer(): Observable<any> {
+    const customerId = this.getCustomerId();
+    if (customerId) {
+      const customerUrl = `${this.baseUrl}/auth/user/${customerId}`;
+      return this.http.get(customerUrl);
+    }
+    return throwError('Invalid customer id');
+  }
+
   // Save the access token to cookies
   saveAccessToken(access_token: string, expires_in: number): void {
     const expirationDate = new Date();

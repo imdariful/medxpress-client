@@ -8,6 +8,7 @@ import { setImage } from '../../shared/utilityFunctions';
 import { HttpClient } from '@angular/common/http';
 
 import { loadStripe } from '@stripe/stripe-js';
+import { CustomerServicesService } from '../customer/services/customer-services.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,6 +21,7 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
+    private customerService: CustomerServicesService,
     private previousUrlService: PreviousUrlService,
     private router: Router,
     private http: HttpClient
@@ -80,9 +82,12 @@ export class CartComponent implements OnInit {
   }
 
   onCheckout(): void {
+    const userId = this.customerService.getCustomerId();
+
     this.http
       .post('http://localhost:3000/checkout', {
         items: this.cartItems,
+        userId: userId,
       })
       .subscribe(async (res: any) => {
         let stripe = await loadStripe(

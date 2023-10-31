@@ -123,8 +123,6 @@ export class CartService {
     localStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 
-
-
   addToCart(
     product: Product,
     quantity: number,
