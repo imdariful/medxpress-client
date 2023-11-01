@@ -1,16 +1,35 @@
-<!-- ! Product Category with Product -->
+<!-- ! Herbal Products  -->
 <section>
   <h3 class="font-agrandirRegular">Herbal</h3>
   <div
     class="py-3 flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto product-list"
   >
+    <div
+      class="loading loading-ring loading-lg"
+      *ngIf="isLoading; else loadHerbalProducts"
+    ></div>
+    <ng-template #loadHerbalProducts>
+      <app-product
+        *ngFor="let product of herbalProducts"
+        [product]="product"
+      ></app-product>
+    </ng-template>
+  </div>
+</section>
+
+<!-- ! Allopathy Products -->
+<section>
+  <h3 class="font-agrandirRegular">Allopathy</h3>
+  <div
+    class="py-3 flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto product-list"
+  >
     <span
       class="loading loading-ring loading-lg"
-      *ngIf="isLoading; else loadProducts"
+      *ngIf="isLoading; else loadAllopathyProducts"
     ></span>
-    <ng-template #loadProducts>
+    <ng-template #loadAllopathyProducts>
       <app-product
-        *ngFor="let product of products"
+        *ngFor="let product of allopathyProducts"
         [product]="product"
       ></app-product>
     </ng-template>
