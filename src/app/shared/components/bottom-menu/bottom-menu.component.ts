@@ -13,6 +13,7 @@ export class BottomMenuComponent implements OnInit {
   CartItem: CartItem[] = this.cartService.getItems();
   currentLocation: string = '';
   highlight: string = '';
+  showSideMenu: boolean = false;
 
   ngOnInit(): void {
     this.getCurrentLocation();
@@ -31,5 +32,9 @@ export class BottomMenuComponent implements OnInit {
     if (this.currentLocation.includes('/profile')) {
       this.highlight = 'profile';
     }
+  }
+
+  handleSideMenuClick() {
+    this.showSideMenu = !this.showSideMenu;
   }
 }
