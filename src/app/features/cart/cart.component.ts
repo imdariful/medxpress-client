@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { CustomerServicesService } from '../customer/services/customer-services.service';
+import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -89,16 +90,19 @@ export class CartComponent implements OnInit {
         items: this.cartItems,
         userId: userId,
       })
+      .pipe(
+        catchError((error) => {
+          console.error('HTTP Error:', error);
+          return throwError(error);
+        })
+      )
       .subscribe(async (res: any) => {
         let stripe = await loadStripe(
           'pk_test_51O7BlTI3fhUzlLHID14wOqnQbm460zgooTPbs6orv9XG6q7p1dLye1wU3svqjItgKvMxCrvvxdxh2bP9Tbp0me9O00RNX3DmHd'
         );
-
         console.log(res.session.id);
 
-        stripe?.redirectToCheckout({
-          sessionId: res.session.id,
-        });
+        stripe?.redirectToCheckout({ sessionId: res.session.id });
       });
   }
 }

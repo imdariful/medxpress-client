@@ -1,46 +1,49 @@
-
-  <!-- ! Category List -->
-  <div
-    class="my-2 flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto category"
+<!-- ! Category List -->
+<div
+  class="my-2 flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto category"
+>
+  <article
+    class="text-center border-2 border-solid border-primary rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+    (click)="handleCategoryIconClick()"
   >
-    <article
-      class="text-center border-2 border-solid border-primary rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
-    >
-      <img
-        src="/assets/icons/covid.svg"
-        alt="Covid 19 icons"
-        class="max-h-[60%]"
-      />
-      <h6 class="">Covid-19</h6>
-    </article>
-    <article
-      class="text-center border-2 border-solid border-primary rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
-    >
-      <img
-        src="/assets/icons/women.svg"
-        alt="Covid 19 icons"
-        class="max-h-[60%]"
-      />
-      <h6 class="">Women</h6>
-    </article>
-    <article
-      class="text-center border-2 border-solid border-primary rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
-    >
-      <img
-        src="/assets/icons/baby-and-mother.svg"
-        alt="Covid 19 icons"
-        class="max-h-[60%]"
-      />
-      <h6 class="">Baby and Mother</h6>
-    </article>
-    <article
-      class="text-center border-2 border-solid border-primary rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
-    >
-      <img
-        src="/assets/icons/herbal.svg"
-        alt="Covid 19 icons"
-        class="max-h-[60%]"
-      />
-      <h6 class="">Herbal</h6>
-    </article>
-  </div>
+    <img
+      src="/assets/icons/covid.svg"
+      alt="Covid 19 icons"
+      class="max-h-[60%]"
+    />
+    <h6 class="">Covid-19</h6>
+  </article>
+  <article
+    class="text-center border-2 border-solid border-primary rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+    (click)="handleCategoryIconClick()"
+  >
+    <img
+      src="/assets/icons/women.svg"
+      alt="Covid 19 icons"
+      class="max-h-[60%]"
+    />
+    <h6 class="">Women</h6>
+  </article>
+  <article
+    class="text-center border-2 border-solid border-primary rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+    (click)="handleCategoryIconClick()"
+  >
+    <img
+      src="/assets/icons/baby-and-mother.svg"
+      alt="Covid 19 icons"
+      class="max-h-[60%]"
+    />
+    <h6 class="">Baby and Mother</h6>
+  </article>
+  <article
+    class="text-center border-2 border-solid border-primary rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+    (click)="handleCategoryIconClick()"
+  >
+    <img
+      src="/assets/icons/herbal.svg"
+      alt="Covid 19 icons"
+      class="max-h-[60%]"
+    />
+    <h6 class="">Herbal</h6>
+  </article>
+</div>

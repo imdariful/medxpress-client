@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { CategoryProductGridComponent } from './components/category-product-grid/category-product-grid.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'category',
+    component: CategoryProductGridComponent,
   },
 ];
 

@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomerServicesService } from '../../services/customer-services.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
@@ -32,7 +31,6 @@ export class LoginComponent {
         fieldControl.invalid && (fieldControl.dirty || fieldControl.touched)
       );
     }
-    // If null or undefined or invalid
     return false;
   }
 
@@ -58,12 +56,22 @@ export class LoginComponent {
               fontFamily: 'Agrandir-Regular',
             },
           });
+          this.router.navigate(['/home']);
         },
         error: (error) => {
           console.log(error);
-        },
-        complete: () => {
-          this.router.navigate(['/home']);
+          this.toastService.error('Login failed', {
+            icon: '😞',
+            position: 'top-center',
+            duration: 2000,
+            style: {
+              border: '1px solid #FF0000',
+              padding: '16px',
+              color: '#FF0000',
+              background: '#FFB0B0',
+              fontFamily: 'Agrandir-Regular',
+            },
+          });
         },
       });
     }

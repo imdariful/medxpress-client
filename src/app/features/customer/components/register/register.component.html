@@ -1,5 +1,5 @@
 <section class="py-2 flex justify-center items-center h-screen w-full">
-  <form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
+  <form [formGroup]="registrationForm" (ngSubmit)="registrationFormSubmit()">
     <h1 class="text-primary text-3xl text-center">Register</h1>
     <div class="max-w-[60%] mx-auto">
       <img src="/assets/images/Register.png" alt="Registration image" />
@@ -68,10 +68,10 @@
             [disabled]="
               isFieldInvalid('email') ||
               isFieldInvalid('password') ||
-              !registerForm.get('email')?.valid ||
-              !registerForm.get('password')?.valid
+              !registrationForm.get('email')?.valid ||
+              !registrationForm.get('password')?.valid
             "
-            (click)="increaseStep()"
+            (click)="onEmailSubmit()"
           >
             Next
           </button>
@@ -150,8 +150,8 @@
             [disabled]="
               isFieldInvalid('firstName') ||
               isFieldInvalid('lastName') ||
-              !registerForm.get('firstName')?.valid ||
-              !registerForm.get('lastName')?.valid
+              !registrationForm.get('firstName')?.valid ||
+              !registrationForm.get('lastName')?.valid
             "
             (click)="increaseStep()"
           >
@@ -234,8 +234,8 @@
             [disabled]="
               isFieldInvalid('address') ||
               isFieldInvalid('postalCode') ||
-              !registerForm.get('address')?.valid ||
-              !registerForm.get('postalCode')?.valid
+              !registrationForm.get('address')?.valid ||
+              !registrationForm.get('postalCode')?.valid
             "
           >
             Submit

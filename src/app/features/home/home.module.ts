@@ -9,6 +9,7 @@ import { ProductsByCategoryComponent } from './components/products-by-category/p
 import { ProductComponent } from './components/product/product.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { SearchModule } from '../search/search.module';
+import { CategoryProductGridComponent } from './components/category-product-grid/category-product-grid.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SearchModule } from '../search/search.module';
     ProductsByCategoryComponent,
     ProductComponent,
     CategoryListComponent,
+    CategoryProductGridComponent,
   ],
   imports: [
     CommonModule,

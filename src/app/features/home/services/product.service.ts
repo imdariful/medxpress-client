@@ -68,6 +68,16 @@ export class ProductService {
     return headers;
   }
 
+  // fetchProducts random
+  getRandomProducts(page: number): Observable<Product[]> {
+    const headers = this.getHeaders();
+    return this.http
+      .get<Product[]>(`${this.baseUrl}/medicines/find?page=${page}&limit=5`, {
+        headers,
+      })
+      .pipe(catchError(this.handleError));
+  }
+
   // handle error
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

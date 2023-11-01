@@ -16,7 +16,7 @@ export class RegisterComponent {
   private toastService = inject(HotToastService);
   registrationCompleted: boolean = false;
 
-  registerForm = this.fb.group({
+  registrationForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
@@ -39,7 +39,7 @@ export class RegisterComponent {
 
   // Validate form
   isFieldInvalid(fieldName: string | number): boolean {
-    const fieldControl = this.registerForm.get(String(fieldName));
+    const fieldControl = this.registrationForm.get(String(fieldName));
 
     if (fieldControl) {
       return (
@@ -55,16 +55,49 @@ export class RegisterComponent {
     this.step++;
   }
 
-  registerFormSubmit() {
-    if (this.registerForm.valid) {
+  onEmailSubmit() {
+    if (this.step === 1 && this.registrationForm.get('email')?.valid) {
+      const email: string = this.registrationForm.get('email')?.value ?? '';
+
+      // Check for duplicate email
+      this.customerService.checkDuplicateEmail(email).subscribe({
+        next: (data) => {
+          console.log(data);
+          this.increaseStep();
+        },
+        error: (error) => {
+          if (error.status === 409) {
+            this.registrationForm.get('email')?.setErrors({ duplicate: true });
+            this.toastService.error(
+              'Email already exists. Please use a different email.'
+            );
+          } else {
+            console.error(error);
+            this.toastService.error(
+              'Something went wrong. Please try again later.'
+            );
+          }
+        },
+      });
+    } else if (this.step === 2) {
+      // Proceed to the next step (Step 3 or final step) when step 2 is valid
+      this.step = 3;
+    } else if (this.step === 3 && this.registrationForm.valid) {
+      // Complete registration on the final step
+      this.registrationFormSubmit();
+    }
+  }
+
+  registrationFormSubmit() {
+    if (this.registrationForm.valid) {
       const customerData: CustomerRegister = {
-        firstName: this.registerForm.value.firstName!,
-        lastName: this.registerForm.value.lastName!,
-        email: this.registerForm.value.email!,
-        password: this.registerForm.value.password!,
-        address: this.registerForm.value.address!,
-        postalCode: this.registerForm.value.postalCode!,
-        role: this.registerForm.value.role!,
+        firstName: this.registrationForm.value.firstName!,
+        lastName: this.registrationForm.value.lastName!,
+        email: this.registrationForm.value.email!,
+        password: this.registrationForm.value.password!,
+        address: this.registrationForm.value.address!,
+        postalCode: this.registrationForm.value.postalCode!,
+        role: this.registrationForm.value.role!,
       };
 
       this.customerService.registerCustomer(customerData).subscribe({
@@ -92,7 +125,7 @@ export class RegisterComponent {
         },
         error: (error) => {
           console.log(error);
-          this.registerForm.reset();
+          this.registrationForm.reset();
           this.toastService.error('Something Went Wrong', {
             icon: '☹',
             position: 'top-center',
@@ -111,7 +144,7 @@ export class RegisterComponent {
         },
       });
     }
-    console.log('submitted', this.registerForm.value);
+    console.log('submitted', this.registrationForm.value);
   }
 
   HandleHomeBtnClick() {
