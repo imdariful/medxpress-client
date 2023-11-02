@@ -5,9 +5,11 @@
     class="py-2 flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto product-list px-4"
   >
     <div
-      class="loading loading-ring loading-lg"
+      class="flex justify-center items-center w-full h-full"
       *ngIf="isLoading; else loadHerbalProducts"
-    ></div>
+    >
+      <div class="loading loading-bars text-primary loading-lg"></div>
+    </div>
     <ng-template #loadHerbalProducts>
       <app-product
         *ngFor="let product of herbalProducts"
@@ -23,10 +25,12 @@
   <div
     class="py-3 flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto product-list px-4"
   >
-    <span
-      class="loading loading-ring loading-lg"
-      *ngIf="isLoading; else loadAllopathyProducts"
-    ></span>
+    <div
+      class="flex justify-center items-center w-full h-full"
+      *ngIf="isLoading; else loadHerbalProducts"
+    >
+      <div class="loading loading-bars text-primary loading-lg"></div>
+    </div>
     <ng-template #loadAllopathyProducts>
       <app-product
         *ngFor="let product of allopathyProducts"

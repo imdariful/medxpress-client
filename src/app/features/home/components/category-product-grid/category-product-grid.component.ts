@@ -13,9 +13,11 @@ export class CategoryProductGridComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) {}
 
   products: Product[] = [];
-  isLoading: boolean = true;
+  isLoading: boolean = false;
 
   ngOnInit(): void {
+    this.isLoading = true;
+
     this.productService.getRandomProducts(this.randomPageNumber).subscribe({
       next: (products) => {
         this.products = products;

@@ -27,6 +27,8 @@ export class ProductDetailsComponent implements OnInit {
 
   private toastService = inject(HotToastService);
 
+  isLoading: boolean = false;
+
   id: string | null = this.route.snapshot.paramMap.get('id');
 
   product: Product | undefined;
@@ -67,11 +69,13 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.productsService.fetchProductById(this.id).subscribe((product) => {
       this.product = product;
       this.setImage();
       this.totalPrice = parseFloat(this.product.price);
     });
+    this.isLoading = false;
   }
 
   increaseQuantity() {
