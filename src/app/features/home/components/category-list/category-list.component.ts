@@ -1,5 +1,9 @@
+/**
+ * Component for displaying a list of categories.
+ * @module CategoryListComponent
+ */
+
 import { Component } from '@angular/core';
-import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +13,9 @@ import { Router } from '@angular/router';
 })
 export class CategoryListComponent {
   constructor(private router: Router) {}
+  /**
+   * Navigates to the category page when the category icon is clicked.
+   */
   handleCategoryIconClick() {
     this.router.navigate(['/category']);
   }

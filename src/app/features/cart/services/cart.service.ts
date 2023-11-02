@@ -4,6 +4,9 @@ import { CartItem } from '../models/cart.model';
 import { Product } from 'src/app/shared/models/product.model';
 import { catchError, throwError } from 'rxjs';
 
+/**
+ * Service responsible for managing the shopping cart.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -18,10 +21,20 @@ export class CartService {
     }
   }
 
+  /**
+   * Save the shopping cart to local storage.
+   */
   private saveToLocalStorage() {
     localStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 
+  /**
+   * Add a product to the shopping cart.
+   * @param product The product to be added.
+   * @param quantity The quantity of the product.
+   * @param days The number of days.
+   * @param times The number of times.
+   */
   addToCart(
     product: Product,
     quantity: number,
@@ -49,6 +62,11 @@ export class CartService {
     this.saveToLocalStorage();
   }
 
+  /**
+   * Update the quantity of a product in the cart.
+   * @param productId The ID of the product to update.
+   * @param newQuantity The new quantity for the product.
+   */
   updateCartItemQuantity(productId: string, newQuantity: number): void {
     const item = this.items.find((item) => item._id === productId);
 
@@ -64,6 +82,10 @@ export class CartService {
     }
   }
 
+  /**
+   * Increase the quantity of a product in the cart.
+   * @param productId The ID of the product to update.
+   */
   increaseQuantity(productId: string): void {
     const item = this.items.find((item) => item._id === productId);
 
@@ -74,6 +96,10 @@ export class CartService {
     }
   }
 
+  /**
+   * Decrease the quantity of a product in the cart.
+   * @param productId The ID of the product to update.
+   */
   decreaseQuantity(productId: string): void {
     const item = this.items.find((item) => item._id === productId);
 
@@ -89,10 +115,18 @@ export class CartService {
     }
   }
 
+  /**
+   * Get the items in the shopping cart.
+   * @returns The items in the shopping cart.
+   */
   getItems(): CartItem[] {
     return this.items;
   }
 
+  /**
+   * Get the total number of items in the shopping cart.
+   * @returns The total number of items.
+   */
   getCartTotal(): number {
     let total = 0;
     for (const item of this.items) {
@@ -101,11 +135,18 @@ export class CartService {
     return total;
   }
 
+  /**
+   * Clear the shopping cart.
+   */
   clearCart(): void {
     this.items = [];
     this.saveToLocalStorage();
   }
 
+  /**
+   * Remove a product from the shopping cart.
+   * @param productId The ID of the product to be removed.
+   */
   removeFromCart(productId: string): void {
     const index = this.items.findIndex((item) => item._id === productId);
 
@@ -115,6 +156,11 @@ export class CartService {
     }
   }
 
+  /**
+   * Handle HTTP errors when communicating with the server.
+   * @param error The HTTP error response.
+   * @returns An observable with an error message.
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       console.error('An error occurred:', error.error);

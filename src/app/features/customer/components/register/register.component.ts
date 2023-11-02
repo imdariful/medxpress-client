@@ -1,3 +1,10 @@
+/**
+ * Component for registering a new customer.
+ * Allows the user to enter their personal information, email, and password to create a new account.
+ * Uses Angular Reactive Forms for form validation and submission.
+ * Uses CustomerServicesService to communicate with the server and register the customer.
+ * Uses HotToastService to display success and error messages to the user.
+ */
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomerRegister } from '../../models/customer-register';
@@ -16,6 +23,10 @@ export class RegisterComponent {
   private toastService = inject(HotToastService);
   registrationCompleted: boolean = false;
 
+  /**
+   * FormGroup instance for the registration form.
+   * Contains form controls for first name, last name, email, password, address, postal code, and role.
+   */
   registrationForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -37,7 +48,11 @@ export class RegisterComponent {
     private router: Router
   ) {}
 
-  // Validate form
+  /**
+   * Checks if a given field in the registration form is invalid.
+   * @param fieldName - The name of the field to check.
+   * @returns True if the field is invalid and has been touched or modified, false otherwise.
+   */
   isFieldInvalid(fieldName: string | number): boolean {
     const fieldControl = this.registrationForm.get(String(fieldName));
 
@@ -51,10 +66,19 @@ export class RegisterComponent {
     return false;
   }
 
+  /**
+   * Increases the current step of the registration process by 1.
+   */
   increaseStep() {
     this.step++;
   }
 
+  /**
+   * Handles the submission of the email form step.
+   * If step 1 and email is valid, checks for duplicate email.
+   * If step 2 is valid, proceeds to step 3.
+   * If step 3 and registration form is valid, completes registration.
+   */
   onEmailSubmit() {
     if (this.step === 1 && this.registrationForm.get('email')?.valid) {
       const email: string = this.registrationForm.get('email')?.value ?? '';
@@ -87,6 +111,12 @@ export class RegisterComponent {
     }
   }
 
+  /**
+   * Submits the registration form if it is valid and registers the customer using the customer service.
+   * If the registration is successful, it increases the step, saves the access token, and shows a success toast.
+   * If there is an error, it logs the error, resets the form, and shows an error toast.
+   * Finally, it sets the registrationCompleted flag to true.
+   */
   registrationFormSubmit() {
     if (this.registrationForm.valid) {
       const customerData: CustomerRegister = {
@@ -144,6 +174,9 @@ export class RegisterComponent {
     }
   }
 
+  /**
+   * Navigates to the home page when the home button is clicked.
+   */
   HandleHomeBtnClick() {
     this.router.navigate(['/home']);
   }

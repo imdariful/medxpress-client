@@ -1,5 +1,10 @@
 import { Product } from './models/product.model';
 
+/**
+ * Sets the image for a given product based on its dosage form.
+ * @param product - The product to set the image for.
+ * @returns The path to the image file.
+ */
 export function setImage(product: Product): string {
   product.dosage_form.toLocaleLowerCase();
   if (product.dosage_form.toLowerCase().includes('syrup')) {

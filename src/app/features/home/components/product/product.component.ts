@@ -18,6 +18,9 @@ export class ProductComponent {
   imgSrc: string = '';
   private toastService = inject(HotToastService);
 
+  /**
+   * Sets the image source based on the dosage form of the product.
+   */
   setImage() {
     if (this.product) {
       switch (this.product.dosage_form) {
@@ -43,14 +46,24 @@ export class ProductComponent {
     }
   }
 
+  /**
+   * Navigates to the product details page for the current product.
+   */
   productDetailsView() {
     this.router.navigate(['/products', this.product?._id]);
   }
 
+  /**
+   * Lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
+   * Define an ngOnInit() method to handle any additional initialization tasks.
+   */
   ngOnInit(): void {
     this.setImage();
   }
 
+  /**
+   * Adds the current product to the cart with a quantity of 1 and displays a success toast message.
+   */
   handleAddToCart() {
     this.cartService.addToCart(this.product!, 1, 0, 1);
 

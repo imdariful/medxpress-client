@@ -18,7 +18,11 @@ export class ProductsService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  // fetchProducts by product id
+  /**
+   * Fetches a product by its ID.
+   * @param id The ID of the product to fetch.
+   * @returns An Observable that emits the fetched Product.
+   */
   fetchProductById(id: any): Observable<Product> {
     const headers = this.getHeaders();
 
@@ -27,8 +31,10 @@ export class ProductsService {
       .pipe(catchError(this.handleError));
   }
 
-  // Get Headers
-
+  /**
+   * Returns the HTTP headers with the authorization token.
+   * @returns The HTTP headers with the authorization token.
+   */
   getHeaders() {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.tokenService.getAccessToken()}`,
@@ -36,7 +42,11 @@ export class ProductsService {
     return headers;
   }
 
-  // handle error
+  /**
+   * Handles HTTP errors.
+   * @param error - The HttpErrorResponse object.
+   * @returns An Observable that emits an Error object.
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
