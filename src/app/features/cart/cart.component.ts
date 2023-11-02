@@ -19,6 +19,7 @@ import { catchError, throwError } from 'rxjs';
 export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   total: number = 0;
+  baseUrl = 'https://medxpress-wef4.onrender.com';
 
   constructor(
     private cartService: CartService,
@@ -84,9 +85,9 @@ export class CartComponent implements OnInit {
 
   onCheckout(): void {
     const userId = this.customerService.getCustomerId();
-// ! CHANGE HERE
+    // ! CHANGE HERE
     this.http
-      .post('https://distinct-plum-pantsuit.cyclic.app/checkout', {
+      .post(`${this.baseUrl}/checkout`, {
         items: this.cartItems,
         userId: userId,
       })

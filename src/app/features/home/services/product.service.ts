@@ -13,7 +13,7 @@ import { Product } from 'src/app/shared/models/product.model';
 })
 export class ProductService {
   // ! CHANGE HERE
-  baseUrl = 'https://distinct-plum-pantsuit.cyclic.app';
+  baseUrl = 'https://medxpress-wef4.onrender.com';
   randomPage = Math.floor(Math.random() * 30) + 1;
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
