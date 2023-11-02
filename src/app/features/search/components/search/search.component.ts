@@ -25,11 +25,10 @@ export class SearchComponent {
       if (element.value.length > 1) {
         this.productService.searchProduct(element.value).subscribe({
           next: (response) => {
-            console.log('response', response);
             this.serachResult = response;
           },
           error: (err) => {
-            console.log('err', err);
+            console.error('err', err);
           },
         });
       } else {

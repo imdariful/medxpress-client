@@ -20,7 +20,6 @@ export class HeaderComponent {
 
   handleCartClick() {
     this.previousUrlService.setPreviousUrl(this.router.url);
-    console.log(this.previousUrlService.getPreviousUrl());
     this.router.navigate(['/cart']);
   }
 }

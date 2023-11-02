@@ -1,26 +1,14 @@
-<section class="container">
-  <app-header></app-header>
-  <!-- User Profile page -->
-  <!-- 
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  address: string;
-  postalCode: string;
-  role: string;
- -->
-  <div>
-    <ng-template #login>
-      <div class="flex flex-col justify-center items-center w-full h-full">
-        <p>Please Login</p>
-        <a routerLink="/customer/login" class="btn btn-primary">Please Login</a>
-      </div>
-    </ng-template>
-    <div
-      *ngIf="customerDetails; else login"
-      class="flex justify-center flex-col gap-2 items-center my-2"
-    >
+<app-header></app-header>
+<div>
+  <ng-template #login>
+    <div class="flex flex-col justify-center items-center w-screen h-screen">
+      <h2 class="text-3xl mb-2">Please Login</h2>
+      <a routerLink="/customer/login" class="btn btn-primary">Please Login</a>
+    </div>
+  </ng-template>
+
+  <div class="px-4" *ngIf="customerDetails; else login">
+    <div class="flex justify-center flex-col gap-2 items-center my-2">
       <div
         class="flex justify-center items-center rounded-full bg-secondaryLime border-4 border-solid border-primary"
       >
@@ -51,7 +39,7 @@
       <h2 class="font-bold">Orders</h2>
       <ul
         *ngIf="orders"
-        class="flex flex-col justify-center items-start w-full gap-2 mb-[64px]"
+        class="flex flex-col justify-center items-start w-full gap-2 mb-16"
       >
         <li
           *ngFor="let order of orders"
@@ -100,5 +88,5 @@
       </ul>
     </div>
   </div>
-</section>
+</div>
 <app-bottom-menu></app-bottom-menu>

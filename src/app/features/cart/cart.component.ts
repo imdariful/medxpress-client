@@ -31,8 +31,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getItems();
-    console.log(this.cartItems);
-
     this.updateTotal();
   }
 
@@ -70,8 +68,6 @@ export class CartComponent implements OnInit {
 
   handleCloseBtnClick() {
     const previousUrl = this.previousUrlService.getPreviousUrl();
-    console.log(previousUrl);
-
     if (previousUrl) {
       this.router.navigateByUrl(previousUrl);
     }
@@ -101,8 +97,6 @@ export class CartComponent implements OnInit {
         let stripe = await loadStripe(
           'pk_test_51O7BlTI3fhUzlLHID14wOqnQbm460zgooTPbs6orv9XG6q7p1dLye1wU3svqjItgKvMxCrvvxdxh2bP9Tbp0me9O00RNX3DmHd'
         );
-        console.log(res.session.id);
-
         stripe?.redirectToCheckout({ sessionId: res.session.id });
       });
   }

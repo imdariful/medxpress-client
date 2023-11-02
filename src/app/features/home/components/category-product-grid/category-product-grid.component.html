@@ -1,6 +1,16 @@
-<section class="container">
-  <app-header></app-header>
-  <div class="bg-white mb-[64px]">
+<!-- ! Header -->
+<app-header></app-header>
+
+<!-- ! Loader -->
+<div
+  class="flex justify-center items-center w-screen h-screen"
+  *ngIf="isLoading; else loadProducts"
+>
+  <div class="loading loading-bars text-primary loading-lg"></div>
+</div>
+<!-- ! Products -->
+<ng-template #loadProducts>
+  <div class="bg-white px-4 pb-16">
     <div class="mx-auto max-w-2xl">
       <h2 class="sr-only">Products</h2>
 
@@ -29,10 +39,9 @@
             {{ +product.price | takaCurrency }}
           </p>
         </li>
-
-        <!-- More products... -->
       </ul>
     </div>
   </div>
-  <app-bottom-menu></app-bottom-menu>
-</section>
+</ng-template>
+<!-- ! Bottom Menu -->
+<app-bottom-menu></app-bottom-menu>
