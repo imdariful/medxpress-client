@@ -10,7 +10,8 @@ import { CustomerLogin } from '../models/customer-login';
   providedIn: 'root',
 })
 export class CustomerServicesService {
-  baseUrl = 'http://localhost:3000';
+  // ! CHANGE HERE
+  baseUrl = 'https://distinct-plum-pantsuit.cyclic.app'; 
   private accessTokenKey = 'access_token';
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}

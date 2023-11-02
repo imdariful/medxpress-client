@@ -12,7 +12,8 @@ import { Product } from 'src/app/shared/models/product.model';
   providedIn: 'root',
 })
 export class ProductsService {
-  baseUrl = 'http://localhost:3000';
+  // ! CHANGE HERE
+  baseUrl = 'https://distinct-plum-pantsuit.cyclic.app';
   randomPage = Math.floor(Math.random() * 30) + 1;
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}

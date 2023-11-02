@@ -84,9 +84,9 @@ export class CartComponent implements OnInit {
 
   onCheckout(): void {
     const userId = this.customerService.getCustomerId();
-
+// ! CHANGE HERE
     this.http
-      .post('http://localhost:3000/checkout', {
+      .post('https://distinct-plum-pantsuit.cyclic.app/checkout', {
         items: this.cartItems,
         userId: userId,
       })
