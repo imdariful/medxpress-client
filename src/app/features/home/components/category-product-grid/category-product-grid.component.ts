@@ -20,9 +20,8 @@ export class CategoryProductGridComponent implements OnInit {
       next: (products) => {
         this.products = products;
       },
-      error: (err) => console.log(err),
+      error: (err) => console.error(err),
       complete: () => {
-        console.log('Completed');
         this.isLoading = false;
       },
     });

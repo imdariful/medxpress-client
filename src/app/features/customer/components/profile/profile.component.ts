@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
           this.customerDetails = data;
         },
         error: (error) => {
-          console.log(error);
+          console.error(error);
         },
       });
     }
@@ -40,9 +40,7 @@ export class ProfileComponent implements OnInit {
       error: (error) => {
         console.error(error);
       },
-      complete: () => {
-        console.log('Orders fetched successfully');
-      },
+      complete: () => {},
     });
   }
 }

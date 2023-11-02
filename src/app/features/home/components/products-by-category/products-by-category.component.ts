@@ -31,9 +31,6 @@ export class ProductsByCategoryComponent implements OnInit {
       },
       complete: () => {
         this.isLoading = false;
-        console.log('Completed');
-        console.log('Herbal', this.herbalProducts);
-        console.log('Herbal', this.allopathyProducts);
       },
     });
   }

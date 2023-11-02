@@ -39,7 +39,6 @@ export class LoginComponent {
       const loginData = this.loginForm.value;
       this.customerService.loginCustomer(loginData).subscribe({
         next: (data) => {
-          console.log(data);
           this.customerService.saveAccessToken(
             data.access_token,
             data.expires_in
@@ -59,7 +58,7 @@ export class LoginComponent {
           this.router.navigate(['/home']);
         },
         error: (error) => {
-          console.log(error);
+          console.error(error);
           this.toastService.error('Login failed', {
             icon: '😞',
             position: 'top-center',

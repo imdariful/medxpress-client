@@ -62,7 +62,6 @@ export class RegisterComponent {
       // Check for duplicate email
       this.customerService.checkDuplicateEmail(email).subscribe({
         next: (data) => {
-          console.log(data);
           this.increaseStep();
         },
         error: (error) => {
@@ -102,7 +101,6 @@ export class RegisterComponent {
 
       this.customerService.registerCustomer(customerData).subscribe({
         next: (data) => {
-          console.log(data);
           this.increaseStep();
           this.customerService.saveAccessToken(
             data.access_token,
@@ -124,7 +122,7 @@ export class RegisterComponent {
           });
         },
         error: (error) => {
-          console.log(error);
+          console.error(error);
           this.registrationForm.reset();
           this.toastService.error('Something Went Wrong', {
             icon: '☹',
@@ -144,7 +142,6 @@ export class RegisterComponent {
         },
       });
     }
-    console.log('submitted', this.registrationForm.value);
   }
 
   HandleHomeBtnClick() {
