@@ -12,8 +12,10 @@
  -->
   <div>
     <ng-template #login>
-      <p>Please Login</p>
-      <a routerLink="/customer/login" class="btn btn-primary">Please Login</a>
+      <div class="flex flex-col justify-center items-center w-full h-full">
+        <p>Please Login</p>
+        <a routerLink="/customer/login" class="btn btn-primary">Please Login</a>
+      </div>
     </ng-template>
     <div
       *ngIf="customerDetails; else login"
