@@ -1,147 +1,143 @@
-<section class="container">
-  <div class="mb-[40px]">
-    <!-- ! Header -->
-    <app-header></app-header>
-    <div class="mb-[20%]">
-      <div *ngIf="product !== undefined || null">
-        <div class="flex justify-center items-center">
-          <img
-            src="{{ product?.image }}"
-            alt=""
-            class="h-[120px]"
-            *ngIf="imgSrc.length !== 0"
-          />
+<!-- ! Header -->
+<app-header></app-header>
+<div class="px-4 mb-16">
+  <div *ngIf="product !== undefined || null">
+    <div class="flex justify-center items-center">
+      <img
+        src="{{ product?.image }}"
+        alt=""
+        class="h-[120px]"
+        *ngIf="imgSrc.length !== 0"
+      />
+    </div>
+    <div>
+      <div class="flex flex-col">
+        <h1 class="font-bold text-xl">{{ product?.name }}</h1>
+        <p>Size: {{ product?.package_size }}</p>
+        <p>Form: {{ product?.dosage_form }}</p>
+        <!-- <p>Type: {{ product?.type | uppercase }}</p> -->
+        <p>Manufacturer: {{ product?.manufacturer }}</p>
+        <p class="flex justify-start items-center gap-3">
+          Generics:
+          <span
+            class="badge bg-secondaryLimeHover"
+            *ngFor="let generic of product?.generics"
+            >{{ generic }}</span
+          >
+        </p>
+        <div class="border border-solid rounded p-2 mt-2">
+          <p>
+            Price (per unit):
+            <span class="font-bold">৳{{ product?.price }}</span>
+          </p>
+          <p class="font-bold" *ngIf="totalQuantity">
+            Total Price:
+            <span class="font-bold">{{ totalPrice | takaCurrency }}</span>
+          </p>
         </div>
-        <div>
-          <div class="flex flex-col">
-            <h1 class="font-bold text-xl">{{ product?.name }}</h1>
-            <p>Size: {{ product?.package_size }}</p>
-            <p>Form: {{ product?.dosage_form }}</p>
-            <!-- <p>Type: {{ product?.type | uppercase }}</p> -->
-            <p>Manufacturer: {{ product?.manufacturer }}</p>
-            <p class="flex justify-start items-center gap-3">
-              Generics:
-              <span
-                class="badge bg-secondaryLimeHover"
-                *ngFor="let generic of product?.generics"
-                >{{ generic }}</span
+        <div class="flex flex-col justify-start items-start w-full">
+          <div
+            class="flex justify-around items-center gap-4 w-full h-full py-2"
+          >
+            <div (click)="decreaseQuantity()" class="cursor-pointer">
+              <svg
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 bg-red-400 rounded-full"
               >
-            </p>
-            <div class="border border-solid rounded p-2 mt-2">
-              <p>
-                Price (per unit):
-                <span class="font-bold">৳{{ product?.price }}</span>
-              </p>
-              <p class="font-bold" *ngIf="totalQuantity">
-                Total Price:
-                <span class="font-bold">{{ totalPrice | takaCurrency }}</span>
-              </p>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M25 0C38.7978 0 50 11.2022 50 25C50 38.7978 38.7978 50 25 50C11.2022 50 0 38.7978 0 25C0 11.2022 11.2022 0 25 0ZM25 2.17391C37.5978 2.17391 47.8261 12.4022 47.8261 25C47.8261 37.5978 37.5978 47.8261 25 47.8261C12.4022 47.8261 2.17391 37.5978 2.17391 25C2.17391 12.4022 12.4022 2.17391 25 2.17391ZM10.8696 23.913H39.1304V26.087H10.8696V23.913Z"
+                  fill="black"
+                />
+              </svg>
             </div>
-            <div class="flex flex-col justify-start items-start w-full">
-              <div
-                class="flex justify-around items-center gap-4 w-full h-full py-2"
+            <div>
+              <p class="text-xl font-bold">{{ totalQuantity }}</p>
+            </div>
+
+            <div (click)="increaseQuantity()" class="cursor-pointer">
+              <svg
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 bg-secondaryLime rounded-full"
               >
-                <div (click)="decreaseQuantity()" class="cursor-pointer">
-                  <svg
-                    width="50"
-                    height="50"
-                    viewBox="0 0 50 50"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-8 h-8 bg-red-400 rounded-full"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M25 0C38.7978 0 50 11.2022 50 25C50 38.7978 38.7978 50 25 50C11.2022 50 0 38.7978 0 25C0 11.2022 11.2022 0 25 0ZM25 2.17391C37.5978 2.17391 47.8261 12.4022 47.8261 25C47.8261 37.5978 37.5978 47.8261 25 47.8261C12.4022 47.8261 2.17391 37.5978 2.17391 25C2.17391 12.4022 12.4022 2.17391 25 2.17391ZM10.8696 23.913H39.1304V26.087H10.8696V23.913Z"
-                      fill="black"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-xl font-bold">{{ totalQuantity }}</p>
-                </div>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M25 0C38.7978 0 50 11.2022 50 25C50 38.7978 38.7978 50 25 50C11.2022 50 0 38.7978 0 25C0 11.2022 11.2022 0 25 0ZM25 2.17391C37.5978 2.17391 47.8261 12.4022 47.8261 25C47.8261 37.5978 37.5978 47.8261 25 47.8261C12.4022 47.8261 2.17391 37.5978 2.17391 25C2.17391 12.4022 12.4022 2.17391 25 2.17391ZM26.087 23.913H39.1304V26.087H26.087V39.1304H23.913V26.087H10.8696V23.913H23.913V10.8696H26.087V23.913Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </div>
 
-                <div (click)="increaseQuantity()" class="cursor-pointer">
-                  <svg
-                    width="50"
-                    height="50"
-                    viewBox="0 0 50 50"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-8 h-8 bg-secondaryLime rounded-full"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M25 0C38.7978 0 50 11.2022 50 25C50 38.7978 38.7978 50 25 50C11.2022 50 0 38.7978 0 25C0 11.2022 11.2022 0 25 0ZM25 2.17391C37.5978 2.17391 47.8261 12.4022 47.8261 25C47.8261 37.5978 37.5978 47.8261 25 47.8261C12.4022 47.8261 2.17391 37.5978 2.17391 25C2.17391 12.4022 12.4022 2.17391 25 2.17391ZM26.087 23.913H39.1304V26.087H26.087V39.1304H23.913V26.087H10.8696V23.913H23.913V10.8696H26.087V23.913Z"
-                      fill="black"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              <form
-                class="bg-secondaryLime rounded p-2 w-full flex flex-col gap-2"
-                [formGroup]="quantityForm"
-              >
-                <h2>Calculate</h2>
-                <div>
-                  <h3>For how many Days</h3>
-                  <div>
-                    <label for="days" class="sr-only">Days</label>
-                    <input
-                      type="number"
-                      formControlName="days"
-                      placeholder="Days"
-                      class="input input-bordered input-primary w-full max-w-xs"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <h3>How many times in a day?</h3>
-                  <div>
-                    <label for="times" class="sr-only">Time</label>
-                    <input
-                      type="number"
-                      formControlName="times"
-                      placeholder="Times"
-                      class="input input-bordered input-primary w-full max-w-xs"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <button
-                    class="btn btn-xs bg-white border border-solid border-primary text-primary hover:bg-primary hover:text-white"
-                    (click)="calculateTotalQuantity()"
-                  >
-                    Calculate
-                  </button>
-                </div>
-                <div *ngIf="totalQuantity > 1">
-                  <p class="text-center">
-                    Total Quantity: <span>{{ totalQuantity }}</span>
-                  </p>
-                  <p class="text-center">
-                    Total Price: <span>{{ totalPrice }}</span>
-                  </p>
-                </div>
-              </form>
-
-              <div class="self-center">
-                <button
-                  class="btn btn-primary mt-2"
-                  (click)="handleAddToCartClick()"
-                >
-                  Add to cart
-                </button>
+          <form
+            class="bg-secondaryLime rounded p-2 w-full flex flex-col gap-2"
+            [formGroup]="quantityForm"
+          >
+            <h2>Calculate</h2>
+            <div>
+              <h3>For how many Days</h3>
+              <div>
+                <label for="days" class="sr-only">Days</label>
+                <input
+                  type="number"
+                  formControlName="days"
+                  placeholder="Days"
+                  class="input input-bordered input-primary w-full max-w-xs"
+                />
               </div>
             </div>
+            <div>
+              <h3>How many times in a day?</h3>
+              <div>
+                <label for="times" class="sr-only">Time</label>
+                <input
+                  type="number"
+                  formControlName="times"
+                  placeholder="Times"
+                  class="input input-bordered input-primary w-full max-w-xs"
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                class="btn btn-xs bg-white border border-solid border-primary text-primary hover:bg-primary hover:text-white"
+                (click)="calculateTotalQuantity()"
+              >
+                Calculate
+              </button>
+            </div>
+            <div *ngIf="totalQuantity > 1">
+              <p class="text-center">
+                Total Quantity: <span>{{ totalQuantity }}</span>
+              </p>
+              <p class="text-center">
+                Total Price: <span>{{ totalPrice }}</span>
+              </p>
+            </div>
+          </form>
+
+          <div class="self-center">
+            <button
+              class="btn btn-primary mt-2"
+              (click)="handleAddToCartClick()"
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <!-- ! Bottom navbar -->
-    <app-bottom-menu></app-bottom-menu>
   </div>
-</section>
+</div>
+<!-- ! Bottom navbar -->
+<app-bottom-menu></app-bottom-menu>
