@@ -15,6 +15,10 @@ export class ProductsByCategoryComponent implements OnInit {
 
   constructor(private productService: ProductService) {}
 
+  /**
+   * Lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
+   * Initialize the component by fetching the products by type and subscribing to the response.
+   */
   ngOnInit(): void {
     this.isLoading = true;
 

@@ -1,3 +1,16 @@
+/**
+ * @description This component is responsible for displaying the customer's profile and their orders.
+ *
+ * @remarks
+ * This component depends on the following services:
+ * - CustomerServicesService
+ *
+ * This component uses the following models:
+ * - Orders
+ *
+ * @example
+ * <app-profile></app-profile>
+ */
 import { Component, OnInit } from '@angular/core';
 import { CustomerServicesService } from '../../services/customer-services.service';
 import { Orders } from '../../models/orders';
@@ -13,6 +26,10 @@ export class ProfileComponent implements OnInit {
   customerDetails: any;
   orders: Orders[] = [];
 
+  /**
+   * Initializes the component.
+   * Retrieves the customer details and orders by user id.
+   */
   ngOnInit(): void {
     const customerId: string | null = this.customerService.getCustomerId();
     if (customerId) {
@@ -32,6 +49,10 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  /**
+   * Retrieves orders for a given customer ID.
+   * @param customerId The ID of the customer to retrieve orders for.
+   */
   getOrdersByUserId(customerId: string): void {
     this.customerService.getOrdersByUserId(customerId).subscribe({
       next: (data) => {

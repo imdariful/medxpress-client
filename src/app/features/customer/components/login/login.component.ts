@@ -1,3 +1,10 @@
+/**
+ * This component represents the login page for customers.
+ * It contains a form for customers to enter their email and password to log in.
+ * If the login is successful, it saves the access token and navigates to the home page.
+ * If the login fails, it displays an error message.
+ */
+
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomerServicesService } from '../../services/customer-services.service';
@@ -24,6 +31,11 @@ export class LoginComponent {
     });
   }
 
+  /**
+   * Checks if a form field is invalid based on its name.
+   * @param fieldName The name of the form field to check.
+   * @returns True if the field is invalid and has been touched or modified, false otherwise.
+   */
   isFieldInvalid(fieldName: string): boolean {
     const fieldControl = this.loginForm.get(fieldName);
     if (fieldControl) {
@@ -34,6 +46,12 @@ export class LoginComponent {
     return false;
   }
 
+  /**
+   * Handles the click event of the login button.
+   * If the login form is valid, it sends a request to the server to log in the customer.
+   * If the login is successful, it saves the access token and navigates to the home page.
+   * If the login fails, it displays an error message.
+   */
   handleLoginClick(): void {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;

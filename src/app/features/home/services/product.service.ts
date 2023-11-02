@@ -18,7 +18,11 @@ export class ProductService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  // fetchProducts by type herbal or allopathy
+  /**
+   * Fetches products by type.
+   * @param type - The type of product to fetch.
+   * @returns An observable of the fetched products.
+   */
   fetchProductsByType(type: string): Observable<Product[]> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.tokenService.getAccessToken()}`,
@@ -31,7 +35,11 @@ export class ProductService {
       .pipe(catchError(this.handleError));
   }
 
-  // fetchProducts by name
+  /**
+   * Searches for products by name.
+   * @param name - The name of the product to search for.
+   * @returns An Observable that emits an array of Product objects.
+   */
   searchProduct(name: string): Observable<Product[]> {
     const headers = this.getHeaders();
     return this.http
@@ -42,7 +50,11 @@ export class ProductService {
       .pipe(catchError(this.handleError));
   }
 
-  // fetchProducts by dosage form
+  /**
+   * Fetches products by dosage form.
+   * @param dosage_form - The dosage form to filter products by.
+   * @returns An Observable of Product[].
+   */
   fetchProductsByForm(dosage_form: string): Observable<Product[]> {
     return this.http
       .get<Product[]>(
@@ -51,7 +63,11 @@ export class ProductService {
       .pipe(catchError(this.handleError));
   }
 
-  // fetchProducts by product id
+  /**
+   * Fetches a product by its ID.
+   * @param id The ID of the product to fetch.
+   * @returns An Observable that emits the fetched Product.
+   */
   fetchProductById(id: any): Observable<Product> {
     const headers = this.getHeaders();
 
@@ -60,8 +76,10 @@ export class ProductService {
       .pipe(catchError(this.handleError));
   }
 
-  // Get Headers
-
+  /**
+   * Returns the HTTP headers with the authorization token.
+   * @returns The HTTP headers with the authorization token.
+   */
   getHeaders() {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.tokenService.getAccessToken()}`,
@@ -69,7 +87,12 @@ export class ProductService {
     return headers;
   }
 
-  // fetchProducts random
+  /**
+   * Returns an observable of an array of Product objects.
+   * The products are fetched from the server randomly.
+   * @param page The page number to fetch.
+   * @returns An observable of an array of Product objects.
+   */
   getRandomProducts(page: number): Observable<Product[]> {
     const headers = this.getHeaders();
     return this.http
@@ -79,7 +102,11 @@ export class ProductService {
       .pipe(catchError(this.handleError));
   }
 
-  // handle error
+  /**
+   * Handles HTTP errors.
+   * @param error - The HttpErrorResponse object.
+   * @returns An Observable that emits an Error object.
+   */
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       console.error('An error occurred:', error.error);

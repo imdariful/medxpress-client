@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "@angular/service-worker": "^16.2.0",
+    "@compodoc/compodoc": "^1.1.22",
     "@ngneat/hot-toast": "6.0.1",
     "@ngneat/overview": "^5.1.0",
     "@stripe/stripe-js": "^2.1.10",

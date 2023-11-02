@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 export class WelcomeScreenComponent {
   constructor(private ngZone: NgZone, private router: Router) {}
 
+  /**
+   * Lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
+   */
   ngOnInit() {
     setTimeout(() => {
       this.ngZone.run(() => {

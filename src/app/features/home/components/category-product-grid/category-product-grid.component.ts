@@ -15,6 +15,10 @@ export class CategoryProductGridComponent implements OnInit {
   products: Product[] = [];
   isLoading: boolean = false;
 
+  /**
+   * Initializes the component and fetches random products from the product service.
+   * @returns void
+   */
   ngOnInit(): void {
     this.isLoading = true;
 
@@ -29,6 +33,10 @@ export class CategoryProductGridComponent implements OnInit {
     });
   }
 
+  /**
+   * Navigates to the product details page when a product is clicked.
+   * @param product - The product to navigate to.
+   */
   handleProductClick(product: Product) {
     this.router.navigate(['/products', product?._id]);
   }

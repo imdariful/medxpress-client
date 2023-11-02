@@ -41,8 +41,10 @@ export class ProductDetailsComponent implements OnInit {
 
   totalPrice: number = 0;
 
-  // @Input('ngModel') quantity: number = 1;
-
+  /**
+   * Sets the image source based on the dosage form of the product.
+   * @returns void
+   */
   setImage() {
     if (this.product !== undefined) {
       switch (this.product.dosage_form) {
@@ -68,6 +70,10 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * Initializes the component.
+   * Fetches the product by id and sets the product, image and total price.
+   */
   ngOnInit(): void {
     this.isLoading = true;
     this.productsService.fetchProductById(this.id).subscribe((product) => {
@@ -78,22 +84,36 @@ export class ProductDetailsComponent implements OnInit {
     this.isLoading = false;
   }
 
+  /**
+   * Increases the total quantity of the product and updates the total price accordingly.
+   */
   increaseQuantity() {
     this.totalQuantity++;
     this.totalPrice = this.totalQuantity * parseFloat(this.product!.price);
   }
+  /**
+   * Decreases the total quantity of the product by 1 and updates the total price accordingly.
+   * If the total quantity is already 1, the method does nothing.
+   */
   decreaseQuantity() {
     if (this.totalQuantity > 1) {
       this.totalQuantity--;
       this.totalPrice = this.totalQuantity * parseFloat(this.product!.price);
     }
   }
+  /**
+   * Calculates the total quantity and price based on the selected number of days and times.
+   */
   calculateTotalQuantity() {
     this.totalQuantity =
       this.quantityForm.value.days * this.quantityForm.value.times;
     this.totalPrice = this.totalQuantity * parseFloat(this.product!.price);
   }
 
+  /**
+   * Handles the click event when the user clicks on the "Add to Cart" button.
+   * Adds the product to the cart with the selected quantity and displays a success toast message.
+   */
   handleAddToCartClick() {
     this.cartService.addToCart(
       this.product!,

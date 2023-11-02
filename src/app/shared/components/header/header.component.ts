@@ -18,6 +18,9 @@ export class HeaderComponent {
 
   cartItems: CartItem[] = this.cartService.getItems();
 
+  /**
+   * Sets the previous URL and navigates to the cart page when the cart icon is clicked.
+   */
   handleCartClick() {
     this.previousUrlService.setPreviousUrl(this.router.url);
     this.router.navigate(['/cart']);

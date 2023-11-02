@@ -9,7 +9,11 @@ export class TokenService {
 
   constructor(private cookieService: CookieService) {}
 
-  // Save the access token to cookies
+  /**
+   * Save the access token and set its expiration date in cookies.
+   * @param access_token The access token to save.
+   * @param expires_in The number of seconds until the access token expires.
+   */
   saveAccessToken(access_token: string, expires_in: number): void {
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + expires_in);
@@ -21,8 +25,18 @@ export class TokenService {
     );
   }
 
-  // Get the access token from cookies
+  /**
+   * Get the access token from cookies.
+   * @returns The access token if found, or null if not found.
+   */
   getAccessToken(): string | null {
     return this.cookieService.get(this.accessTokenKey);
+  }
+
+  /**
+   * Remove the access token from cookies.
+   */
+  removeAccessToken(): void {
+    this.cookieService.delete(this.accessTokenKey, '/');
   }
 }

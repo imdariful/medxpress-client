@@ -1,3 +1,6 @@
+/**
+ * Represents an item in the cart.
+ */
 export interface CartItem {
   _id: string;
   dosage_form: string;

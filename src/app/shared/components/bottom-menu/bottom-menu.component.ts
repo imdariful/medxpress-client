@@ -15,10 +15,16 @@ export class BottomMenuComponent implements OnInit {
   highlight: string = '';
   showSideMenu: boolean = false;
 
+  /**
+   * Lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
+   */
   ngOnInit(): void {
     this.getCurrentLocation();
   }
 
+  /**
+   * Gets the current location and sets the highlight property based on the current route.
+   */
   getCurrentLocation(): void {
     this.currentLocation = this.location.path();
     if (this.currentLocation.includes('/cart')) {
@@ -34,6 +40,9 @@ export class BottomMenuComponent implements OnInit {
     }
   }
 
+  /**
+   * Toggles the visibility of the side menu.
+   */
   handleSideMenuClick() {
     this.showSideMenu = !this.showSideMenu;
   }
