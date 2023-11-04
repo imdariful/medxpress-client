@@ -41,3 +41,7 @@ export function setImage(product: Product): string {
 
   return 'assets/icons/capsule.svg';
 }
+
+export function getBaseUrl(): string {
+  return 'http://localhost:3001';
+}

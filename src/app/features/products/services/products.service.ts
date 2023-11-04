@@ -7,13 +7,14 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Product } from 'src/app/shared/models/product.model';
+import { getBaseUrl } from 'src/app/shared/utilityFunctions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
   // ! CHANGE HERE
-  baseUrl = 'https://medxpress-wef4.onrender.com';
+  baseUrl =  getBaseUrl();
   randomPage = Math.floor(Math.random() * 30) + 1;
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}

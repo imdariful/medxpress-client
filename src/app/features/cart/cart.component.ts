@@ -21,6 +21,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import { CustomerServicesService } from '../customer/services/customer-services.service';
 import { catchError, throwError } from 'rxjs';
 
+import { getBaseUrl } from '../../shared/utilityFunctions';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -29,7 +31,7 @@ import { catchError, throwError } from 'rxjs';
 export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   total: number = 0;
-  baseUrl = 'https://medxpress-wef4.onrender.com';
+  baseUrl = getBaseUrl();
 
   constructor(
     private cartService: CartService,
