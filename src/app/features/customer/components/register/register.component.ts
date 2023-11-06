@@ -79,6 +79,10 @@ export class RegisterComponent {
    * If step 2 is valid, proceeds to step 3.
    * If step 3 and registration form is valid, completes registration.
    */
+
+  //Noel - Make this function more single responsibility and more Open-Close
+  //Place all the edge cases in a dictionary and seperate functions
+  //
   onEmailSubmit() {
     if (this.step === 1 && this.registrationForm.get('email')?.valid) {
       const email: string = this.registrationForm.get('email')?.value ?? '';

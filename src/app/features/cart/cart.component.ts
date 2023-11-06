@@ -140,6 +140,7 @@ export class CartComponent implements OnInit {
         })
       )
       .subscribe(async (res: any) => {
+        //Noel - move these to seperate services and the codes to dotenv.
         let stripe = await loadStripe(
           'pk_test_51O7BlTI3fhUzlLHID14wOqnQbm460zgooTPbs6orv9XG6q7p1dLye1wU3svqjItgKvMxCrvvxdxh2bP9Tbp0me9O00RNX3DmHd'
         );

@@ -11,6 +11,7 @@ import { CustomerLogin } from '../models/customer-login';
 })
 export class CustomerServicesService {
   // ! CHANGE HERE
+  //Noel move baseURl to a dotenv file
   baseUrl = 'https://medxpress-wef4.onrender.com';
   private accessTokenKey = 'access_token';
 

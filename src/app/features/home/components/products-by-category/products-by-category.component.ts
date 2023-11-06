@@ -21,7 +21,7 @@ export class ProductsByCategoryComponent implements OnInit {
    */
   ngOnInit(): void {
     this.isLoading = true;
-
+    // Noel - make forkJoin open for extension. unlimited number of catergories should be open to addition.
     forkJoin([
       this.productService.fetchProductsByType('herbal'),
       this.productService.fetchProductsByType('allopathic'),

@@ -21,6 +21,7 @@ export class ProductComponent {
   /**
    * Sets the image source based on the dosage form of the product.
    */
+  //Noel - Apply SOLID principles
   setImage() {
     if (this.product) {
       switch (this.product.dosage_form) {
