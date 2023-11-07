@@ -1,0 +1,144 @@
+<section>
+  <div class="py-2 flex justify-center items-center h-screen w-full">
+    <form
+      [formGroup]="shopRegistrationForm"
+      (ngSubmit)="registrationFormSubmit()"
+      class="flex gap-5"
+    >
+      <div class="flex flex-col justify-center items-center">
+        <h1 class="text-primary text-3xl text-center">Register</h1>
+        <div class="mx-auto flex justify-center items-center">
+          <img
+            src="/assets/images/register2.png"
+            alt="Registration image"
+            class="w-full"
+          />
+        </div>
+      </div>
+      <!-- ! STEP:1 - EMAIL & PASSWORD -->
+      <div class="grid justify-center items-center w-full h-full mx-auto gap-2">
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Shop Name</span>
+          </label>
+          <input
+            type="text"
+            formControlName="lastName"
+            placeholder="Shop Name"
+            class="input input-primary w-full"
+          />
+        </div>
+
+        <div class="form-control w-full flex flex-row gap-4 justify-between">
+          <div>
+            <label class="label">
+              <span class="label-text font-agrandirRegular">First Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Ariful"
+              formControlName="firstName"
+              class="input input-primary w-full"
+            />
+          </div>
+          <div>
+            <label class="label">
+              <span class="label-text font-agrandirRegular">Last Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Islam"
+              formControlName="lastName"
+              class="input input-primary w-full max-w-xs"
+            />
+          </div>
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Email</span>
+          </label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Your Email"
+            class="input input-primary w-full"
+          />
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Password</span>
+          </label>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Type here"
+            class="input input-primary w-full"
+          />
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Address</span>
+          </label>
+          <div class="relative">
+            <span
+              class="absolute top-1/2 right-2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+            >
+              <img src="/assets/icons/location.svg" alt=""
+            /></span>
+            <input
+              type="text"
+              formControlName="address"
+              placeholder="House: 1, Road: 9, Dhaka"
+              class="input input-primary w-full"
+            />
+          </div>
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Postal Code</span>
+          </label>
+          <input
+            type="number"
+            formControlName="postalCode"
+            placeholder="1212"
+            class="input input-primary w-full"
+          />
+        </div>
+
+        <!-- NEXT Button -->
+        <div class="flex flex-row-reverse justify-between text-center mt-2">
+          <button class="btn btn-primary px-6" (click)="onEmailSubmit()">
+            Register
+          </button>
+          <p class="text-right mr-5 mt-5">
+            Already have a account? please
+            <a
+              href="/customer/login"
+              class="text-primaryGreen hover:text-primaryGreenHover"
+              >Login</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- ! Success Screen -->
+      <div *ngIf="registrationCompleted">
+        <div class="success-checkmark">
+          <div class="check-icon my-10">
+            <span class="icon-line line-tip"></span>
+            <span class="icon-line line-long"></span>
+            <div class="icon-circle"></div>
+            <div class="icon-fix"></div>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <button class="btn btn-primary px-6">Go To Home</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

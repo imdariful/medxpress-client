@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   SwPush,
   SwUpdate,
@@ -14,13 +15,17 @@ import {
 })
 export class AppComponent implements OnInit {
   title = 'medxpress-client';
-
+  innerWidth = 0;
   constructor(
     private updateService: SwUpdate,
-    private pushService: SwPush // private notificationService: NotificationService
+    private pushService: SwPush, // private notificationService: NotificationService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+    console.log(this.innerWidth);
+
     console.log('App Component Initialized');
     if (!this.updateService.isEnabled) {
       console.log('Service Worker is Not Enabled');
@@ -67,7 +72,7 @@ export class AppComponent implements OnInit {
     ); */
   }
 
-  #handleNotifications() {
+  async #handleNotifications() {
     try {
       const sub = await this.pushService.requestSubscription({
         serverPublicKey: 'VAPID_PUBLIC_KEY',

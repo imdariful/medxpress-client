@@ -5,13 +5,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { CustomerRegister } from '../models/customer-register';
 import { CustomerLogin } from '../models/customer-login';
+import { getBaseUrl } from 'src/app/shared/utilityFunctions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerServicesService {
   // ! CHANGE HERE
-  baseUrl = 'https://medxpress-wef4.onrender.com';
+  baseUrl = getBaseUrl();
   private accessTokenKey = 'access_token';
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}
