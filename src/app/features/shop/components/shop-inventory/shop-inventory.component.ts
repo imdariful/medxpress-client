@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./shop-inventory.component.scss']
 })
 export class ShopInventoryComponent {
-
+  showProfileDropDown = false;
 }
