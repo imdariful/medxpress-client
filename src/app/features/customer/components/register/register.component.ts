@@ -18,10 +18,14 @@ import { HotToastService } from '@ngneat/hot-toast';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   step = 1;
   private toastService = inject(HotToastService);
   registrationCompleted: boolean = false;
+
+  ngOnInit(): void {
+    this.getLocation();
+  }
 
   /**
    * FormGroup instance for the registration form.
@@ -34,12 +38,33 @@ export class RegisterComponent {
     password: ['', [Validators.required, Validators.minLength(6)]],
     address: ['', Validators.required],
     role: ['CUSTOMER'],
+    lat: 0,
+    lng: 0,
   });
   constructor(
     private fb: FormBuilder,
     private customerService: CustomerServicesService,
     private router: Router
   ) {}
+
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.registrationForm.patchValue({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+      });
+      console.log(
+        'lat:',
+        this.registrationForm.get('lat')?.value,
+        'lng: ',
+        this.registrationForm.get('lng')?.value
+      );
+    } else {
+      console.log('No support for geolocation');
+    }
+  }
 
   /**
    * Checks if a given field in the registration form is invalid.
@@ -119,6 +144,8 @@ export class RegisterComponent {
         password: this.registrationForm.value.password!,
         address: this.registrationForm.value.address!,
         role: this.registrationForm.value.role!,
+        lat: this.registrationForm.value.lat!,
+        lng: this.registrationForm.value.lng!,
       };
 
       this.customerService.registerCustomer(customerData).subscribe({

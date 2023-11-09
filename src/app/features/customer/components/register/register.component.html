@@ -187,13 +187,23 @@
           <label class="label">
             <span class="label-text font-agrandirRegular">Address</span>
           </label>
-          <textarea
-            type="textarea"
-            formControlName="address"
-            placeholder="House: 1, Road: 9, Block: J, Baridhara, Dhaka-1212, Bangladesh"
-            class="input input-primary w-full h-full max-w-xs resize-y min-h-[100px]"
-            [class.input-error]="isFieldInvalid('address')"
-          ></textarea>
+          <div class="relative">
+            <span
+              class="absolute top-1/2 right-2 -translate-x-1/2 -translate-y-1/2 cursor-pointer border-solid border-2 border-primary hover:bg-secondaryLime rounded-full p-1"
+              (click)="getLocation()"
+            >
+              <img src="/assets/icons/location.svg" alt=""
+            /></span>
+            <textarea
+              type="textarea"
+              formControlName="address"
+              placeholder="House: 1, Road: 9, Block: J, Baridhara, Dhaka-1212, Bangladesh"
+              class="input input-primary w-full h-full max-w-xs resize-y min-h-[100px]"
+              [class.input-error]="isFieldInvalid('address')"
+            ></textarea>
+          </div>
+
+          <!-- getLocation() -->
           <!-- Invalid Form Input -->
           <label class="label">
             <span class="label-text-alt"></span>
