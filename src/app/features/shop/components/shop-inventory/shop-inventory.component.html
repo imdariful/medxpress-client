@@ -1,25 +1,3 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-white">
-  <body class="h-full">
-  ```
--->
 <div>
   <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
 
@@ -357,10 +335,13 @@
                 <p class="mt-1 text-lg font-medium text-gray-900">
                   {{ +product.price | takaCurrency }}
                 </p>
-                <p>
-                  Stock
-                  <input type="text" class="bg-transparent" />
-                </p>
+                <p>Stock</p>
+                <button
+                  class="btn btn-primary"
+                  (click)="handleAddStockBtnClick(product)"
+                >
+                  Add Stock
+                </button>
               </li>
             </ul>
           </div>
@@ -369,3 +350,48 @@
     </main>
   </div>
 </div>
+
+<!-- ! Modal -->
+<dialog id="stockModal" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button
+        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        (click)="closeStockModal()"
+      >
+        ✕
+      </button>
+    </form>
+    <div>
+      <div>
+        <div class="form-control">
+          <h1 class="text-center mb-2 text-xl">{{ selectedProduct?.name }}</h1>
+          <form
+            [formGroup]="addToStockForm"
+            (ngSubmit)="addToStockFormSubmit()"
+          >
+            <p>Medicine Id: #{{ medicineId }}</p>
+            <p>Dosage Form: {{ selectedProduct?.dosage_form }}</p>
+            <p>Manufacturer: {{ selectedProduct?.manufacturer }}</p>
+            <p>Package Size: {{ selectedProduct?.package_size }}</p>
+            <div class="flex flex-col mt-2">
+              <label for="quantity">Quantity</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="quantity"
+                id="quantity"
+                name="quantity"
+                class="input input-bordered input-primary w-full max-w-xs mt-2"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary my-3">
+              Update Stock
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>

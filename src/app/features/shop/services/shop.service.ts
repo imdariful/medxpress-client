@@ -4,12 +4,14 @@ import { Injectable } from '@angular/core';
 import { getBaseUrl } from 'src/app/shared/utilityFunctions';
 import { CreateShopDto } from '../models/shop.model';
 import { Observable, catchError, throwError } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import { TokenService } from 'src/app/shared/services/token.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShopService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   getAllOrders() {
     return this.http.get(`${getBaseUrl()}/orders`);
@@ -38,5 +40,29 @@ export class ShopService {
     return throwError(
       () => new Error('An error occurred. Please try again later.')
     );
+  }
+
+  getShopId(): string | null {
+    const token = this.tokenService.getAccessToken();
+    if (token) {
+      const payload = token.split('.')[1];
+      const decodedPayload = atob(payload);
+      const shopId = JSON.parse(decodedPayload).id;
+      return shopId;
+    }
+    return null;
+  }
+
+  getStocksByShopId(): Observable<any> {
+    return this.http.get(`${getBaseUrl()}/stocks/shop/${this.getShopId()}`);
+  }
+
+  // add to stock
+  addToStock(medicineId: string, quantity: number): Observable<any> {
+    return this.http.post(`${getBaseUrl()}/stocks`, {
+      medicineId,
+      shopId: this.getShopId(),
+      quantity,
+    });
   }
 }
