@@ -11,7 +11,7 @@ import { setImage } from '../../../../shared/utilityFunctions';
 })
 export class SearchComponent {
   constructor(private productService: ProductService) {}
-  serachResult: Product[] = [];
+  searchResult: Product[] = [];
 
   imgSrc: string = '';
 
@@ -34,14 +34,14 @@ export class SearchComponent {
       if (element.value.length > 1) {
         this.productService.searchProduct(element.value).subscribe({
           next: (response) => {
-            this.serachResult = response;
+            this.searchResult = response;
           },
           error: (err) => {
             console.error('err', err);
           },
         });
       } else {
-        this.serachResult = [];
+        this.searchResult = [];
       }
     }
   }

@@ -14,11 +14,11 @@
       />
     </button>
   </div>
-  <div *ngIf="serachResult.length !== 0">
+  <div *ngIf="searchResult.length !== 0">
     <ul class="bg-white border border-secondaryLime w-full mt-2 rounded">
       <li
         class="pl-8 pr-2 py-1 border-b-2 border-secondaryLime relative cursor-pointer hover:bg-secondaryLimeHover hover:text-gray-900"
-        *ngFor="let product of serachResult"
+        *ngFor="let product of searchResult"
       >
         <a routerLink="/products/{{ product._id }}">
           <div class="flex items-center justify-start gap-2">
