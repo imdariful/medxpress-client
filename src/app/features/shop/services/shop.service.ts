@@ -21,7 +21,65 @@ export class ShopService {
     return this.http.get(`${getBaseUrl()}/orders`);
   }
 
+  /*   updateOrderStatus(orderDetails: OrderDetails, status: string) {
+    if (status === 'COMPLETED') {
+      const shopId = this.getShopId();
+      // decrease stock
+      for (let item of orderDetails.items) {
+        this.searchStockByMedicineAndShop(item._id, shopId).subscribe({
+          next: (data) => {
+            const stock = data[0];
+            this.updateStock(stock, stock.quantity - item.quantity).subscribe({
+              next: (data) => {
+                console.log(data);
+              },
+              error: (err) => {
+                console.error(err);
+              },
+            });
+          },
+          error: (err) => {
+            console.error(err);
+          },
+        });
+      }
+    }
+
+    return this.http.put(`${getBaseUrl()}/orders/${orderDetails._id}`, {
+      ...orderDetails,
+      orderStatus: status,
+    });
+  } */
+
   updateOrderStatus(orderDetails: OrderDetails, status: string) {
+    if (status === 'COMPLETED') {
+      const shopId = this.getShopId();
+
+      // Check if shopId is not null before making the API call
+      if (shopId) {
+        for (let item of orderDetails.items) {
+          this.searchStockByMedicineAndShop(item._id, shopId).subscribe({
+            next: (data) => {
+              const stock = data[0];
+              this.updateStock(stock, stock.quantity - item.quantity).subscribe(
+                {
+                  next: (data) => {
+                    console.log(data);
+                  },
+                  error: (err) => {
+                    console.error(err);
+                  },
+                }
+              );
+            },
+            error: (err) => {
+              console.error(err);
+            },
+          });
+        }
+      }
+    }
+
     return this.http.put(`${getBaseUrl()}/orders/${orderDetails._id}`, {
       ...orderDetails,
       orderStatus: status,

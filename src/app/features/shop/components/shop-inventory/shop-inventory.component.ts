@@ -156,6 +156,7 @@ export class ShopInventoryComponent implements OnInit {
         this.shopService.updateStock(this.stock[0], quantity).subscribe({
           next: (data) => {
             console.log('Stock updated successfully', data);
+            this.closeStockModal();
           },
           error: (err) => {
             console.error('Failed to update stock', err);

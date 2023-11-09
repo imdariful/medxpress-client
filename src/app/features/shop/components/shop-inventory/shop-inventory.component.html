@@ -318,6 +318,36 @@
 
             <ul
               class="grid grid-cols-1 gap-x-6 gap-y-10 w-full sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-8"
+              *ngIf="shopAllMedicine.length > 0 && searchResult.length === 0"
+            >
+              <li class="group" *ngFor="let product of shopAllMedicine">
+                <div
+                  class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7"
+                >
+                  <div class="flex justify-center items-center">
+                    <img
+                      src="assets/icons/capsule.svg"
+                      alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                      class="object-cover object-center group-hover:opacity-75 max-h-[150px]"
+                    />
+                  </div>
+                </div>
+                <h3 class="mt-4 text-sm text-gray-700">Napa</h3>
+                <p class="mt-1 text-lg font-medium text-gray-900">
+                  {{ +product.price | takaCurrency }}
+                </p>
+                <p>Stock: {{ product.quantity }}</p>
+                <button
+                  class="btn btn-primary"
+                  (click)="handleAddStockBtnClick(product)"
+                >
+                  Add Stock
+                </button>
+              </li>
+            </ul>
+
+            <ul
+              class="grid grid-cols-1 gap-x-6 gap-y-10 w-full sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-8"
             >
               <li class="group" *ngFor="let product of searchResult">
                 <div
@@ -387,8 +417,8 @@
               />
             </div>
 
-            <button type="submit" class="btn btn-primary my-3">
-              {{ this.btnText }}
+            <button type="submit" class="btn btn-primary my-3" (click)="closeStockModal()">
+              Add To Stock
             </button>
           </form>
         </div>

@@ -74,7 +74,8 @@ export class ShopOrdersComponent implements OnInit {
 
   handleOrderUpdateBtnClick(id: string) {
     this.orderDetails = this.allOrders.find((order: any) => order._id === id);
-
+    console.log(this.orderDetails);
+    
     const orderModal = document.querySelector('#orderModal');
     if (orderModal != null) {
       orderModal.classList.add('modal-open');
@@ -113,7 +114,6 @@ export class ShopOrdersComponent implements OnInit {
       .updateOrderStatus(this.orderDetails, this.selectedOrderStatus)
       .subscribe({
         next: (response) => {
-          console.log(response);
           this.closeOrderModal();
           this.getAllOrders();
           this.toastService.success(

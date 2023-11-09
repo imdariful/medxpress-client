@@ -6,6 +6,7 @@ export interface Order {
   createdAt: string;
   updatedAt: string;
   userId: string;
+  closestShop: string;
   __v: number;
 }
 
