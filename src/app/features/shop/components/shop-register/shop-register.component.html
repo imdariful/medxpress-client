@@ -2,7 +2,7 @@
   <div class="py-2 flex justify-center items-center h-screen w-full">
     <form
       [formGroup]="shopRegistrationForm"
-      (ngSubmit)="registrationFormSubmit()"
+      (ngSubmit)="shopRegistrationFormSubmit()"
       class="flex gap-5"
     >
       <div class="flex flex-col justify-center items-center">
@@ -15,7 +15,7 @@
           />
         </div>
       </div>
-      <!-- ! STEP:1 - EMAIL & PASSWORD -->
+      <!-- ! Sign Up Form -->
       <div class="grid justify-center items-center w-full h-full mx-auto gap-2">
         <div class="form-control w-full">
           <label class="label">
@@ -23,7 +23,7 @@
           </label>
           <input
             type="text"
-            formControlName="lastName"
+            formControlName="shopName"
             placeholder="Shop Name"
             class="input input-primary w-full"
           />
@@ -84,29 +84,18 @@
           </label>
           <div class="relative">
             <span
-              class="absolute top-1/2 right-2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+              class="absolute top-1/2 right-2 -translate-x-1/2 -translate-y-1/2 cursor-pointer border-solid border-2 border-primary hover:bg-secondaryLime rounded-full p-1"
+              (click)="getLocation()"
             >
               <img src="/assets/icons/location.svg" alt=""
             /></span>
-            <input
-              type="text"
+            <textarea
+              type="textarea"
               formControlName="address"
               placeholder="House: 1, Road: 9, Dhaka"
-              class="input input-primary w-full"
-            />
+              class="input input-primary w-full min-h-[100px]"
+            ></textarea>
           </div>
-        </div>
-
-        <div class="form-control w-full">
-          <label class="label">
-            <span class="label-text font-agrandirRegular">Postal Code</span>
-          </label>
-          <input
-            type="number"
-            formControlName="postalCode"
-            placeholder="1212"
-            class="input input-primary w-full"
-          />
         </div>
 
         <!-- NEXT Button -->
@@ -122,21 +111,6 @@
               >Login</a
             >
           </p>
-        </div>
-      </div>
-
-      <!-- ! Success Screen -->
-      <div *ngIf="registrationCompleted">
-        <div class="success-checkmark">
-          <div class="check-icon my-10">
-            <span class="icon-line line-tip"></span>
-            <span class="icon-line line-long"></span>
-            <div class="icon-circle"></div>
-            <div class="icon-fix"></div>
-          </div>
-        </div>
-        <div class="text-center mt-2">
-          <button class="btn btn-primary px-6">Go To Home</button>
         </div>
       </div>
     </form>

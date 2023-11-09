@@ -1,1 +1,48 @@
-<p>shop-login works!</p>
+<section class="grid justify-center items-center min-h-screen">
+  <form [formGroup]="shopLoginForm" (ngSubmit)="handleShopLoginClick()">
+    <h1 class="text-primary text-3xl text-center">Login</h1>
+    <div class="max-w-[80%] mx-auto">
+      <img src="/assets/images/Login.png" alt="login or registration image" />
+    </div>
+    <div class="grid justify-center items-center w-full mx-auto gap-2">
+      <div class="form-control w-full max-w-xs">
+        <label class="label">
+          <span class="label-text font-agrandirRegular">Email</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Type here"
+          class="input input-primary w-full max-w-xs"
+          formControlName="email"
+          [class.input-error]="isFieldInvalid('email')"
+          required
+        />
+      </div>
+
+      <div class="form-control w-full max-w-xs">
+        <label class="label">
+          <span class="label-text font-agrandirRegular">Password</span>
+        </label>
+        <input
+          type="password"
+          placeholder="Type here"
+          class="input input-primary w-full max-w-xs"
+          formControlName="password"
+          required
+        />
+      </div>
+
+      <div class="text-center mt-2 w-full">
+        <button class="btn btn-primary px-6">Login</button>
+        <p class="text-right mr-5">
+          Don't have a account please
+          <a
+            href="/shop/register"
+            class="text-primaryGreen hover:text-primaryGreenHover"
+            >Register</a
+          >
+        </p>
+      </div>
+    </div>
+  </form>
+</section>
