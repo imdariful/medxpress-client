@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopSelectScreenComponent } from './components/shop-select-screen/shop-select-screen.component';
 import { ShopOrdersComponent } from './components/shop-orders/shop-orders.component';
 import { ShopInventoryComponent } from './components/shop-inventory/shop-inventory.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ShopInventoryComponent } from './components/shop-inventory/shop-invento
     CommonModule,
     ShopRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   exports: [
     ShopLoginComponent,

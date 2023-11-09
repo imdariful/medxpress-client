@@ -675,6 +675,7 @@
               <div
                 class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"
               >
+                <!-- ! ORDER TABLE -->
                 <table class="min-w-full divide-y divide-gray-300">
                   <thead>
                     <tr>
@@ -706,22 +707,23 @@
                         scope="col"
                         class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Role
+                        Details
                       </th>
                       <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                        Edit
                         <span class="sr-only">Edit</span>
                       </th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-200 bg-white">
-                    <tr>
+                    <tr *ngFor="let order of allOrders">
                       <td
                         class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0"
                       >
                         <div class="flex items-center">
                           <div class="ml-4">
                             <div class="font-medium text-gray-900">
-                              #some random id number
+                              {{ order._id }}
                             </div>
                           </div>
                         </div>
@@ -736,34 +738,46 @@
                       >
                         <span
                           class="inline-flex items-center rounded-md px-2 py-1"
-                          >BDT 750</span
+                          >{{ getTotalPrice(order.items) | takaCurrency }}</span
                         >
                       </td>
                       <td
                         class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                       >
                         <span
+                          class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20"
+                          *ngIf="order.orderStatus === 'CANCELED'"
+                          >{{ order.orderStatus }}</span
+                        >
+                        <span
+                          class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-600/20"
+                          *ngIf="order.orderStatus === 'PENDING'"
+                          >{{ order.orderStatus }}</span
+                        >
+                        <span
                           class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
-                          >Active</span
+                          *ngIf="order.orderStatus === 'COMPLETED'"
+                          >{{ order.orderStatus }}</span
                         >
                       </td>
                       <td
                         class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                       >
-                        Member
+                        <div class="btn btn-primary btn-xs">See Details</div>
                       </td>
                       <td
                         class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
                       >
                         <button
                           class="btn btn-sm text-primary border-primary bg-transparent hover:bg-secondaryLimeHover hover:border-primary"
+                          (click)="handleOrderUpdateBtnClick(order._id)"
                         >
-                          Edit
+                          Update
                         </button>
                       </td>
                     </tr>
 
-                    <!-- More people... -->;
+                    <!-- More people... -->
                   </tbody>
                 </table>
               </div>
@@ -774,3 +788,40 @@
     </main>
   </div>
 </div>
+
+<dialog id="orderModal" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button
+        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        (click)="closeOrderModal()"
+      >
+        ✕
+      </button>
+    </form>
+    <div *ngIf="orderDetails">
+      <div>
+        <div class="form-control">
+          <h1>Order #{{ orderDetails._id }}</h1>
+          <div
+            class="input-group"
+            class="flex flex-col gap-2 justify-center items-center"
+          >
+            <select
+              class="select select-primary select-bordered"
+              (change)="onStatusChange($event)"
+            >
+              <option disabled>Order Status</option>
+              <option value="PENDING">PENDING</option>
+              <option value="COMPLETED">COMPLETED</option>
+              <option value="CANCELED">CANCELED</option>
+            </select>
+            <button class="btn btn-primary" (click)="handleStatusUpdateClick()">
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
