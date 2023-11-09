@@ -5,6 +5,7 @@ import { ProductService } from 'src/app/features/home/services/product.service';
 import { Product } from 'src/app/shared/models/product.model';
 import { setImage } from 'src/app/shared/utilityFunctions';
 import { ShopService } from '../../services/shop.service';
+import { Stock } from '../../models/stock.model';
 
 @Component({
   selector: 'app-shop-inventory',
@@ -22,18 +23,25 @@ export class ShopInventoryComponent implements OnInit {
   ngOnInit(): void {
     this.getStocksByShopId();
   }
-  shopAllMedicine: any[] = [];
 
+  shopAllMedicine: any[] = [];
   showProfileDropDown = false;
-  medicineId = '';
+  medicineId: string = '';
   searchResult: Product[] = [];
   imgSrc = '';
-  selectedProduct: Product | null = null;
+  selectedProduct: any | null = null;
+  stock: Stock[] = [];
+  shopId: string = '';
 
-  // Define the form group with 'quantity' and 'medicineId' controls
+  btnText: string = 'Add Stock';
+
   addToStockForm: FormGroup = this.fb.group({
-    quantity: [0],
+    quantity: null,
   });
+
+  get quantity() {
+    return this.addToStockForm.value.quantity;
+  }
 
   setImage(product: Product) {
     return setImage(product);
@@ -59,26 +67,52 @@ export class ShopInventoryComponent implements OnInit {
 
   closeStockModal() {
     const stockModal = document.querySelector('#stockModal');
-    if (stockModal != null) {
+    if (stockModal !== null) {
       stockModal.classList.remove('modal-open');
+      this.addToStockForm.value.quantity = null;
+      console.log(this.addToStockForm.value.quantity);
     }
+  }
+
+  searchStocks(medicineId: string, shopId: string) {
+    this.shopService
+      .searchStockByMedicineAndShop(medicineId, shopId)
+      .subscribe({
+        next: (res) => {
+          this.stock = res;
+          return this.stock;
+        },
+        error: (err) => {
+          console.error(err);
+        },
+      });
+  }
+
+  getStocksByShopId() {
+    this.shopService.getStocksByShopId().subscribe({
+      next: (data) => {
+        this.shopAllMedicine = data;
+      },
+      error: (err) => {
+        console.error('err', err);
+      },
+    });
   }
 
   handleAddStockBtnClick(product: any) {
     this.medicineId = product._id;
+    this.shopId = String(this.shopService.getShopId());
 
-    for (let i = 0; i < this.shopAllMedicine.length; i++) {
-      if (this.shopAllMedicine[i].medicineId === product._id) {
-        this.selectedProduct = {
-          ...product,
-          quantity: this.shopAllMedicine[i].quantity,
-        };
-        this.addToStockForm.patchValue({
-          quantity: this.shopAllMedicine[i].quantity,
-        });
-        break;
-      }
+    this.searchStocks(String(this.medicineId), String(this.shopId));
+
+    if (this.stock.length > 0) {
+      this.btnText = 'Update Stock';
     }
+
+    console.log(`
+    Medicine ID: ${this.medicineId},
+    ShopId: ${this.shopId}
+    `);
 
     this.shopService.getStocksByShopId().subscribe({
       next: (data) => {
@@ -96,8 +130,9 @@ export class ShopInventoryComponent implements OnInit {
         } else {
           this.selectedProduct = product;
         }
+
         const stockModal = document.querySelector('#stockModal');
-        if (stockModal != null && this.selectedProduct != null) {
+        if (stockModal !== null && this.selectedProduct !== null) {
           stockModal.classList.add('modal-open');
         }
       },
@@ -110,28 +145,43 @@ export class ShopInventoryComponent implements OnInit {
   addToStockFormSubmit() {
     const quantity = this.addToStockForm.get('quantity')?.value;
 
-    if (quantity) {
-      this.shopService.addToStock(this.medicineId, quantity).subscribe({
-        next: () => {
-          this.toastService.success('Stock added successfully');
-          this.closeStockModal();
-        },
-        error: (err) => {
-          console.error('err', err);
-          this.toastService.error('Failed to add stock');
-        },
-      });
-    }
-  }
+    if (this.stock.length > 0) {
+      // If stock exists, update it
+      this.btnText = 'Update Stock';
 
-  getStocksByShopId() {
-    this.shopService.getStocksByShopId().subscribe({
-      next: (data) => {
-        this.shopAllMedicine = data;
-      },
-      error: (err) => {
-        console.error('err', err);
-      },
-    });
+      if (this.addToStockForm.valid) {
+        console.log('here');
+        console.log(typeof quantity);
+
+        this.shopService.updateStock(this.stock[0], quantity).subscribe({
+          next: (data) => {
+            console.log('Stock updated successfully', data);
+          },
+          error: (err) => {
+            console.error('Failed to update stock', err);
+          },
+        });
+      } else {
+        console.error('Form is not valid');
+      }
+    } else {
+      // Create new stock
+      this.btnText = 'Add To Stock';
+
+      if (this.addToStockForm.valid) {
+        this.shopService
+          .createStock(this.medicineId, quantity, this.shopId)
+          .subscribe({
+            next: (data) => {
+              console.log('Stock added successfully', data);
+            },
+            error: (err) => {
+              console.error('Failed to add stock', err);
+            },
+          });
+      } else {
+        console.error('Form is not valid');
+      }
+    }
   }
 }
