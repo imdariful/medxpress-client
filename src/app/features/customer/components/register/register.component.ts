@@ -33,13 +33,6 @@ export class RegisterComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     address: ['', Validators.required],
-    postalCode: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern(/^\d{4}$/), // exactly 4 digits
-      ],
-    ],
     role: ['CUSTOMER'],
   });
   constructor(
@@ -125,7 +118,6 @@ export class RegisterComponent {
         email: this.registrationForm.value.email!,
         password: this.registrationForm.value.password!,
         address: this.registrationForm.value.address!,
-        postalCode: this.registrationForm.value.postalCode!,
         role: this.registrationForm.value.role!,
       };
 

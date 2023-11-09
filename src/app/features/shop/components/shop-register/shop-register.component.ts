@@ -21,18 +21,12 @@ export class ShopRegisterComponent {
   registrationCompleted: boolean = false;
 
   shopRegistrationForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    address: ['', Validators.required],
-    postalCode: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern(/^\d{4}$/), // exactly 4 digits
-      ],
-    ],
+    shopName: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    address: '',
     role: ['SHOP'],
   });
 

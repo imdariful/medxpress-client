@@ -14,6 +14,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerServicesService } from '../../services/customer-services.service';
 import { Orders } from '../../models/orders';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +22,10 @@ import { Orders } from '../../models/orders';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  constructor(private customerService: CustomerServicesService) {}
+  constructor(
+    private customerService: CustomerServicesService,
+    private router: Router
+  ) {}
 
   customerDetails: any;
   orders: Orders[] = [];
@@ -63,5 +67,14 @@ export class ProfileComponent implements OnInit {
       },
       complete: () => {},
     });
+  }
+
+  /**
+   * Handles the click event of the logout button.
+   * Logs out the user and redirects to the customer login page.
+   */
+  handleLogoutBtnClick() {
+    this.customerService.logout();
+    this.router.navigate(['/customer/login']);
   }
 }

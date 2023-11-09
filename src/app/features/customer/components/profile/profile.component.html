@@ -8,6 +8,7 @@
   </ng-template>
 
   <div class="px-4" *ngIf="customerDetails; else login">
+    <!-- ! PROFILE -->
     <div class="flex justify-center flex-col gap-2 items-center my-2">
       <div
         class="flex justify-center items-center rounded-full bg-secondaryLime border-4 border-solid border-primary"
@@ -35,6 +36,8 @@
       <p class="self-start">Address: {{ customerDetails.address }}</p>
       <p class="self-start">Postal Code: {{ customerDetails.postalCode }}</p>
     </div>
+
+    <!-- ! ORDERS -->
     <div class="pb-16">
       <h2 class="font-bold">Orders</h2>
       <ul
@@ -87,6 +90,11 @@
         </li>
       </ul>
     </div>
+
+    <!-- ! LOGOUT -->
+    <div class="text-center">
+      <button class="btn btn-outline btn-primary mb-16" (click)="handleLogoutBtnClick()">Logout</button>
+    </div>
   </div>
+  <app-bottom-menu></app-bottom-menu>
 </div>
-<app-bottom-menu></app-bottom-menu>
