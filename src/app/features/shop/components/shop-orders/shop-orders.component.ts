@@ -26,12 +26,20 @@ export class ShopOrdersComponent implements OnInit {
   allOrders: any = [];
   orderDetails: Order = {} as Order;
   selectedOrderStatus: string = 'PENDING';
+  totalPendingStatus: number = 0;
+  totalEarnings: number = 0;
 
   async getAllOrders(): Promise<void> {
     (await this.shopService.getAllOrders()).subscribe({
       next: (response) => {
         this.allOrders = response;
-        console.log(this.allOrders);
+
+        this.totalPendingStatus = this.allOrders.filter(
+          (order: any) => order.orderStatus === 'PENDING'
+        ).length;
+
+        this.totalEarnings = this.getTotalEarnings();
+        console.log(this.totalEarnings);
       },
       error: (error) => {
         console.error(error);
@@ -39,11 +47,26 @@ export class ShopOrdersComponent implements OnInit {
     });
   }
 
+  getTotalEarnings(): number {
+    let totalEarnings: number = 0;
+
+    for (let order of this.allOrders) {
+      if (order.orderStatus === 'COMPLETED') {
+        totalEarnings += this.getTotalPrice(order.items);
+      }
+    }
+
+    return totalEarnings;
+  }
+
   getTotalPrice(items: any): number {
-    let totalPrice = 0;
+    let totalPrice: number = 0;
 
     for (let item of items) {
-      totalPrice += item.price * item.quantity;
+      let price = Number(item.price);
+      if (!isNaN(price)) {
+        totalPrice += price * item.quantity;
+      }
     }
 
     return totalPrice;
@@ -58,10 +81,25 @@ export class ShopOrdersComponent implements OnInit {
     }
   }
 
+  handleOrderAllItemBtnClick(id: string) {
+    this.orderDetails = this.allOrders.find((order: any) => order._id === id);
+    const orderAllItemModal = document.querySelector('#orderAllItemModal');
+    if (orderAllItemModal != null) {
+      orderAllItemModal.classList.add('modal-open');
+    }
+  }
+
   closeOrderModal() {
     const orderModal = document.querySelector('#orderModal');
     if (orderModal != null) {
       orderModal.classList.remove('modal-open');
+    }
+  }
+
+  closeOrderAllItemModal() {
+    const orderAllItemModal = document.querySelector('#orderAllItemModal');
+    if (orderAllItemModal != null) {
+      orderAllItemModal.classList.remove('modal-open');
     }
   }
 
@@ -91,5 +129,13 @@ export class ShopOrdersComponent implements OnInit {
           console.error(error);
         },
       });
+  }
+
+  handleAddNewOrderClick() {
+    //
+    this.toastService.error(
+      'Need time more to implement',
+      getToastErrorMessage()
+    );
   }
 }

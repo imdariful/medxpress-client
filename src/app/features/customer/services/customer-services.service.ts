@@ -66,7 +66,7 @@ export class CustomerServicesService {
       const customerUrl = `${this.baseUrl}/auth/user/${customerId}`;
       return this.http.get(customerUrl).pipe(catchError(this.handleError));
     }
-    return throwError('Invalid customer id');
+    return throwError(() => new Error('Invalid customer id'));
   }
   /**
    * Check for duplicate email during registration.

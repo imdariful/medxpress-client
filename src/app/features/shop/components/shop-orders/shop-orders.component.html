@@ -606,7 +606,7 @@
               <div>
                 <h3 class="text-center text-white text-lg">Total Orders</h3>
                 <h3 class="text-center text-white text-3xl mt-2 font-bold">
-                  181
+                  {{ allOrders.length }}
                 </h3>
               </div>
             </div>
@@ -626,7 +626,7 @@
               <div>
                 <h3 class="text-center text-white text-lg">Pending Orders</h3>
                 <h3 class="text-center text-white text-3xl mt-2 font-bold">
-                  5
+                  {{ totalPendingStatus }}
                 </h3>
               </div>
             </div>
@@ -647,7 +647,7 @@
               <div>
                 <h3 class="text-center text-white text-lg">Total Earning</h3>
                 <h3 class="text-center text-white text-3xl mt-2 font-bold">
-                  BDT 1,27,580
+                  {{ totalEarnings | takaCurrency }}
                 </h3>
               </div>
             </div>
@@ -665,7 +665,7 @@
               <p class="mt-2 text-sm text-gray-700">A list of all orders.</p>
             </div>
             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-              <button type="button" class="btn btn-primary">
+              <button type="button" class="btn btn-primary" (click)="handleAddNewOrderClick()">
                 Add New Order
               </button>
             </div>
@@ -723,7 +723,9 @@
                         <div class="flex items-center">
                           <div class="ml-4">
                             <div class="font-medium text-gray-900">
-                              {{ order._id }}
+                              <span aria-disabled="true" class="disabled"
+                                >#</span
+                              >{{ order._id }}
                             </div>
                           </div>
                         </div>
@@ -731,7 +733,9 @@
                       <td
                         class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                       >
-                        <div class="text-gray-900">221B Baker Street.</div>
+                        <div class="text-gray-900">
+                          {{ order.deliveryAddress }}
+                        </div>
                       </td>
                       <td
                         class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
@@ -763,7 +767,12 @@
                       <td
                         class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"
                       >
-                        <div class="btn btn-primary btn-xs">See Details</div>
+                        <button
+                          class="btn btn-primary btn-xs"
+                          (click)="handleOrderAllItemBtnClick(order._id)"
+                        >
+                          See Details
+                        </button>
                       </td>
                       <td
                         class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
@@ -772,7 +781,7 @@
                           class="btn btn-sm text-primary border-primary bg-transparent hover:bg-secondaryLimeHover hover:border-primary"
                           (click)="handleOrderUpdateBtnClick(order._id)"
                         >
-                          Update
+                          Update Status
                         </button>
                       </td>
                     </tr>
@@ -788,7 +797,7 @@
     </main>
   </div>
 </div>
-
+<!-- ! Order Status Modal -->
 <dialog id="orderModal" class="modal">
   <div class="modal-box">
     <form method="dialog">
@@ -802,10 +811,10 @@
     <div *ngIf="orderDetails">
       <div>
         <div class="form-control">
-          <h1>Order #{{ orderDetails._id }}</h1>
+          <h1 class="text-center mb-2">Order #{{ orderDetails._id }}</h1>
           <div
             class="input-group"
-            class="flex flex-col gap-2 justify-center items-center"
+            class="flex gap-5 justify-center items-center"
           >
             <select
               class="select select-primary select-bordered"
@@ -820,6 +829,39 @@
               Update
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ! Order All Item Modal -->
+<dialog id="orderAllItemModal" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button
+        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        (click)="closeOrderAllItemModal()"
+      >
+        ✕
+      </button>
+    </form>
+    <div *ngIf="orderDetails">
+      <div>
+        <div class="form-control">
+          <h1 class="text-center mb-2">Order #{{ orderDetails._id }}</h1>
+          <ul class="flex flex-col justify-center items-start w-full gap-2">
+            <li
+              *ngFor="let item of orderDetails.items"
+              class="border-2 border-solid bg-secondaryLimeHover rounded w-full p-2 flex justify-between items-center"
+            >
+              <div>
+                <p>Name: {{ item.name }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+              </div>
+              <p>Total: {{ item.totalAmount | takaCurrency }}</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

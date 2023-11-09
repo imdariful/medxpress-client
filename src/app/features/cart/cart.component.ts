@@ -19,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { CustomerServicesService } from '../customer/services/customer-services.service';
-import { catchError, throwError } from 'rxjs';
+import { catchError, switchMap, throwError } from 'rxjs';
 
 import { getBaseUrl } from '../../shared/utilityFunctions';
 
@@ -128,14 +128,20 @@ export class CartComponent implements OnInit {
    * If successful, redirects the user to the Stripe checkout page.
    */
   onCheckout(): void {
-    const userId = this.customerService.getCustomerId();
-    // ! CHANGE HERE
-    this.http
-      .post(`${this.baseUrl}/checkout`, {
-        items: this.cartItems,
-        userId: userId,
-      })
+    const customer = this.customerService.getCustomer();
+    customer
       .pipe(
+        switchMap((customer) => {
+          if (customer) {
+            return this.http.post(`${this.baseUrl}/checkout`, {
+              items: this.cartItems,
+              userId: customer._id,
+              deliveryAddress: customer.address,
+            });
+          } else {
+            return throwError('Customer not found');
+          }
+        }),
         catchError((error) => {
           console.error('HTTP Error:', error);
           return throwError(error);
