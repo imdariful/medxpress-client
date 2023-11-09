@@ -38,7 +38,7 @@
     </div>
 
     <!-- ! ORDERS -->
-    <div class="pb-16">
+    <div class="pb-16 w-full">
       <h2 class="font-bold">Orders</h2>
       <ul
         *ngIf="orders"
@@ -46,7 +46,7 @@
       >
         <li
           *ngFor="let order of orders"
-          class="border-2 rounded border-primary p-2 self-center"
+          class="border-2 rounded border-primary p-2 self-center w-full"
         >
           <p>
             Order ID: <span class="font-bold">#{{ order._id }}</span>
@@ -93,7 +93,12 @@
 
     <!-- ! LOGOUT -->
     <div class="text-center">
-      <button class="btn btn-outline btn-primary mb-16" (click)="handleLogoutBtnClick()">Logout</button>
+      <button
+        class="btn btn-outline btn-primary mb-16"
+        (click)="handleLogoutBtnClick()"
+      >
+        Logout
+      </button>
     </div>
   </div>
   <app-bottom-menu></app-bottom-menu>

@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  background-color: #e4fabf;
+}
+
 body {
   height: 100vh;
   width: 100vw;
