@@ -137,14 +137,16 @@ export class CartComponent implements OnInit {
               items: this.cartItems,
               userId: customer._id,
               deliveryAddress: customer.address,
+              deliveryLat: customer.lat,
+              deliveryLng: customer.lng,
             });
           } else {
-            return throwError('Customer not found');
+            return throwError(() => new Error('Customer not found!'));
           }
         }),
         catchError((error) => {
           console.error('HTTP Error:', error);
-          return throwError(error);
+          return throwError(() => new Error(error));
         })
       )
       .subscribe(async (res: any) => {

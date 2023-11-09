@@ -81,6 +81,7 @@ export class ShopRegisterComponent implements OnInit {
             'Registration successful!',
             getToastSuccessMessage()
           );
+          this.router.navigate(['/shop/dashboard/orders']);
         },
         error: (err) => {
           if (err.status === 409) {
