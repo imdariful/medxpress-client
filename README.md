@@ -69,7 +69,7 @@ For more help on the Angular CLI, use `ng help` or refer to the [Angular CLI Ove
 
 ## Documentation
 
-Read the full documentation for the MedXpress Server [here](https://imdariful.github.io/medxpress-client/).
+Read the full documentation for the MedXpress Client [here](https://imdariful.github.io/medxpress-client/).
 
 ## Server Side
 
