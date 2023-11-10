@@ -10,7 +10,6 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
-        <link rel="stylesheet" href="../styles/google-material.css">
     </head>
     <body>
 
@@ -309,8 +308,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="67"
-                                    class="link-to-prism">src/app/features/home/components/product/product.component.ts:67</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/features/home/components/product/product.component.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -601,6 +600,7 @@ export class ProductComponent {
    */
   ngOnInit(): void {
     this.setImage();
+    console.log(this.product);
   }
 
   /**
@@ -704,7 +704,7 @@ export class ProductComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!-- ! Product --><div  class="card card-compact w-96 bg-base-100 shadow-md max-h-[300px] max-w-[150px] min-w-[150px] min-h-[200px]">  <div (click)="productDetailsView()">    <figure>      <img        src="{{ product?.image }}"        alt="Shoes"        *ngIf="imgSrc.length !== 0"        class="max-h-[50px]"      />    </figure>    <div class="card-body p-0 m-0 gap-0">      <h2 class="card-title text-sm">{{ product?.name }}</h2>      <div class="flex justify-start items-center flex-wrap">        <span          class="badge text-[10px] badge-xs bg-secondaryLimeHover py-2 break-all"          *ngFor="let generic of product?.generics"        >          {{ generic }}        </span>      </div>      <p>৳ {{ product?.price }}</p>    </div>  </div>  <div class="card-actions justify-center">    <button      class="btn btn-primary btn-sm mb-2 text-xs"      (click)="handleAddToCart()"    >      Add To Cart    </button>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AddToCartModalComponent', 'selector': 'app-add-to-cart-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottomMenuComponent', 'selector': 'app-bottom-menu'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoryListComponent', 'selector': 'app-category-list'},{'name': 'CategoryProductGridComponent', 'selector': 'app-category-product-grid'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductsByCategoryComponent', 'selector': 'app-products-by-category'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectionScreenComponent', 'selector': 'app-selection-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SuccessComponent', 'selector': 'app-success'},{'name': 'WelcomeScreenComponent', 'selector': 'app-welcome-screen'}];
+    var COMPONENTS = [{'name': 'AddToCartModalComponent', 'selector': 'app-add-to-cart-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottomMenuComponent', 'selector': 'app-bottom-menu'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoryListComponent', 'selector': 'app-category-list'},{'name': 'CategoryProductGridComponent', 'selector': 'app-category-product-grid'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductsByCategoryComponent', 'selector': 'app-products-by-category'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectionScreenComponent', 'selector': 'app-selection-screen'},{'name': 'ShopDashboardComponent', 'selector': 'app-shop-dashboard'},{'name': 'ShopInventoryComponent', 'selector': 'app-shop-inventory'},{'name': 'ShopLoginComponent', 'selector': 'app-shop-login'},{'name': 'ShopOrdersComponent', 'selector': 'app-shop-orders'},{'name': 'ShopRegisterComponent', 'selector': 'app-shop-register'},{'name': 'ShopSelectScreenComponent', 'selector': 'app-shop-select-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SuccessComponent', 'selector': 'app-success'},{'name': 'WelcomeScreenComponent', 'selector': 'app-welcome-screen'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ProductComponent'};
 </script>

@@ -10,7 +10,6 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
-        <link rel="stylesheet" href="../styles/google-material.css">
     </head>
     <body>
 
@@ -135,7 +134,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/products/services/products.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/products/services/products.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -210,8 +209,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/app/features/products/services/products.service.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/features/products/services/products.service.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -285,8 +284,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/app/features/products/services/products.service.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/features/products/services/products.service.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -330,8 +329,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="50"
-                                    class="link-to-prism">src/app/features/products/services/products.service.ts:50</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/features/products/services/products.service.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -406,18 +405,12 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;https://medxpress-wef4.onrender.com&#x27;</code>
+                        <i>Default value : </i><code>getBaseUrl()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/products/services/products.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/products/services/products.service.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -442,7 +435,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/products/services/products.service.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/products/services/products.service.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -464,13 +457,14 @@ import {
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { Observable, catchError, throwError } from &#x27;rxjs&#x27;;
 import { Product } from &#x27;src/app/shared/models/product.model&#x27;;
+import { getBaseUrl } from &#x27;src/app/shared/utilityFunctions&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class ProductsService {
   // ! CHANGE HERE
-  baseUrl &#x3D; &#x27;https://medxpress-wef4.onrender.com&#x27;;
+  baseUrl &#x3D;  getBaseUrl();
   randomPage &#x3D; Math.floor(Math.random() * 30) + 1;
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}

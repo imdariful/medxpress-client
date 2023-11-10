@@ -10,7 +10,6 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
-        <link rel="stylesheet" href="../styles/google-material.css">
     </head>
     <body>
 
@@ -104,6 +103,10 @@
                                 <a href="#getAccessToken" >getAccessToken</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleError" >handleError</a>
+                            </li>
+                            <li>
                                 <a href="#removeAccessToken" >removeAccessToken</a>
                             </li>
                             <li>
@@ -132,7 +135,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/shared/services/token.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/services/token.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -195,8 +198,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/app/shared/services/token.service.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/app/shared/services/token.service.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -222,6 +225,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="handleError"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleError</b></span>
+                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleError(error: HttpErrorResponse)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/shared/services/token.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                        <code>HttpErrorResponse</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;never&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="removeAccessToken"></a>
                     <span class="name">
                         <span ><b>removeAccessToken</b></span>
@@ -238,8 +310,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="39"
-                                    class="link-to-prism">src/app/shared/services/token.service.ts:39</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/shared/services/token.service.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -277,8 +349,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/app/shared/services/token.service.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">src/app/shared/services/token.service.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -378,7 +450,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/shared/services/token.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/services/token.service.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -391,8 +463,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
 import { CookieService } from &#x27;ngx-cookie-service&#x27;;
+import { Observable, throwError } from &#x27;rxjs&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
@@ -431,6 +505,13 @@ export class TokenService {
    */
   removeAccessToken(): void {
     this.cookieService.delete(this.accessTokenKey, &#x27;/&#x27;);
+  }
+
+  private handleError(error: HttpErrorResponse): Observable&lt;never&gt; {
+    console.error(&#x27;HTTP Error:&#x27;, error);
+    return throwError(
+      () &#x3D;&gt; new Error(&#x27;An error occurred. Please try again later.&#x27;)
+    );
   }
 }
 </code></pre>

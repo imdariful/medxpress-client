@@ -10,7 +10,6 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
-        <link rel="stylesheet" href="../styles/google-material.css">
     </head>
     <body>
 
@@ -325,7 +324,9 @@ export class SelectionScreenComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;flex justify-center items-center max-w-screen max-h-screen w-screen h-screen&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section
+  class&#x3D;&quot;flex justify-center items-center max-w-screen max-h-screen w-screen h-screen&quot;
+&gt;
   &lt;div class&#x3D;&quot;flex-col justify-center items-center&quot;&gt;
     &lt;div class&#x3D;&quot;max-w-[80%] mx-auto&quot;&gt;
       &lt;img
@@ -339,14 +340,14 @@ export class SelectionScreenComponent {
       &lt;/h1&gt;
       &lt;p&gt;Medicine at your door step.&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class&#x3D;&quot;flex justify-around items-center w-[80%] mx-auto&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-col justify-around items-center gap-4 w-[80%] mx-auto&quot;&gt;
       &lt;button
         (click)&#x3D;&quot;onLoginClick()&quot;
-        class&#x3D;&quot;btn btn-outline btn-primary font-sspBold&quot;
+        class&#x3D;&quot;btn btn-outline btn-primary font-sspBold w-full&quot;
       &gt;
         Login
       &lt;/button&gt;
-      &lt;button (click)&#x3D;&quot;onRegisterClick()&quot; class&#x3D;&quot;btn btn-primary font-sspBold&quot;&gt;
+      &lt;button (click)&#x3D;&quot;onRegisterClick()&quot; class&#x3D;&quot;btn btn-primary font-sspBold w-full&quot;&gt;
         Register
       &lt;/button&gt;
     &lt;/div&gt;
@@ -387,8 +388,8 @@ export class SelectionScreenComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="flex justify-center items-center max-w-screen max-h-screen w-screen h-screen">  <div class="flex-col justify-center items-center">    <div class="max-w-[80%] mx-auto">      <img        src="/assets/images/Login-Register-Screen.png"        alt="login or registration image"      />    </div>    <div class="text-center mb-10">      <h1 class="text-5xl font-agrandirBold tracking-[-4px]">        Med<span class="text-primary">Xpress</span>      </h1>      <p>Medicine at your door step.</p>    </div>    <div class="flex justify-around items-center w-[80%] mx-auto">      <button        (click)="onLoginClick()"        class="btn btn-outline btn-primary font-sspBold"      >        Login      </button>      <button (click)="onRegisterClick()" class="btn btn-primary font-sspBold">        Register      </button>    </div>  </div></section></div>'
-    var COMPONENTS = [{'name': 'AddToCartModalComponent', 'selector': 'app-add-to-cart-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottomMenuComponent', 'selector': 'app-bottom-menu'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoryListComponent', 'selector': 'app-category-list'},{'name': 'CategoryProductGridComponent', 'selector': 'app-category-product-grid'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductsByCategoryComponent', 'selector': 'app-products-by-category'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectionScreenComponent', 'selector': 'app-selection-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SuccessComponent', 'selector': 'app-success'},{'name': 'WelcomeScreenComponent', 'selector': 'app-welcome-screen'}];
+        var COMPONENT_TEMPLATE = '<div><section  class="flex justify-center items-center max-w-screen max-h-screen w-screen h-screen">  <div class="flex-col justify-center items-center">    <div class="max-w-[80%] mx-auto">      <img        src="/assets/images/Login-Register-Screen.png"        alt="login or registration image"      />    </div>    <div class="text-center mb-10">      <h1 class="text-5xl font-agrandirBold tracking-[-4px]">        Med<span class="text-primary">Xpress</span>      </h1>      <p>Medicine at your door step.</p>    </div>    <div class="flex flex-col justify-around items-center gap-4 w-[80%] mx-auto">      <button        (click)="onLoginClick()"        class="btn btn-outline btn-primary font-sspBold w-full"      >        Login      </button>      <button (click)="onRegisterClick()" class="btn btn-primary font-sspBold w-full">        Register      </button>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AddToCartModalComponent', 'selector': 'app-add-to-cart-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottomMenuComponent', 'selector': 'app-bottom-menu'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoryListComponent', 'selector': 'app-category-list'},{'name': 'CategoryProductGridComponent', 'selector': 'app-category-product-grid'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductsByCategoryComponent', 'selector': 'app-products-by-category'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectionScreenComponent', 'selector': 'app-selection-screen'},{'name': 'ShopDashboardComponent', 'selector': 'app-shop-dashboard'},{'name': 'ShopInventoryComponent', 'selector': 'app-shop-inventory'},{'name': 'ShopLoginComponent', 'selector': 'app-shop-login'},{'name': 'ShopOrdersComponent', 'selector': 'app-shop-orders'},{'name': 'ShopRegisterComponent', 'selector': 'app-shop-register'},{'name': 'ShopSelectScreenComponent', 'selector': 'app-shop-select-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SuccessComponent', 'selector': 'app-success'},{'name': 'WelcomeScreenComponent', 'selector': 'app-welcome-screen'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SelectionScreenComponent'};
 </script>

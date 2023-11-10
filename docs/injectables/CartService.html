@@ -10,7 +10,6 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
-        <link rel="stylesheet" href="../styles/google-material.css">
     </head>
     <body>
 
@@ -551,8 +550,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="164"
-                                    class="link-to-prism">src/app/features/cart/services/cart.service.ts:164</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="167"
+                                    class="link-to-prism">src/app/features/cart/services/cart.service.ts:167</a></div>
                         </td>
                     </tr>
 
@@ -700,8 +699,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="150"
-                                    class="link-to-prism">src/app/features/cart/services/cart.service.ts:150</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/features/cart/services/cart.service.ts:153</a></div>
                         </td>
                     </tr>
 
@@ -1101,7 +1100,10 @@ export class CartService {
    * Clear the shopping cart.
    */
   clearCart(): void {
+    console.log(&#x27;clearing cart ran&#x27;);
+
     this.items &#x3D; [];
+
     this.saveToLocalStorage();
   }
 

@@ -43,7 +43,8 @@ export function setImage(product: Product): string {
 }
 
 export function getBaseUrl(): string {
-  return 'http://localhost:3001';
+  // return 'http://localhost:3001';
+  return 'https://medxpress-wef4.onrender.com';
 }
 export function getToastSuccessMessage(): Object {
   return {

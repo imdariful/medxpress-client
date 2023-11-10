@@ -10,7 +10,6 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
-        <link rel="stylesheet" href="../styles/google-material.css">
     </head>
     <body>
 
@@ -115,15 +114,21 @@
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#password" 
+                                        <a href="#lat" 
 >
-                                            password
+                                            lat
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#postalCode" 
+                                        <a href="#lng" 
 >
-                                            postalCode
+                                            lng
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#password" 
+>
+                                            password
                                         </a>
                                 </li>
                                 <li>
@@ -279,9 +284,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="password"></a>
-                                        <span class="name "><b>password</b>
-                                            <a href="#password">
+                                        <a name="lat"></a>
+                                        <span class="name "><b>lat</b>
+                                            <a href="#lat">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -289,7 +294,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>password:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>lat:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -297,7 +302,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                                         </td>
                                     </tr>
@@ -312,9 +317,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="postalCode"></a>
-                                        <span class="name "><b>postalCode</b>
-                                            <a href="#postalCode">
+                                        <a name="lng"></a>
+                                        <span class="name "><b>lng</b>
+                                            <a href="#lng">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -322,7 +327,40 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>postalCode:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>lng:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="password"></a>
+                                        <span class="name "><b>password</b>
+                                            <a href="#password">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>password:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -385,8 +423,9 @@
   email: string;
   password: string;
   address: string;
-  postalCode: string;
   role: string;
+  lat: number;
+  lng: number;
 }
 </code></pre>
     </div>

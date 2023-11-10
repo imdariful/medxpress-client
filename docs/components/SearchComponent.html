@@ -10,7 +10,6 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
-        <link rel="stylesheet" href="../styles/google-material.css">
     </head>
     <body>
 
@@ -140,7 +139,7 @@
                                 <a href="#imgSrc" >imgSrc</a>
                             </li>
                             <li>
-                                <a href="#serachResult" >serachResult</a>
+                                <a href="#searchResult" >searchResult</a>
                             </li>
                         </ul>
                     </td>
@@ -424,10 +423,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="serachResult"></a>
+                    <a name="searchResult"></a>
                     <span class="name">
-                        <span ><b>serachResult</b></span>
-                        <a href="#serachResult"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>searchResult</b></span>
+                        <a href="#searchResult"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -470,7 +469,7 @@ import { setImage } from &#x27;../../../../shared/utilityFunctions&#x27;;
 })
 export class SearchComponent {
   constructor(private productService: ProductService) {}
-  serachResult: Product[] &#x3D; [];
+  searchResult: Product[] &#x3D; [];
 
   imgSrc: string &#x3D; &#x27;&#x27;;
 
@@ -493,14 +492,14 @@ export class SearchComponent {
       if (element.value.length &gt; 1) {
         this.productService.searchProduct(element.value).subscribe({
           next: (response) &#x3D;&gt; {
-            this.serachResult &#x3D; response;
+            this.searchResult &#x3D; response;
           },
           error: (err) &#x3D;&gt; {
             console.error(&#x27;err&#x27;, err);
           },
         });
       } else {
-        this.serachResult &#x3D; [];
+        this.searchResult &#x3D; [];
       }
     }
   }
@@ -525,11 +524,11 @@ export class SearchComponent {
       /&gt;
     &lt;/button&gt;
   &lt;/div&gt;
-  &lt;div *ngIf&#x3D;&quot;serachResult.length !&#x3D;&#x3D; 0&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;searchResult.length !&#x3D;&#x3D; 0&quot;&gt;
     &lt;ul class&#x3D;&quot;bg-white border border-secondaryLime w-full mt-2 rounded&quot;&gt;
       &lt;li
         class&#x3D;&quot;pl-8 pr-2 py-1 border-b-2 border-secondaryLime relative cursor-pointer hover:bg-secondaryLimeHover hover:text-gray-900&quot;
-        *ngFor&#x3D;&quot;let product of serachResult&quot;
+        *ngFor&#x3D;&quot;let product of searchResult&quot;
       &gt;
         &lt;a routerLink&#x3D;&quot;/products/{{ product._id }}&quot;&gt;
           &lt;div class&#x3D;&quot;flex items-center justify-start gap-2&quot;&gt;
@@ -576,8 +575,8 @@ export class SearchComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="px-4 pb-2">  <div class="relative">    <input      type="text"      placeholder="Search"      class="input input-bordered input-primary w-full rounded"      (keyup)="searchProduct($event)"    />    <button>      <img        src="/assets/icons/search.svg"        alt="search icon"        class="absolute top-1/2 transform -translate-y-1/2 right-3"      />    </button>  </div>  <div *ngIf="serachResult.length !== 0">    <ul class="bg-white border border-secondaryLime w-full mt-2 rounded">      <li        class="pl-8 pr-2 py-1 border-b-2 border-secondaryLime relative cursor-pointer hover:bg-secondaryLimeHover hover:text-gray-900"        *ngFor="let product of serachResult"      >        <a routerLink="/products/{{ product._id }}">          <div class="flex items-center justify-start gap-2">            <img [src]="setImage(product)" alt="" class="max-h-[20px]" />            <p class="text-md text-center">{{ product.name }}</p>          </div>        </a>      </li>    </ul>  </div></section></div>'
-    var COMPONENTS = [{'name': 'AddToCartModalComponent', 'selector': 'app-add-to-cart-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottomMenuComponent', 'selector': 'app-bottom-menu'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoryListComponent', 'selector': 'app-category-list'},{'name': 'CategoryProductGridComponent', 'selector': 'app-category-product-grid'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductsByCategoryComponent', 'selector': 'app-products-by-category'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectionScreenComponent', 'selector': 'app-selection-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SuccessComponent', 'selector': 'app-success'},{'name': 'WelcomeScreenComponent', 'selector': 'app-welcome-screen'}];
+        var COMPONENT_TEMPLATE = '<div><section class="px-4 pb-2">  <div class="relative">    <input      type="text"      placeholder="Search"      class="input input-bordered input-primary w-full rounded"      (keyup)="searchProduct($event)"    />    <button>      <img        src="/assets/icons/search.svg"        alt="search icon"        class="absolute top-1/2 transform -translate-y-1/2 right-3"      />    </button>  </div>  <div *ngIf="searchResult.length !== 0">    <ul class="bg-white border border-secondaryLime w-full mt-2 rounded">      <li        class="pl-8 pr-2 py-1 border-b-2 border-secondaryLime relative cursor-pointer hover:bg-secondaryLimeHover hover:text-gray-900"        *ngFor="let product of searchResult"      >        <a routerLink="/products/{{ product._id }}">          <div class="flex items-center justify-start gap-2">            <img [src]="setImage(product)" alt="" class="max-h-[20px]" />            <p class="text-md text-center">{{ product.name }}</p>          </div>        </a>      </li>    </ul>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AddToCartModalComponent', 'selector': 'app-add-to-cart-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottomMenuComponent', 'selector': 'app-bottom-menu'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoryListComponent', 'selector': 'app-category-list'},{'name': 'CategoryProductGridComponent', 'selector': 'app-category-product-grid'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductsByCategoryComponent', 'selector': 'app-products-by-category'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectionScreenComponent', 'selector': 'app-selection-screen'},{'name': 'ShopDashboardComponent', 'selector': 'app-shop-dashboard'},{'name': 'ShopInventoryComponent', 'selector': 'app-shop-inventory'},{'name': 'ShopLoginComponent', 'selector': 'app-shop-login'},{'name': 'ShopOrdersComponent', 'selector': 'app-shop-orders'},{'name': 'ShopRegisterComponent', 'selector': 'app-shop-register'},{'name': 'ShopSelectScreenComponent', 'selector': 'app-shop-select-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SuccessComponent', 'selector': 'app-success'},{'name': 'WelcomeScreenComponent', 'selector': 'app-welcome-screen'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SearchComponent'};
 </script>

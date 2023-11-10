@@ -8,7 +8,8 @@
     "build-prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start-pwa": "ng build --configuration production && http-server -p 8080 -c-1 dist/medxpress-client"
+    "start-pwa": "ng build --configuration production && http-server -p 8080 -c-1 dist/medxpress-client",
+    "compodoc": "compodoc -p tsconfig.json -d docs"
   },
   "private": true,
   "dependencies": {
