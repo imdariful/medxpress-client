@@ -5,13 +5,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { CustomerRegister } from '../models/customer-register';
 import { CustomerLogin } from '../models/customer-login';
+import { getBaseUrl } from 'src/app/shared/utilityFunctions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerServicesService {
   // ! CHANGE HERE
-  baseUrl = 'https://medxpress-wef4.onrender.com';
+  baseUrl = getBaseUrl();
   private accessTokenKey = 'access_token';
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}
@@ -65,7 +66,7 @@ export class CustomerServicesService {
       const customerUrl = `${this.baseUrl}/auth/user/${customerId}`;
       return this.http.get(customerUrl).pipe(catchError(this.handleError));
     }
-    return throwError('Invalid customer id');
+    return throwError(() => new Error('Invalid customer id'));
   }
   /**
    * Check for duplicate email during registration.

@@ -13,10 +13,18 @@ export class WelcomeScreenComponent {
    * Lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
    */
   ngOnInit() {
-    setTimeout(() => {
-      this.ngZone.run(() => {
-        this.router.navigate(['customer/select']);
-      });
-    }, 4000);
+    if (window.innerWidth >= 768) {
+      setTimeout(() => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/shop/select']);
+        });
+      }, 4000);
+    } else {
+      setTimeout(() => {
+        this.ngZone.run(() => {
+          this.router.navigate(['customer/select']);
+        });
+      }, 4000);
+    }
   }
 }

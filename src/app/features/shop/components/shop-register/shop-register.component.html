@@ -1,0 +1,118 @@
+<section>
+  <div class="py-2 flex justify-center items-center h-screen w-full">
+    <form
+      [formGroup]="shopRegistrationForm"
+      (ngSubmit)="shopRegistrationFormSubmit()"
+      class="flex gap-5"
+    >
+      <div class="flex flex-col justify-center items-center">
+        <h1 class="text-primary text-3xl text-center">Register</h1>
+        <div class="mx-auto flex justify-center items-center">
+          <img
+            src="/assets/images/register2.png"
+            alt="Registration image"
+            class="w-full"
+          />
+        </div>
+      </div>
+      <!-- ! Sign Up Form -->
+      <div class="grid justify-center items-center w-full h-full mx-auto gap-2">
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Shop Name</span>
+          </label>
+          <input
+            type="text"
+            formControlName="shopName"
+            placeholder="Shop Name"
+            class="input input-primary w-full"
+          />
+        </div>
+
+        <div class="form-control w-full flex flex-row gap-4 justify-between">
+          <div>
+            <label class="label">
+              <span class="label-text font-agrandirRegular">First Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Ariful"
+              formControlName="firstName"
+              class="input input-primary w-full"
+            />
+          </div>
+          <div>
+            <label class="label">
+              <span class="label-text font-agrandirRegular">Last Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Islam"
+              formControlName="lastName"
+              class="input input-primary w-full max-w-xs"
+            />
+          </div>
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Email</span>
+          </label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Your Email"
+            class="input input-primary w-full"
+          />
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Password</span>
+          </label>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Type here"
+            class="input input-primary w-full"
+          />
+        </div>
+
+        <div class="form-control w-full">
+          <label class="label">
+            <span class="label-text font-agrandirRegular">Address</span>
+          </label>
+          <div class="relative">
+            <span
+              class="absolute top-1/2 right-2 -translate-x-1/2 -translate-y-1/2 cursor-pointer border-solid border-2 border-primary hover:bg-secondaryLime rounded-full p-1"
+              (click)="getLocation()"
+            >
+              <img src="/assets/icons/location.svg" alt=""
+            /></span>
+            <textarea
+              type="textarea"
+              formControlName="address"
+              placeholder="House: 1, Road: 9, Dhaka"
+              class="input input-primary w-full min-h-[100px]"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- NEXT Button -->
+        <div class="flex flex-row-reverse justify-between text-center mt-2">
+          <button class="btn btn-primary px-6" (click)="onEmailSubmit()">
+            Register
+          </button>
+          <p class="text-right mr-5 mt-5">
+            Already have a account? please
+            <a
+              href="/shop/login"
+              class="text-primaryGreen hover:text-primaryGreenHover"
+              >Login</a
+            >
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

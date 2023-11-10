@@ -59,13 +59,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link" >AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-AppModule-42aee32bc789bcf5c9eaf79d4340da561ad4efb1bc25804f3ec66a4ffa94669c70403913ad59c77e321aeb3b3903e031c9b8611b1c8d45d5980ea1536be4f750"' : 'data-bs-target="#xs-components-links-module-AppModule-42aee32bc789bcf5c9eaf79d4340da561ad4efb1bc25804f3ec66a4ffa94669c70403913ad59c77e321aeb3b3903e031c9b8611b1c8d45d5980ea1536be4f750"' }>
+                                            'data-bs-target="#components-links-module-AppModule-12dc9a74313362fd9c3ef4ef303996864497db1f3ef932a887b37773963a9eadd5008273ef586f71fbd20d749e8d0dc63c40f315959cf8a1460cd04f281e3aee"' : 'data-bs-target="#xs-components-links-module-AppModule-12dc9a74313362fd9c3ef4ef303996864497db1f3ef932a887b37773963a9eadd5008273ef586f71fbd20d749e8d0dc63c40f315959cf8a1460cd04f281e3aee"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-42aee32bc789bcf5c9eaf79d4340da561ad4efb1bc25804f3ec66a4ffa94669c70403913ad59c77e321aeb3b3903e031c9b8611b1c8d45d5980ea1536be4f750"' :
-                                            'id="xs-components-links-module-AppModule-42aee32bc789bcf5c9eaf79d4340da561ad4efb1bc25804f3ec66a4ffa94669c70403913ad59c77e321aeb3b3903e031c9b8611b1c8d45d5980ea1536be4f750"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-12dc9a74313362fd9c3ef4ef303996864497db1f3ef932a887b37773963a9eadd5008273ef586f71fbd20d749e8d0dc63c40f315959cf8a1460cd04f281e3aee"' :
+                                            'id="xs-components-links-module-AppModule-12dc9a74313362fd9c3ef4ef303996864497db1f3ef932a887b37773963a9eadd5008273ef586f71fbd20d749e8d0dc63c40f315959cf8a1460cd04f281e3aee"' }>
                                             <li class="link">
                                                 <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AppComponent</a>
                                             </li>
@@ -245,6 +245,41 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </ul>
                                     </li>
                             </li>
+                            <li class="link">
+                                <a href="modules/ShopModule.html" data-type="entity-link" >ShopModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-ShopModule-46b5329f2661e77908464a8401f8d5d3e94a439d1f98e2167d8c7ff3c01f7f97b7f49dd1f92eba91fb3b27cce42918badfab1a428507f85329a9c549ddbc341f"' : 'data-bs-target="#xs-components-links-module-ShopModule-46b5329f2661e77908464a8401f8d5d3e94a439d1f98e2167d8c7ff3c01f7f97b7f49dd1f92eba91fb3b27cce42918badfab1a428507f85329a9c549ddbc341f"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ShopModule-46b5329f2661e77908464a8401f8d5d3e94a439d1f98e2167d8c7ff3c01f7f97b7f49dd1f92eba91fb3b27cce42918badfab1a428507f85329a9c549ddbc341f"' :
+                                            'id="xs-components-links-module-ShopModule-46b5329f2661e77908464a8401f8d5d3e94a439d1f98e2167d8c7ff3c01f7f97b7f49dd1f92eba91fb3b27cce42918badfab1a428507f85329a9c549ddbc341f"' }>
+                                            <li class="link">
+                                                <a href="components/ShopDashboardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShopDashboardComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ShopInventoryComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShopInventoryComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ShopLoginComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShopLoginComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ShopOrdersComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShopOrdersComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ShopRegisterComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShopRegisterComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ShopSelectScreenComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShopSelectScreenComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/ShopRoutingModule.html" data-type="entity-link" >ShopRoutingModule</a>
+                            </li>
                 </ul>
                 </li>
                         <li class="chapter">
@@ -274,6 +309,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/ProductsService.html" data-type="entity-link" >ProductsService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/ShopService.html" data-type="entity-link" >ShopService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/TokenService.html" data-type="entity-link" >TokenService</a>
                                 </li>
                             </ul>
@@ -290,16 +328,31 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/CartItem.html" data-type="entity-link" >CartItem</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/CreateShopDto.html" data-type="entity-link" >CreateShopDto</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/CustomerLogin.html" data-type="entity-link" >CustomerLogin</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/CustomerRegister.html" data-type="entity-link" >CustomerRegister</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/item.html" data-type="entity-link" >item</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Order.html" data-type="entity-link" >Order</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/OrderDetails.html" data-type="entity-link" >OrderDetails</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/Orders.html" data-type="entity-link" >Orders</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Product.html" data-type="entity-link" >Product</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Stock.html" data-type="entity-link" >Stock</a>
                             </li>
                         </ul>
                     </li>

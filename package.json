@@ -8,7 +8,8 @@
     "build-prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start-pwa": "ng build --configuration production && http-server -p 8080 -c-1 dist/medxpress-client"
+    "start-pwa": "ng build --configuration production && http-server -p 8080 -c-1 dist/medxpress-client",
+    "compodoc": "compodoc -p tsconfig.json -d docs"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +27,6 @@
     "@ngneat/overview": "^5.1.0",
     "@stripe/stripe-js": "^2.1.10",
     "ngx-cookie-service": "^16.0.1",
-    "ngx-stripe": "^16.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

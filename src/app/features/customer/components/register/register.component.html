@@ -187,13 +187,23 @@
           <label class="label">
             <span class="label-text font-agrandirRegular">Address</span>
           </label>
-          <input
-            type="text"
-            formControlName="address"
-            placeholder="House: 1, Road: 9, Dhaka"
-            class="input input-primary w-full max-w-xs"
-            [class.input-error]="isFieldInvalid('address')"
-          />
+          <div class="relative">
+            <span
+              class="absolute top-1/2 right-2 -translate-x-1/2 -translate-y-1/2 cursor-pointer border-solid border-2 border-primary hover:bg-secondaryLime rounded-full p-1"
+              (click)="getLocation()"
+            >
+              <img src="/assets/icons/location.svg" alt=""
+            /></span>
+            <textarea
+              type="textarea"
+              formControlName="address"
+              placeholder="House: 1, Road: 9, Block: J, Baridhara, Dhaka-1212, Bangladesh"
+              class="input input-primary w-full h-full max-w-xs resize-y min-h-[100px]"
+              [class.input-error]="isFieldInvalid('address')"
+            ></textarea>
+          </div>
+
+          <!-- getLocation() -->
           <!-- Invalid Form Input -->
           <label class="label">
             <span class="label-text-alt"></span>
@@ -205,27 +215,6 @@
           </label>
         </div>
 
-        <div class="form-control w-full max-w-xs">
-          <label class="label">
-            <span class="label-text font-agrandirRegular">Postal Code</span>
-          </label>
-          <input
-            type="number"
-            formControlName="postalCode"
-            placeholder="1212"
-            class="input input-primary w-full max-w-xs"
-            [class.input-error]="isFieldInvalid('postalCode')"
-          />
-          <!-- Invalid Form Input -->
-          <label class="label">
-            <span class="label-text-alt"></span>
-            <span
-              class="label-text-alt text-error"
-              [class.hidden]="!isFieldInvalid('postalCode')"
-              >*Invalid Postal Code</span
-            >
-          </label>
-        </div>
         <!-- NEXT Button -->
         <div class="text-center mt-2">
           <button
@@ -233,9 +222,7 @@
             type="submit"
             [disabled]="
               isFieldInvalid('address') ||
-              isFieldInvalid('postalCode') ||
-              !registrationForm.get('address')?.valid ||
-              !registrationForm.get('postalCode')?.valid
+              !registrationForm.get('address')?.valid
             "
           >
             Submit

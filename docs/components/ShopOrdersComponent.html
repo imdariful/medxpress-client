@@ -1,0 +1,2191 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>medxpress-client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">medxpress-client documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ShopOrdersComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/shop/components/shop-orders/shop-orders.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-shop-orders</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./shop-orders.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./shop-orders.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allOrders" >allOrders</a>
+                            </li>
+                            <li>
+                                <a href="#orderDetails" >orderDetails</a>
+                            </li>
+                            <li>
+                                <a href="#selectedOrderStatus" >selectedOrderStatus</a>
+                            </li>
+                            <li>
+                                <a href="#showProfileDropDown" >showProfileDropDown</a>
+                            </li>
+                            <li>
+                                <a href="#showUpdateOrderModal" >showUpdateOrderModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#toastService" >toastService</a>
+                            </li>
+                            <li>
+                                <a href="#totalEarnings" >totalEarnings</a>
+                            </li>
+                            <li>
+                                <a href="#totalPendingStatus" >totalPendingStatus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeOrderAllItemModal" >closeOrderAllItemModal</a>
+                            </li>
+                            <li>
+                                <a href="#closeOrderModal" >closeOrderModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllOrders" >getAllOrders</a>
+                            </li>
+                            <li>
+                                <a href="#getTotalEarnings" >getTotalEarnings</a>
+                            </li>
+                            <li>
+                                <a href="#getTotalPrice" >getTotalPrice</a>
+                            </li>
+                            <li>
+                                <a href="#handleAddNewOrderClick" >handleAddNewOrderClick</a>
+                            </li>
+                            <li>
+                                <a href="#handleOrderAllItemBtnClick" >handleOrderAllItemBtnClick</a>
+                            </li>
+                            <li>
+                                <a href="#handleOrderUpdateBtnClick" >handleOrderUpdateBtnClick</a>
+                            </li>
+                            <li>
+                                <a href="#handleStatusUpdateClick" >handleStatusUpdateClick</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onStatusChange" >onStatusChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(shopService: <a href="../injectables/ShopService.html" target="_self">ShopService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>shopService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ShopService.html" target="_self" >ShopService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeOrderAllItemModal"></a>
+                    <span class="name">
+                        <span ><b>closeOrderAllItemModal</b></span>
+                        <a href="#closeOrderAllItemModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeOrderAllItemModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeOrderModal"></a>
+                    <span class="name">
+                        <span ><b>closeOrderModal</b></span>
+                        <a href="#closeOrderModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeOrderModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllOrders"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllOrders</b></span>
+                        <a href="#getAllOrders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllOrders()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTotalEarnings"></a>
+                    <span class="name">
+                        <span ><b>getTotalEarnings</b></span>
+                        <a href="#getTotalEarnings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTotalEarnings()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTotalPrice"></a>
+                    <span class="name">
+                        <span ><b>getTotalPrice</b></span>
+                        <a href="#getTotalPrice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTotalPrice(items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleAddNewOrderClick"></a>
+                    <span class="name">
+                        <span ><b>handleAddNewOrderClick</b></span>
+                        <a href="#handleAddNewOrderClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleAddNewOrderClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleOrderAllItemBtnClick"></a>
+                    <span class="name">
+                        <span ><b>handleOrderAllItemBtnClick</b></span>
+                        <a href="#handleOrderAllItemBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleOrderAllItemBtnClick(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleOrderUpdateBtnClick"></a>
+                    <span class="name">
+                        <span ><b>handleOrderUpdateBtnClick</b></span>
+                        <a href="#handleOrderUpdateBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleOrderUpdateBtnClick(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleStatusUpdateClick"></a>
+                    <span class="name">
+                        <span ><b>handleStatusUpdateClick</b></span>
+                        <a href="#handleStatusUpdateClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleStatusUpdateClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onStatusChange"></a>
+                    <span class="name">
+                        <span ><b>onStatusChange</b></span>
+                        <a href="#onStatusChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onStatusChange(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allOrders"></a>
+                    <span class="name">
+                        <span ><b>allOrders</b></span>
+                        <a href="#allOrders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderDetails"></a>
+                    <span class="name">
+                        <span ><b>orderDetails</b></span>
+                        <a href="#orderDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Order.html" target="_self" >Order</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{} as Order</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedOrderStatus"></a>
+                    <span class="name">
+                        <span ><b>selectedOrderStatus</b></span>
+                        <a href="#selectedOrderStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;PENDING&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showProfileDropDown"></a>
+                    <span class="name">
+                        <span ><b>showProfileDropDown</b></span>
+                        <a href="#showProfileDropDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showUpdateOrderModal"></a>
+                    <span class="name">
+                        <span ><b>showUpdateOrderModal</b></span>
+                        <a href="#showUpdateOrderModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toastService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>toastService</b></span>
+                        <a href="#toastService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(HotToastService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalEarnings"></a>
+                    <span class="name">
+                        <span ><b>totalEarnings</b></span>
+                        <a href="#totalEarnings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalPendingStatus"></a>
+                    <span class="name">
+                        <span ><b>totalPendingStatus</b></span>
+                        <a href="#totalPendingStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/features/shop/components/shop-orders/shop-orders.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, inject } from &#x27;@angular/core&#x27;;
+import { ShopService } from &#x27;../../services/shop.service&#x27;;
+import { Order, item } from &#x27;../../models/order.model&#x27;;
+import { HotToastService } from &#x27;@ngneat/hot-toast&#x27;;
+import {
+  getToastErrorMessage,
+  getToastSuccessMessage,
+} from &#x27;src/app/shared/utilityFunctions&#x27;;
+
+@Component({
+  selector: &#x27;app-shop-orders&#x27;,
+  templateUrl: &#x27;./shop-orders.component.html&#x27;,
+  styleUrls: [&#x27;./shop-orders.component.scss&#x27;],
+})
+export class ShopOrdersComponent implements OnInit {
+  constructor(private shopService: ShopService) {}
+  private toastService &#x3D; inject(HotToastService);
+
+  showProfileDropDown &#x3D; false;
+  showUpdateOrderModal &#x3D; false;
+
+  ngOnInit(): void {
+    this.getAllOrders();
+  }
+
+  allOrders: any &#x3D; [];
+  orderDetails: Order &#x3D; {} as Order;
+  selectedOrderStatus: string &#x3D; &#x27;PENDING&#x27;;
+  totalPendingStatus: number &#x3D; 0;
+  totalEarnings: number &#x3D; 0;
+
+  async getAllOrders(): Promise&lt;void&gt; {
+    (await this.shopService.getAllOrders()).subscribe({
+      next: (response) &#x3D;&gt; {
+        this.allOrders &#x3D; response;
+
+        this.totalPendingStatus &#x3D; this.allOrders.filter(
+          (order: any) &#x3D;&gt; order.orderStatus &#x3D;&#x3D;&#x3D; &#x27;PENDING&#x27;
+        ).length;
+
+        this.totalEarnings &#x3D; this.getTotalEarnings();
+        console.log(this.totalEarnings);
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(error);
+      },
+    });
+  }
+
+  getTotalEarnings(): number {
+    let totalEarnings: number &#x3D; 0;
+
+    for (let order of this.allOrders) {
+      if (order.orderStatus &#x3D;&#x3D;&#x3D; &#x27;COMPLETED&#x27;) {
+        totalEarnings +&#x3D; this.getTotalPrice(order.items);
+      }
+    }
+
+    return totalEarnings;
+  }
+
+  getTotalPrice(items: any): number {
+    let totalPrice: number &#x3D; 0;
+
+    for (let item of items) {
+      let price &#x3D; Number(item.price);
+      if (!isNaN(price)) {
+        totalPrice +&#x3D; price * item.quantity;
+      }
+    }
+
+    return totalPrice;
+  }
+
+  handleOrderUpdateBtnClick(id: string) {
+    this.orderDetails &#x3D; this.allOrders.find((order: any) &#x3D;&gt; order._id &#x3D;&#x3D;&#x3D; id);
+    console.log(this.orderDetails);
+    
+    const orderModal &#x3D; document.querySelector(&#x27;#orderModal&#x27;);
+    if (orderModal !&#x3D; null) {
+      orderModal.classList.add(&#x27;modal-open&#x27;);
+    }
+  }
+
+  handleOrderAllItemBtnClick(id: string) {
+    this.orderDetails &#x3D; this.allOrders.find((order: any) &#x3D;&gt; order._id &#x3D;&#x3D;&#x3D; id);
+    const orderAllItemModal &#x3D; document.querySelector(&#x27;#orderAllItemModal&#x27;);
+    if (orderAllItemModal !&#x3D; null) {
+      orderAllItemModal.classList.add(&#x27;modal-open&#x27;);
+    }
+  }
+
+  closeOrderModal() {
+    const orderModal &#x3D; document.querySelector(&#x27;#orderModal&#x27;);
+    if (orderModal !&#x3D; null) {
+      orderModal.classList.remove(&#x27;modal-open&#x27;);
+    }
+  }
+
+  closeOrderAllItemModal() {
+    const orderAllItemModal &#x3D; document.querySelector(&#x27;#orderAllItemModal&#x27;);
+    if (orderAllItemModal !&#x3D; null) {
+      orderAllItemModal.classList.remove(&#x27;modal-open&#x27;);
+    }
+  }
+
+  onStatusChange(event: any) {
+    this.selectedOrderStatus &#x3D; event.target.value;
+    console.log(this.selectedOrderStatus);
+  }
+
+  handleStatusUpdateClick() {
+    this.shopService
+      .updateOrderStatus(this.orderDetails, this.selectedOrderStatus)
+      .subscribe({
+        next: (response) &#x3D;&gt; {
+          this.closeOrderModal();
+          this.getAllOrders();
+          this.toastService.success(
+            &#x27;Updated Successfully!&#x27;,
+            getToastSuccessMessage()
+          );
+        },
+        error: (error) &#x3D;&gt; {
+          this.toastService.error(
+            &#x27;Ops! - something went wrong.&#x27;,
+            getToastErrorMessage()
+          );
+          console.error(error);
+        },
+      });
+  }
+
+  handleAddNewOrderClick() {
+    //
+    this.toastService.error(
+      &#x27;Need time more to implement&#x27;,
+      getToastErrorMessage()
+    );
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!--
+  This example requires some changes to your config:
+  
+  &#x60;&#x60;&#x60;
+  // tailwind.config.js
+  module.exports &#x3D; {
+    // ...
+    plugins: [
+      // ...
+      require(&#x27;@tailwindcss/forms&#x27;),
+    ],
+  }
+  &#x60;&#x60;&#x60;
+--&gt;
+&lt;!--
+  This example requires updating your template:
+
+  &#x60;&#x60;&#x60;
+  &lt;html class&#x3D;&quot;h-full bg-white&quot;&gt;
+  &lt;body class&#x3D;&quot;h-full&quot;&gt;
+  &#x60;&#x60;&#x60;
+--&gt;
+&lt;div&gt;
+  &lt;!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. --&gt;
+  &lt;div class&#x3D;&quot;relative z-50 lg:hidden&quot; role&#x3D;&quot;dialog&quot; aria-modal&#x3D;&quot;true&quot;&gt;
+    &lt;!--
+      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+
+      Entering: &quot;transition-opacity ease-linear duration-300&quot;
+        From: &quot;opacity-0&quot;
+        To: &quot;opacity-100&quot;
+      Leaving: &quot;transition-opacity ease-linear duration-300&quot;
+        From: &quot;opacity-100&quot;
+        To: &quot;opacity-0&quot;
+    --&gt;
+    &lt;div class&#x3D;&quot;fixed inset-0 bg-gray-900/80&quot;&gt;&lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;fixed inset-0 flex&quot;&gt;
+      &lt;!--
+        Off-canvas menu, show/hide based on off-canvas menu state.
+
+        Entering: &quot;transition ease-in-out duration-300 transform&quot;
+          From: &quot;-translate-x-full&quot;
+          To: &quot;translate-x-0&quot;
+        Leaving: &quot;transition ease-in-out duration-300 transform&quot;
+          From: &quot;translate-x-0&quot;
+          To: &quot;-translate-x-full&quot;
+      --&gt;
+      &lt;div class&#x3D;&quot;relative mr-16 flex w-full max-w-xs flex-1&quot;&gt;
+        &lt;!--
+          Close button, show/hide based on off-canvas menu state.
+
+          Entering: &quot;ease-in-out duration-300&quot;
+            From: &quot;opacity-0&quot;
+            To: &quot;opacity-100&quot;
+          Leaving: &quot;ease-in-out duration-300&quot;
+            From: &quot;opacity-100&quot;
+            To: &quot;opacity-0&quot;
+        --&gt;
+        &lt;div class&#x3D;&quot;absolute left-full top-0 flex w-16 justify-center pt-5&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;-m-2.5 p-2.5&quot;&gt;
+            &lt;span class&#x3D;&quot;sr-only&quot;&gt;Close sidebar&lt;/span&gt;
+            &lt;svg
+              class&#x3D;&quot;h-6 w-6 text-white&quot;
+              fill&#x3D;&quot;none&quot;
+              viewBox&#x3D;&quot;0 0 24 24&quot;
+              stroke-width&#x3D;&quot;1.5&quot;
+              stroke&#x3D;&quot;currentColor&quot;
+              aria-hidden&#x3D;&quot;true&quot;
+            &gt;
+              &lt;path
+                stroke-linecap&#x3D;&quot;round&quot;
+                stroke-linejoin&#x3D;&quot;round&quot;
+                d&#x3D;&quot;M6 18L18 6M6 6l12 12&quot;
+              /&gt;
+            &lt;/svg&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Sidebar component, swap this element with another sidebar if you like --&gt;
+        &lt;div
+          class&#x3D;&quot;flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4&quot;
+        &gt;
+          &lt;div class&#x3D;&quot;flex h-16 shrink-0 items-center&quot;&gt;&gt;&lt;/div&gt;
+          &lt;nav class&#x3D;&quot;flex flex-1 flex-col&quot;&gt;
+            &lt;ul role&#x3D;&quot;list&quot; class&#x3D;&quot;flex flex-1 flex-col gap-y-7&quot;&gt;
+              &lt;li&gt;
+                &lt;ul role&#x3D;&quot;list&quot; class&#x3D;&quot;-mx-2 space-y-1&quot;&gt;
+                  &lt;li&gt;
+                    &lt;!-- Current: &quot;bg-gray-50 text-primary&quot;, Default: &quot;text-gray-700 hover:text-primary hover:bg-secondaryLime&quot; --&gt;
+                    &lt;a
+                      href&#x3D;&quot;#&quot;
+                      class&#x3D;&quot;bg-gray-50 text-primary group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                    &gt;
+                      &lt;svg
+                        class&#x3D;&quot;h-6 w-6 shrink-0 text-primary&quot;
+                        fill&#x3D;&quot;none&quot;
+                        viewBox&#x3D;&quot;0 0 24 24&quot;
+                        stroke-width&#x3D;&quot;1.5&quot;
+                        stroke&#x3D;&quot;currentColor&quot;
+                        aria-hidden&#x3D;&quot;true&quot;
+                      &gt;
+                        &lt;path
+                          stroke-linecap&#x3D;&quot;round&quot;
+                          stroke-linejoin&#x3D;&quot;round&quot;
+                          d&#x3D;&quot;M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25&quot;
+                        /&gt;
+                      &lt;/svg&gt;
+                      Dashboard
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;a
+                      href&#x3D;&quot;#&quot;
+                      class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                    &gt;
+                      &lt;svg
+                        class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                        fill&#x3D;&quot;none&quot;
+                        viewBox&#x3D;&quot;0 0 24 24&quot;
+                        stroke-width&#x3D;&quot;1.5&quot;
+                        stroke&#x3D;&quot;currentColor&quot;
+                        aria-hidden&#x3D;&quot;true&quot;
+                      &gt;
+                        &lt;path
+                          stroke-linecap&#x3D;&quot;round&quot;
+                          stroke-linejoin&#x3D;&quot;round&quot;
+                          d&#x3D;&quot;M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z&quot;
+                        /&gt;
+                      &lt;/svg&gt;
+                      Team
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;a
+                      href&#x3D;&quot;#&quot;
+                      class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                    &gt;
+                      &lt;svg
+                        class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                        fill&#x3D;&quot;none&quot;
+                        viewBox&#x3D;&quot;0 0 24 24&quot;
+                        stroke-width&#x3D;&quot;1.5&quot;
+                        stroke&#x3D;&quot;currentColor&quot;
+                        aria-hidden&#x3D;&quot;true&quot;
+                      &gt;
+                        &lt;path
+                          stroke-linecap&#x3D;&quot;round&quot;
+                          stroke-linejoin&#x3D;&quot;round&quot;
+                          d&#x3D;&quot;M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z&quot;
+                        /&gt;
+                      &lt;/svg&gt;
+                      Projects
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+
+                  &lt;li&gt;
+                    &lt;a
+                      href&#x3D;&quot;#&quot;
+                      class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                    &gt;
+                      &lt;svg
+                        class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                        fill&#x3D;&quot;none&quot;
+                        viewBox&#x3D;&quot;0 0 24 24&quot;
+                        stroke-width&#x3D;&quot;1.5&quot;
+                        stroke&#x3D;&quot;currentColor&quot;
+                        aria-hidden&#x3D;&quot;true&quot;
+                      &gt;
+                        &lt;path
+                          stroke-linecap&#x3D;&quot;round&quot;
+                          stroke-linejoin&#x3D;&quot;round&quot;
+                          d&#x3D;&quot;M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75&quot;
+                        /&gt;
+                      &lt;/svg&gt;
+                      Documents
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;a
+                      href&#x3D;&quot;#&quot;
+                      class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                    &gt;
+                      &lt;svg
+                        class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                        fill&#x3D;&quot;none&quot;
+                        viewBox&#x3D;&quot;0 0 24 24&quot;
+                        stroke-width&#x3D;&quot;1.5&quot;
+                        stroke&#x3D;&quot;currentColor&quot;
+                        aria-hidden&#x3D;&quot;true&quot;
+                      &gt;
+                        &lt;path
+                          stroke-linecap&#x3D;&quot;round&quot;
+                          stroke-linejoin&#x3D;&quot;round&quot;
+                          d&#x3D;&quot;M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z&quot;
+                        /&gt;
+                        &lt;path
+                          stroke-linecap&#x3D;&quot;round&quot;
+                          stroke-linejoin&#x3D;&quot;round&quot;
+                          d&#x3D;&quot;M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z&quot;
+                        /&gt;
+                      &lt;/svg&gt;
+                      Reports
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;div class&#x3D;&quot;text-xs font-semibold leading-6 text-gray-400&quot;&gt;
+                  Your teams
+                &lt;/div&gt;
+                &lt;ul role&#x3D;&quot;list&quot; class&#x3D;&quot;-mx-2 mt-2 space-y-1&quot;&gt;
+                  &lt;li&gt;
+                    &lt;!-- Current: &quot;bg-gray-50 text-primary&quot;, Default: &quot;text-gray-700 hover:text-primary hover:bg-secondaryLime&quot; --&gt;
+                    &lt;a
+                      href&#x3D;&quot;#&quot;
+                      class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                    &gt;
+                      &lt;span
+                        class&#x3D;&quot;flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-primary group-hover:text-primary&quot;
+                        &gt;H&lt;/span
+                      &gt;
+                      &lt;span class&#x3D;&quot;truncate&quot;&gt;Heroicons&lt;/span&gt;
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;a
+                      href&#x3D;&quot;#&quot;
+                      class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                    &gt;
+                      &lt;span
+                        class&#x3D;&quot;flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-primary group-hover:text-primary&quot;
+                        &gt;T&lt;/span
+                      &gt;
+                      &lt;span class&#x3D;&quot;truncate&quot;&gt;Tailwind Labs&lt;/span&gt;
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;a
+                      href&#x3D;&quot;#&quot;
+                      class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                    &gt;
+                      &lt;span
+                        class&#x3D;&quot;flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-primary group-hover:text-primary&quot;
+                        &gt;W&lt;/span
+                      &gt;
+                      &lt;span class&#x3D;&quot;truncate&quot;&gt;Workcation&lt;/span&gt;
+                    &lt;/a&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li class&#x3D;&quot;mt-auto&quot;&gt;
+                &lt;a
+                  href&#x3D;&quot;#&quot;
+                  class&#x3D;&quot;group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-secondaryLime hover:text-primary&quot;
+                &gt;
+                  &lt;svg
+                    class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                    fill&#x3D;&quot;none&quot;
+                    viewBox&#x3D;&quot;0 0 24 24&quot;
+                    stroke-width&#x3D;&quot;1.5&quot;
+                    stroke&#x3D;&quot;currentColor&quot;
+                    aria-hidden&#x3D;&quot;true&quot;
+                  &gt;
+                    &lt;path
+                      stroke-linecap&#x3D;&quot;round&quot;
+                      stroke-linejoin&#x3D;&quot;round&quot;
+                      d&#x3D;&quot;M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z&quot;
+                    /&gt;
+                    &lt;path
+                      stroke-linecap&#x3D;&quot;round&quot;
+                      stroke-linejoin&#x3D;&quot;round&quot;
+                      d&#x3D;&quot;M15 12a3 3 0 11-6 0 3 3 0 016 0z&quot;
+                    /&gt;
+                  &lt;/svg&gt;
+                  Settings
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ! Static sidebar for desktop --&gt;
+  &lt;div class&#x3D;&quot;hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col&quot;&gt;
+    &lt;!-- Sidebar component, swap this element with another sidebar if you like --&gt;
+    &lt;div
+      class&#x3D;&quot;flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4&quot;
+    &gt;
+      &lt;div
+        class&#x3D;&quot;flex h-16 shrink-0 items-center text-5xl font-agrandirBold tracking-[-4px]&quot;
+      &gt;
+        Med&lt;span class&#x3D;&quot;text-primary&quot;&gt;Xpress&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;nav class&#x3D;&quot;flex flex-1 flex-col&quot;&gt;
+        &lt;ul role&#x3D;&quot;list&quot; class&#x3D;&quot;flex flex-1 flex-col gap-y-7&quot;&gt;
+          &lt;li&gt;
+            &lt;ul role&#x3D;&quot;list&quot; class&#x3D;&quot;-mx-2 space-y-1&quot;&gt;
+              &lt;li&gt;
+                &lt;!-- Current: &quot;bg-gray-50 text-primary&quot;, Default: &quot;text-gray-700 hover:text-primary hover:bg-secondaryLime&quot; --&gt;
+                &lt;a
+                  href&#x3D;&quot;#&quot;
+                  class&#x3D;&quot;hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                &gt;
+                  &lt;svg
+                    class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 hover:text-primary&quot;
+                    fill&#x3D;&quot;none&quot;
+                    viewBox&#x3D;&quot;0 0 24 24&quot;
+                    stroke-width&#x3D;&quot;1.5&quot;
+                    stroke&#x3D;&quot;currentColor&quot;
+                    aria-hidden&#x3D;&quot;true&quot;
+                  &gt;
+                    &lt;path
+                      stroke-linecap&#x3D;&quot;round&quot;
+                      stroke-linejoin&#x3D;&quot;round&quot;
+                      d&#x3D;&quot;M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25&quot;
+                    /&gt;
+                  &lt;/svg&gt;
+                  Dashboard
+                &lt;/a&gt;
+              &lt;/li&gt;
+
+              &lt;li&gt;
+                &lt;a
+                  routerLink&#x3D;&quot;/shop/dashboard/orders&quot;
+                  class&#x3D;&quot;bg-gray-50 text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                &gt;
+                  &lt;svg
+                    class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                    fill&#x3D;&quot;none&quot;
+                    viewBox&#x3D;&quot;0 0 24 24&quot;
+                    stroke-width&#x3D;&quot;1.5&quot;
+                    stroke&#x3D;&quot;currentColor&quot;
+                    aria-hidden&#x3D;&quot;true&quot;
+                  &gt;
+                    &lt;path
+                      stroke-linecap&#x3D;&quot;round&quot;
+                      stroke-linejoin&#x3D;&quot;round&quot;
+                      d&#x3D;&quot;M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5&quot;
+                    /&gt;
+                  &lt;/svg&gt;
+                  Orders
+                &lt;/a&gt;
+              &lt;/li&gt;
+
+              &lt;li&gt;
+                &lt;a
+                  routerLink&#x3D;&quot;/shop/dashboard/inventory&quot;
+                  class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                &gt;
+                  &lt;svg
+                    class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                    fill&#x3D;&quot;none&quot;
+                    viewBox&#x3D;&quot;0 0 24 24&quot;
+                    stroke-width&#x3D;&quot;1.5&quot;
+                    stroke&#x3D;&quot;currentColor&quot;
+                    aria-hidden&#x3D;&quot;true&quot;
+                  &gt;
+                    &lt;path
+                      stroke-linecap&#x3D;&quot;round&quot;
+                      stroke-linejoin&#x3D;&quot;round&quot;
+                      d&#x3D;&quot;M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75&quot;
+                    /&gt;
+                  &lt;/svg&gt;
+                  Inventory
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a
+                  href&#x3D;&quot;#&quot;
+                  class&#x3D;&quot;text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold&quot;
+                &gt;
+                  &lt;svg
+                    class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                    fill&#x3D;&quot;none&quot;
+                    viewBox&#x3D;&quot;0 0 24 24&quot;
+                    stroke-width&#x3D;&quot;1.5&quot;
+                    stroke&#x3D;&quot;currentColor&quot;
+                    aria-hidden&#x3D;&quot;true&quot;
+                  &gt;
+                    &lt;path
+                      stroke-linecap&#x3D;&quot;round&quot;
+                      stroke-linejoin&#x3D;&quot;round&quot;
+                      d&#x3D;&quot;M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z&quot;
+                    /&gt;
+                    &lt;path
+                      stroke-linecap&#x3D;&quot;round&quot;
+                      stroke-linejoin&#x3D;&quot;round&quot;
+                      d&#x3D;&quot;M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z&quot;
+                    /&gt;
+                  &lt;/svg&gt;
+                  Reports
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+
+          &lt;li class&#x3D;&quot;mt-auto&quot;&gt;
+            &lt;a
+              href&#x3D;&quot;#&quot;
+              class&#x3D;&quot;group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-secondaryLime hover:text-primary&quot;
+            &gt;
+              &lt;svg
+                class&#x3D;&quot;h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary&quot;
+                fill&#x3D;&quot;none&quot;
+                viewBox&#x3D;&quot;0 0 24 24&quot;
+                stroke-width&#x3D;&quot;1.5&quot;
+                stroke&#x3D;&quot;currentColor&quot;
+                aria-hidden&#x3D;&quot;true&quot;
+              &gt;
+                &lt;path
+                  stroke-linecap&#x3D;&quot;round&quot;
+                  stroke-linejoin&#x3D;&quot;round&quot;
+                  d&#x3D;&quot;M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z&quot;
+                /&gt;
+                &lt;path
+                  stroke-linecap&#x3D;&quot;round&quot;
+                  stroke-linejoin&#x3D;&quot;round&quot;
+                  d&#x3D;&quot;M15 12a3 3 0 11-6 0 3 3 0 016 0z&quot;
+                /&gt;
+              &lt;/svg&gt;
+              Settings
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;lg:pl-72&quot;&gt;
+    &lt;div
+      class&#x3D;&quot;sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8&quot;
+    &gt;
+      &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;-m-2.5 p-2.5 text-gray-700 lg:hidden&quot;&gt;
+        &lt;span class&#x3D;&quot;sr-only&quot;&gt;Open sidebar&lt;/span&gt;
+        &lt;svg
+          class&#x3D;&quot;h-6 w-6&quot;
+          fill&#x3D;&quot;none&quot;
+          viewBox&#x3D;&quot;0 0 24 24&quot;
+          stroke-width&#x3D;&quot;1.5&quot;
+          stroke&#x3D;&quot;currentColor&quot;
+          aria-hidden&#x3D;&quot;true&quot;
+        &gt;
+          &lt;path
+            stroke-linecap&#x3D;&quot;round&quot;
+            stroke-linejoin&#x3D;&quot;round&quot;
+            d&#x3D;&quot;M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5&quot;
+          /&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+
+      &lt;!-- Separator --&gt;
+      &lt;div class&#x3D;&quot;h-6 w-px bg-gray-200 lg:hidden&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;flex flex-1 gap-x-4 self-stretch lg:gap-x-6&quot;&gt;
+        &lt;form class&#x3D;&quot;relative flex flex-1&quot; acti method&#x3D;&quot;GET&quot;&gt;
+          &lt;label for&#x3D;&quot;search-field&quot; class&#x3D;&quot;sr-only&quot;&gt;Search&lt;/label&gt;
+          &lt;svg
+            class&#x3D;&quot;pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400&quot;
+            viewBox&#x3D;&quot;0 0 20 20&quot;
+            fill&#x3D;&quot;currentColor&quot;
+            aria-hidden&#x3D;&quot;true&quot;
+          &gt;
+            &lt;path
+              fill-rule&#x3D;&quot;evenodd&quot;
+              d&#x3D;&quot;M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z&quot;
+              clip-rule&#x3D;&quot;evenodd&quot;
+            /&gt;
+          &lt;/svg&gt;
+          &lt;input
+            id&#x3D;&quot;search-field&quot;
+            class&#x3D;&quot;block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm bg-transparent&quot;
+            placeholder&#x3D;&quot;Search...&quot;
+            type&#x3D;&quot;search&quot;
+            name&#x3D;&quot;search&quot;
+          /&gt;
+        &lt;/form&gt;
+        &lt;div class&#x3D;&quot;flex items-center gap-x-4 lg:gap-x-6&quot;&gt;
+          &lt;!-- Separator --&gt;
+          &lt;div
+            class&#x3D;&quot;hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200&quot;
+            aria-hidden&#x3D;&quot;true&quot;
+          &gt;&lt;/div&gt;
+
+          &lt;!-- Profile dropdown --&gt;
+          &lt;div class&#x3D;&quot;relative&quot;&gt;
+            &lt;button
+              type&#x3D;&quot;button&quot;
+              class&#x3D;&quot;-m-1.5 flex items-center p-1.5&quot;
+              id&#x3D;&quot;user-menu-button&quot;
+              aria-expanded&#x3D;&quot;false&quot;
+              aria-haspopup&#x3D;&quot;true&quot;
+            &gt;
+              &lt;span class&#x3D;&quot;sr-only&quot;&gt;Open user menu&lt;/span&gt;
+              &lt;div&gt;
+                &lt;svg
+                  width&#x3D;&quot;16&quot;
+                  height&#x3D;&quot;22&quot;
+                  viewBox&#x3D;&quot;0 0 16 22&quot;
+                  fill&#x3D;&quot;none&quot;
+                  xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                &gt;
+                  &lt;path
+                    d&#x3D;&quot;M7.88049 9.95508C7.77953 9.94499 7.65838 9.94499 7.54733 9.95508C5.14446 9.87432 3.23633 7.90561 3.23633 5.48259C3.23633 3.00909 5.23532 1 7.71896 1C10.1925 1 12.2015 3.00909 12.2015 5.48259C12.1915 7.90561 10.2833 9.87432 7.88049 9.95508Z&quot;
+                    stroke&#x3D;&quot;black&quot;
+                    stroke-linecap&#x3D;&quot;round&quot;
+                    stroke-linejoin&#x3D;&quot;round&quot;
+                  /&gt;
+                  &lt;path
+                    d&#x3D;&quot;M2.83241 13.6803C0.389197 15.3159 0.389197 17.9812 2.83241 19.6066C5.60879 21.4643 10.1621 21.4643 12.9385 19.6066C15.3817 17.9711 15.3817 15.3058 12.9385 13.6803C10.1722 11.8328 5.61888 11.8328 2.83241 13.6803Z&quot;
+                    stroke&#x3D;&quot;black&quot;
+                    stroke-linecap&#x3D;&quot;round&quot;
+                    stroke-linejoin&#x3D;&quot;round&quot;
+                  /&gt;
+                &lt;/svg&gt;
+              &lt;/div&gt;
+
+              &lt;span
+                class&#x3D;&quot;hidden lg:flex lg:items-center&quot;
+                (click)&#x3D;&quot;showProfileDropDown &#x3D; !showProfileDropDown&quot;
+              &gt;
+                &lt;span
+                  class&#x3D;&quot;ml-4 text-sm font-semibold leading-6 text-gray-900&quot;
+                  aria-hidden&#x3D;&quot;true&quot;
+                  &gt;Ariful Islam&lt;/span
+                &gt;
+                &lt;svg
+                  class&#x3D;&quot;ml-2 h-5 w-5 text-gray-400&quot;
+                  viewBox&#x3D;&quot;0 0 20 20&quot;
+                  fill&#x3D;&quot;currentColor&quot;
+                  aria-hidden&#x3D;&quot;true&quot;
+                &gt;
+                  &lt;path
+                    fill-rule&#x3D;&quot;evenodd&quot;
+                    d&#x3D;&quot;M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z&quot;
+                    clip-rule&#x3D;&quot;evenodd&quot;
+                  /&gt;
+                &lt;/svg&gt;
+              &lt;/span&gt;
+            &lt;/button&gt;
+
+            &lt;!--
+              Dropdown menu, show/hide based on menu state.
+
+              Entering: &quot;transition ease-out duration-100&quot;
+                From: &quot;transform opacity-0 scale-95&quot;
+                To: &quot;transform opacity-100 scale-100&quot;
+              Leaving: &quot;transition ease-in duration-75&quot;
+                From: &quot;transform opacity-100 scale-100&quot;
+                To: &quot;transform opacity-0 scale-95&quot;
+            --&gt;
+            &lt;div
+              *ngIf&#x3D;&quot;showProfileDropDown&quot;
+              class&#x3D;&quot;absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none&quot;
+              role&#x3D;&quot;menu&quot;
+              aria-orientati
+              aria-labelledby&#x3D;&quot;user-menu-button&quot;
+              tabindex&#x3D;&quot;-1&quot;
+            &gt;
+              &lt;!-- Active: &quot;bg-gray-50&quot;, Not Active: &quot;&quot; --&gt;
+              &lt;a
+                href&#x3D;&quot;#&quot;
+                class&#x3D;&quot;block px-3 py-1 text-sm leading-6 text-gray-900&quot;
+                role&#x3D;&quot;menuitem&quot;
+                tabindex&#x3D;&quot;-1&quot;
+                id&#x3D;&quot;user-menu-item-0&quot;
+                &gt;Your profile&lt;/a
+              &gt;
+              &lt;a
+                href&#x3D;&quot;#&quot;
+                class&#x3D;&quot;block px-3 py-1 text-sm leading-6 text-gray-900&quot;
+                role&#x3D;&quot;menuitem&quot;
+                tabindex&#x3D;&quot;-1&quot;
+                id&#x3D;&quot;user-menu-item-1&quot;
+                &gt;Sign out&lt;/a
+              &gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;main class&#x3D;&quot;py-10&quot;&gt;
+      &lt;div class&#x3D;&quot;px-4 sm:px-6 lg:px-8&quot;&gt;
+        &lt;!-- ! Your content --&gt;
+
+        &lt;!-- Cards --&gt;
+
+        &lt;div
+          class&#x3D;&quot;grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3&quot;
+        &gt;
+          &lt;div
+            class&#x3D;&quot;relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out&quot;
+            style&#x3D;&quot;
+              background-image: url(&#x27;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f868ecef-4b4a-4ddf-8239-83b2568b3a6b/de7hhu3-3eae646a-9b2e-4e42-84a4-532bff43f397.jpg?token&#x3D;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y4NjhlY2VmLTRiNGEtNGRkZi04MjM5LTgzYjI1NjhiM2E2YlwvZGU3aGh1My0zZWFlNjQ2YS05YjJlLTRlNDItODRhNC01MzJiZmY0M2YzOTcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.R0h-BS0osJSrsb1iws4-KE43bUXHMFvu5PvNfoaoi8o&#x27;);
+            &quot;
+          &gt;
+            &lt;div
+              class&#x3D;&quot;absolute inset-0 bg-pink-900 bg-opacity-75 transition duration-300 ease-in-out&quot;
+            &gt;&lt;/div&gt;
+            &lt;div
+              class&#x3D;&quot;relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center&quot;
+            &gt;
+              &lt;div&gt;
+                &lt;h3 class&#x3D;&quot;text-center text-white text-lg&quot;&gt;Total Orders&lt;/h3&gt;
+                &lt;h3 class&#x3D;&quot;text-center text-white text-3xl mt-2 font-bold&quot;&gt;
+                  {{ allOrders.length }}
+                &lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out&quot;
+            style&#x3D;&quot;
+              background-image: url(&#x27;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f868ecef-4b4a-4ddf-8239-83b2568b3a6b/de7hhu3-3eae646a-9b2e-4e42-84a4-532bff43f397.jpg?token&#x3D;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y4NjhlY2VmLTRiNGEtNGRkZi04MjM5LTgzYjI1NjhiM2E2YlwvZGU3aGh1My0zZWFlNjQ2YS05YjJlLTRlNDItODRhNC01MzJiZmY0M2YzOTcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.R0h-BS0osJSrsb1iws4-KE43bUXHMFvu5PvNfoaoi8o&#x27;);
+            &quot;
+          &gt;
+            &lt;div
+              class&#x3D;&quot;absolute inset-0 bg-emerald-900 bg-opacity-75 transition duration-300 ease-in-out&quot;
+            &gt;&lt;/div&gt;
+            &lt;div
+              class&#x3D;&quot;relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center&quot;
+            &gt;
+              &lt;div&gt;
+                &lt;h3 class&#x3D;&quot;text-center text-white text-lg&quot;&gt;Pending Orders&lt;/h3&gt;
+                &lt;h3 class&#x3D;&quot;text-center text-white text-3xl mt-2 font-bold&quot;&gt;
+                  {{ totalPendingStatus }}
+                &lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div
+            class&#x3D;&quot;relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out&quot;
+            style&#x3D;&quot;
+              background-image: url(&#x27;https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f868ecef-4b4a-4ddf-8239-83b2568b3a6b/de7hhu3-3eae646a-9b2e-4e42-84a4-532bff43f397.jpg?token&#x3D;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y4NjhlY2VmLTRiNGEtNGRkZi04MjM5LTgzYjI1NjhiM2E2YlwvZGU3aGh1My0zZWFlNjQ2YS05YjJlLTRlNDItODRhNC01MzJiZmY0M2YzOTcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.R0h-BS0osJSrsb1iws4-KE43bUXHMFvu5PvNfoaoi8o&#x27;);
+            &quot;
+          &gt;
+            &lt;div
+              class&#x3D;&quot;absolute inset-0 bg-primary bg-opacity-75 transition duration-300 ease-in-out&quot;
+            &gt;&lt;/div&gt;
+            &lt;div
+              class&#x3D;&quot;relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center&quot;
+            &gt;
+              &lt;div&gt;
+                &lt;h3 class&#x3D;&quot;text-center text-white text-lg&quot;&gt;Total Earning&lt;/h3&gt;
+                &lt;h3 class&#x3D;&quot;text-center text-white text-3xl mt-2 font-bold&quot;&gt;
+                  {{ totalEarnings | takaCurrency }}
+                &lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Table --&gt;
+
+        &lt;div class&#x3D;&quot;px-4 sm:px-6 lg:px-8 mt-5&quot;&gt;
+          &lt;div class&#x3D;&quot;sm:flex sm:items-center&quot;&gt;
+            &lt;div class&#x3D;&quot;sm:flex-auto&quot;&gt;
+              &lt;h1 class&#x3D;&quot;text-base font-semibold leading-6 text-gray-900 mt-5&quot;&gt;
+                Orders
+              &lt;/h1&gt;
+              &lt;p class&#x3D;&quot;mt-2 text-sm text-gray-700&quot;&gt;A list of all orders.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;mt-4 sm:ml-16 sm:mt-0 sm:flex-none&quot;&gt;
+              &lt;button
+                type&#x3D;&quot;button&quot;
+                class&#x3D;&quot;btn btn-primary&quot;
+                (click)&#x3D;&quot;handleAddNewOrderClick()&quot;
+              &gt;
+                Add New Order
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;mt-8 flow-root&quot;&gt;
+            &lt;div class&#x3D;&quot;-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8&quot;&gt;
+              &lt;div
+                class&#x3D;&quot;inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8&quot;
+              &gt;
+                &lt;!-- ! ORDER TABLE --&gt;
+                &lt;table class&#x3D;&quot;min-w-full divide-y divide-gray-300&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;th
+                        scope&#x3D;&quot;col&quot;
+                        class&#x3D;&quot;py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0&quot;
+                      &gt;
+                        Order ID
+                      &lt;/th&gt;
+                      &lt;th
+                        scope&#x3D;&quot;col&quot;
+                        class&#x3D;&quot;px-3 py-3.5 text-left text-sm font-semibold text-gray-900&quot;
+                      &gt;
+                        Address
+                      &lt;/th&gt;
+                      &lt;th
+                        scope&#x3D;&quot;col&quot;
+                        class&#x3D;&quot;px-3 py-3.5 text-left text-sm font-semibold text-gray-900&quot;
+                      &gt;
+                        Total Price
+                      &lt;/th&gt;
+                      &lt;th
+                        scope&#x3D;&quot;col&quot;
+                        class&#x3D;&quot;px-3 py-3.5 text-left text-sm font-semibold text-gray-900&quot;
+                      &gt;
+                        Status
+                      &lt;/th&gt;
+                      &lt;th
+                        scope&#x3D;&quot;col&quot;
+                        class&#x3D;&quot;px-3 py-3.5 text-left text-sm font-semibold text-gray-900&quot;
+                      &gt;
+                        Details
+                      &lt;/th&gt;
+                      &lt;th scope&#x3D;&quot;col&quot; class&#x3D;&quot;relative py-3.5 pl-3 pr-4 sm:pr-0&quot;&gt;
+                        Edit
+                        &lt;span class&#x3D;&quot;sr-only&quot;&gt;Edit&lt;/span&gt;
+                      &lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                  &lt;tbody class&#x3D;&quot;divide-y divide-gray-200 bg-white&quot;&gt;
+                    &lt;tr *ngFor&#x3D;&quot;let order of allOrders&quot;&gt;
+                      &lt;td
+                        class&#x3D;&quot;whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0&quot;
+                      &gt;
+                        &lt;div class&#x3D;&quot;flex items-center&quot;&gt;
+                          &lt;div class&#x3D;&quot;ml-4&quot;&gt;
+                            &lt;div class&#x3D;&quot;font-medium text-gray-900&quot;&gt;
+                              &lt;span aria-disabled&#x3D;&quot;true&quot; class&#x3D;&quot;disabled&quot;
+                                &gt;#&lt;/span
+                              &gt;{{ order._id }}
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/td&gt;
+                      &lt;td
+                        class&#x3D;&quot;whitespace-nowrap px-3 py-5 text-sm text-gray-500&quot;
+                      &gt;
+                        &lt;div class&#x3D;&quot;text-gray-900&quot;&gt;
+                          {{ order.deliveryAddress }}
+                        &lt;/div&gt;
+                      &lt;/td&gt;
+                      &lt;td
+                        class&#x3D;&quot;whitespace-nowrap px-3 py-5 text-sm text-gray-500&quot;
+                      &gt;
+                        &lt;span
+                          class&#x3D;&quot;inline-flex items-center rounded-md px-2 py-1&quot;
+                          &gt;{{ getTotalPrice(order.items) | takaCurrency }}&lt;/span
+                        &gt;
+                      &lt;/td&gt;
+                      &lt;td
+                        class&#x3D;&quot;whitespace-nowrap px-3 py-5 text-sm text-gray-500&quot;
+                      &gt;
+                        &lt;span
+                          class&#x3D;&quot;inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20&quot;
+                          *ngIf&#x3D;&quot;order.orderStatus &#x3D;&#x3D;&#x3D; &#x27;CANCELED&#x27;&quot;
+                          &gt;{{ order.orderStatus }}&lt;/span
+                        &gt;
+                        &lt;span
+                          class&#x3D;&quot;inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-600/20&quot;
+                          *ngIf&#x3D;&quot;order.orderStatus &#x3D;&#x3D;&#x3D; &#x27;PENDING&#x27;&quot;
+                          &gt;{{ order.orderStatus }}&lt;/span
+                        &gt;
+                        &lt;span
+                          class&#x3D;&quot;inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20&quot;
+                          *ngIf&#x3D;&quot;order.orderStatus &#x3D;&#x3D;&#x3D; &#x27;COMPLETED&#x27;&quot;
+                          &gt;{{ order.orderStatus }}&lt;/span
+                        &gt;
+                      &lt;/td&gt;
+                      &lt;td
+                        class&#x3D;&quot;whitespace-nowrap px-3 py-5 text-sm text-gray-500&quot;
+                      &gt;
+                        &lt;button
+                          class&#x3D;&quot;btn btn-primary btn-xs&quot;
+                          (click)&#x3D;&quot;handleOrderAllItemBtnClick(order._id)&quot;
+                        &gt;
+                          See Details
+                        &lt;/button&gt;
+                      &lt;/td&gt;
+                      &lt;td
+                        class&#x3D;&quot;relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0&quot;
+                      &gt;
+                        &lt;button
+                          class&#x3D;&quot;btn btn-sm text-primary border-primary bg-transparent hover:bg-secondaryLimeHover hover:border-primary&quot;
+                          (click)&#x3D;&quot;handleOrderUpdateBtnClick(order._id)&quot;
+                        &gt;
+                          Update Status
+                        &lt;/button&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+
+                    &lt;!-- More people... --&gt;
+                  &lt;/tbody&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- ! Order Status Modal --&gt;
+&lt;dialog id&#x3D;&quot;orderModal&quot; class&#x3D;&quot;modal&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-box&quot;&gt;
+    &lt;form method&#x3D;&quot;dialog&quot;&gt;
+      &lt;button
+        class&#x3D;&quot;btn btn-sm btn-circle btn-ghost absolute right-2 top-2&quot;
+        (click)&#x3D;&quot;closeOrderModal()&quot;
+      &gt;
+        ✕
+      &lt;/button&gt;
+    &lt;/form&gt;
+    &lt;div *ngIf&#x3D;&quot;orderDetails&quot;&gt;
+      &lt;div&gt;
+        &lt;div class&#x3D;&quot;form-control&quot;&gt;
+          &lt;h1 class&#x3D;&quot;text-center mb-2&quot;&gt;Order #{{ orderDetails._id }}&lt;/h1&gt;
+          &lt;div
+            class&#x3D;&quot;input-group&quot;
+            class&#x3D;&quot;flex gap-5 justify-center items-center&quot;
+          &gt;
+            &lt;select
+              class&#x3D;&quot;select select-primary select-bordered&quot;
+              (change)&#x3D;&quot;onStatusChange($event)&quot;
+            &gt;
+              &lt;option disabled&gt;Order Status&lt;/option&gt;
+              &lt;option value&#x3D;&quot;PENDING&quot;&gt;PENDING&lt;/option&gt;
+              &lt;option value&#x3D;&quot;COMPLETED&quot;&gt;COMPLETED&lt;/option&gt;
+              &lt;option value&#x3D;&quot;CANCELED&quot;&gt;CANCELED&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;handleStatusUpdateClick()&quot;&gt;
+              Update
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;
+
+&lt;!-- ! Order All Item Modal --&gt;
+&lt;dialog id&#x3D;&quot;orderAllItemModal&quot; class&#x3D;&quot;modal&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-box&quot;&gt;
+    &lt;form method&#x3D;&quot;dialog&quot;&gt;
+      &lt;button
+        class&#x3D;&quot;btn btn-sm btn-circle btn-ghost absolute right-2 top-2&quot;
+        (click)&#x3D;&quot;closeOrderAllItemModal()&quot;
+      &gt;
+        ✕
+      &lt;/button&gt;
+    &lt;/form&gt;
+    &lt;div *ngIf&#x3D;&quot;orderDetails&quot;&gt;
+      &lt;div&gt;
+        &lt;div class&#x3D;&quot;form-control&quot;&gt;
+          &lt;h1 class&#x3D;&quot;text-center mb-2&quot;&gt;Order #{{ orderDetails._id }}&lt;/h1&gt;
+          &lt;ul class&#x3D;&quot;flex flex-col justify-center items-start w-full gap-2&quot;&gt;
+            &lt;li
+              *ngFor&#x3D;&quot;let item of orderDetails.items&quot;
+              class&#x3D;&quot;border-2 border-solid bg-secondaryLimeHover rounded w-full p-2 flex justify-between items-center&quot;
+            &gt;
+              &lt;div&gt;
+                &lt;p&gt;Name: {{ item.name }}&lt;/p&gt;
+                &lt;p&gt;Quantity: {{ item.quantity }}&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;p&gt;Total: {{ item.totalAmount | takaCurrency }}&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./shop-orders.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!--  This example requires some changes to your config:    ```  // tailwind.config.js  module.exports = {    // ...    plugins: [      // ...      require(\'@tailwindcss/forms\'),    ],  }  ```--><!--  This example requires updating your template:  ```  <html class="h-full bg-white">  <body class="h-full">  ```--><div>  <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->  <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">    <!--      Off-canvas menu backdrop, show/hide based on off-canvas menu state.      Entering: "transition-opacity ease-linear duration-300"        From: "opacity-0"        To: "opacity-100"      Leaving: "transition-opacity ease-linear duration-300"        From: "opacity-100"        To: "opacity-0"    -->    <div class="fixed inset-0 bg-gray-900/80"></div>    <div class="fixed inset-0 flex">      <!--        Off-canvas menu, show/hide based on off-canvas menu state.        Entering: "transition ease-in-out duration-300 transform"          From: "-translate-x-full"          To: "translate-x-0"        Leaving: "transition ease-in-out duration-300 transform"          From: "translate-x-0"          To: "-translate-x-full"      -->      <div class="relative mr-16 flex w-full max-w-xs flex-1">        <!--          Close button, show/hide based on off-canvas menu state.          Entering: "ease-in-out duration-300"            From: "opacity-0"            To: "opacity-100"          Leaving: "ease-in-out duration-300"            From: "opacity-100"            To: "opacity-0"        -->        <div class="absolute left-full top-0 flex w-16 justify-center pt-5">          <button type="button" class="-m-2.5 p-2.5">            <span class="sr-only">Close sidebar</span>            <svg              class="h-6 w-6 text-white"              fill="none"              viewBox="0 0 24 24"              stroke-width="1.5"              stroke="currentColor"              aria-hidden="true"            >              <path                stroke-linecap="round"                stroke-linejoin="round"                d="M6 18L18 6M6 6l12 12"              />            </svg>          </button>        </div>        <!-- Sidebar component, swap this element with another sidebar if you like -->        <div          class="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4"        >          <div class="flex h-16 shrink-0 items-center">></div>          <nav class="flex flex-1 flex-col">            <ul role="list" class="flex flex-1 flex-col gap-y-7">              <li>                <ul role="list" class="-mx-2 space-y-1">                  <li>                    <!-- Current: "bg-gray-50 text-primary", Default: "text-gray-700 hover:text-primary hover:bg-secondaryLime" -->                    <a                      href="#"                      class="bg-gray-50 text-primary group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                    >                      <svg                        class="h-6 w-6 shrink-0 text-primary"                        fill="none"                        viewBox="0 0 24 24"                        stroke-width="1.5"                        stroke="currentColor"                        aria-hidden="true"                      >                        <path                          stroke-linecap="round"                          stroke-linejoin="round"                          d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"                        />                      </svg>                      Dashboard                    </a>                  </li>                  <li>                    <a                      href="#"                      class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                    >                      <svg                        class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                        fill="none"                        viewBox="0 0 24 24"                        stroke-width="1.5"                        stroke="currentColor"                        aria-hidden="true"                      >                        <path                          stroke-linecap="round"                          stroke-linejoin="round"                          d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"                        />                      </svg>                      Team                    </a>                  </li>                  <li>                    <a                      href="#"                      class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                    >                      <svg                        class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                        fill="none"                        viewBox="0 0 24 24"                        stroke-width="1.5"                        stroke="currentColor"                        aria-hidden="true"                      >                        <path                          stroke-linecap="round"                          stroke-linejoin="round"                          d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"                        />                      </svg>                      Projects                    </a>                  </li>                  <li>                    <a                      href="#"                      class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                    >                      <svg                        class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                        fill="none"                        viewBox="0 0 24 24"                        stroke-width="1.5"                        stroke="currentColor"                        aria-hidden="true"                      >                        <path                          stroke-linecap="round"                          stroke-linejoin="round"                          d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"                        />                      </svg>                      Documents                    </a>                  </li>                  <li>                    <a                      href="#"                      class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                    >                      <svg                        class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                        fill="none"                        viewBox="0 0 24 24"                        stroke-width="1.5"                        stroke="currentColor"                        aria-hidden="true"                      >                        <path                          stroke-linecap="round"                          stroke-linejoin="round"                          d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"                        />                        <path                          stroke-linecap="round"                          stroke-linejoin="round"                          d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"                        />                      </svg>                      Reports                    </a>                  </li>                </ul>              </li>              <li>                <div class="text-xs font-semibold leading-6 text-gray-400">                  Your teams                </div>                <ul role="list" class="-mx-2 mt-2 space-y-1">                  <li>                    <!-- Current: "bg-gray-50 text-primary", Default: "text-gray-700 hover:text-primary hover:bg-secondaryLime" -->                    <a                      href="#"                      class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                    >                      <span                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-primary group-hover:text-primary"                        >H</span                      >                      <span class="truncate">Heroicons</span>                    </a>                  </li>                  <li>                    <a                      href="#"                      class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                    >                      <span                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-primary group-hover:text-primary"                        >T</span                      >                      <span class="truncate">Tailwind Labs</span>                    </a>                  </li>                  <li>                    <a                      href="#"                      class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                    >                      <span                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-primary group-hover:text-primary"                        >W</span                      >                      <span class="truncate">Workcation</span>                    </a>                  </li>                </ul>              </li>              <li class="mt-auto">                <a                  href="#"                  class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-secondaryLime hover:text-primary"                >                  <svg                    class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                    fill="none"                    viewBox="0 0 24 24"                    stroke-width="1.5"                    stroke="currentColor"                    aria-hidden="true"                  >                    <path                      stroke-linecap="round"                      stroke-linejoin="round"                      d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"                    />                    <path                      stroke-linecap="round"                      stroke-linejoin="round"                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"                    />                  </svg>                  Settings                </a>              </li>            </ul>          </nav>        </div>      </div>    </div>  </div>  <!-- ! Static sidebar for desktop -->  <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">    <!-- Sidebar component, swap this element with another sidebar if you like -->    <div      class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4"    >      <div        class="flex h-16 shrink-0 items-center text-5xl font-agrandirBold tracking-[-4px]"      >        Med<span class="text-primary">Xpress</span>      </div>      <nav class="flex flex-1 flex-col">        <ul role="list" class="flex flex-1 flex-col gap-y-7">          <li>            <ul role="list" class="-mx-2 space-y-1">              <li>                <!-- Current: "bg-gray-50 text-primary", Default: "text-gray-700 hover:text-primary hover:bg-secondaryLime" -->                <a                  href="#"                  class="hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                >                  <svg                    class="h-6 w-6 shrink-0 text-gray-400 hover:text-primary"                    fill="none"                    viewBox="0 0 24 24"                    stroke-width="1.5"                    stroke="currentColor"                    aria-hidden="true"                  >                    <path                      stroke-linecap="round"                      stroke-linejoin="round"                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"                    />                  </svg>                  Dashboard                </a>              </li>              <li>                <a                  routerLink="/shop/dashboard/orders"                  class="bg-gray-50 text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                >                  <svg                    class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                    fill="none"                    viewBox="0 0 24 24"                    stroke-width="1.5"                    stroke="currentColor"                    aria-hidden="true"                  >                    <path                      stroke-linecap="round"                      stroke-linejoin="round"                      d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"                    />                  </svg>                  Orders                </a>              </li>              <li>                <a                  routerLink="/shop/dashboard/inventory"                  class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                >                  <svg                    class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                    fill="none"                    viewBox="0 0 24 24"                    stroke-width="1.5"                    stroke="currentColor"                    aria-hidden="true"                  >                    <path                      stroke-linecap="round"                      stroke-linejoin="round"                      d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"                    />                  </svg>                  Inventory                </a>              </li>              <li>                <a                  href="#"                  class="text-gray-700 hover:text-primary hover:bg-secondaryLime group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"                >                  <svg                    class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                    fill="none"                    viewBox="0 0 24 24"                    stroke-width="1.5"                    stroke="currentColor"                    aria-hidden="true"                  >                    <path                      stroke-linecap="round"                      stroke-linejoin="round"                      d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"                    />                    <path                      stroke-linecap="round"                      stroke-linejoin="round"                      d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"                    />                  </svg>                  Reports                </a>              </li>            </ul>          </li>          <li class="mt-auto">            <a              href="#"              class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-secondaryLime hover:text-primary"            >              <svg                class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-primary"                fill="none"                viewBox="0 0 24 24"                stroke-width="1.5"                stroke="currentColor"                aria-hidden="true"              >                <path                  stroke-linecap="round"                  stroke-linejoin="round"                  d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"                />                <path                  stroke-linecap="round"                  stroke-linejoin="round"                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"                />              </svg>              Settings            </a>          </li>        </ul>      </nav>    </div>  </div>  <div class="lg:pl-72">    <div      class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8"    >      <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden">        <span class="sr-only">Open sidebar</span>        <svg          class="h-6 w-6"          fill="none"          viewBox="0 0 24 24"          stroke-width="1.5"          stroke="currentColor"          aria-hidden="true"        >          <path            stroke-linecap="round"            stroke-linejoin="round"            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"          />        </svg>      </button>      <!-- Separator -->      <div class="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true"></div>      <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">        <form class="relative flex flex-1" acti method="GET">          <label for="search-field" class="sr-only">Search</label>          <svg            class="pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400"            viewBox="0 0 20 20"            fill="currentColor"            aria-hidden="true"          >            <path              fill-rule="evenodd"              d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"              clip-rule="evenodd"            />          </svg>          <input            id="search-field"            class="block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm bg-transparent"            placeholder="Search..."            type="search"            name="search"          />        </form>        <div class="flex items-center gap-x-4 lg:gap-x-6">          <!-- Separator -->          <div            class="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"            aria-hidden="true"          ></div>          <!-- Profile dropdown -->          <div class="relative">            <button              type="button"              class="-m-1.5 flex items-center p-1.5"              id="user-menu-button"              aria-expanded="false"              aria-haspopup="true"            >              <span class="sr-only">Open user menu</span>              <div>                <svg                  width="16"                  height="22"                  viewBox="0 0 16 22"                  fill="none"                  xmlns="http://www.w3.org/2000/svg"                >                  <path                    d="M7.88049 9.95508C7.77953 9.94499 7.65838 9.94499 7.54733 9.95508C5.14446 9.87432 3.23633 7.90561 3.23633 5.48259C3.23633 3.00909 5.23532 1 7.71896 1C10.1925 1 12.2015 3.00909 12.2015 5.48259C12.1915 7.90561 10.2833 9.87432 7.88049 9.95508Z"                    stroke="black"                    stroke-linecap="round"                    stroke-linejoin="round"                  />                  <path                    d="M2.83241 13.6803C0.389197 15.3159 0.389197 17.9812 2.83241 19.6066C5.60879 21.4643 10.1621 21.4643 12.9385 19.6066C15.3817 17.9711 15.3817 15.3058 12.9385 13.6803C10.1722 11.8328 5.61888 11.8328 2.83241 13.6803Z"                    stroke="black"                    stroke-linecap="round"                    stroke-linejoin="round"                  />                </svg>              </div>              <span                class="hidden lg:flex lg:items-center"                (click)="showProfileDropDown = !showProfileDropDown"              >                <span                  class="ml-4 text-sm font-semibold leading-6 text-gray-900"                  aria-hidden="true"                  >Ariful Islam</span                >                <svg                  class="ml-2 h-5 w-5 text-gray-400"                  viewBox="0 0 20 20"                  fill="currentColor"                  aria-hidden="true"                >                  <path                    fill-rule="evenodd"                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"                    clip-rule="evenodd"                  />                </svg>              </span>            </button>            <!--              Dropdown menu, show/hide based on menu state.              Entering: "transition ease-out duration-100"                From: "transform opacity-0 scale-95"                To: "transform opacity-100 scale-100"              Leaving: "transition ease-in duration-75"                From: "transform opacity-100 scale-100"                To: "transform opacity-0 scale-95"            -->            <div              *ngIf="showProfileDropDown"              class="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"              role="menu"              aria-orientati              aria-labelledby="user-menu-button"              tabindex="-1"            >              <!-- Active: "bg-gray-50", Not Active: "" -->              <a                href="#"                class="block px-3 py-1 text-sm leading-6 text-gray-900"                role="menuitem"                tabindex="-1"                id="user-menu-item-0"                >Your profile</a              >              <a                href="#"                class="block px-3 py-1 text-sm leading-6 text-gray-900"                role="menuitem"                tabindex="-1"                id="user-menu-item-1"                >Sign out</a              >            </div>          </div>        </div>      </div>    </div>    <main class="py-10">      <div class="px-4 sm:px-6 lg:px-8">        <!-- ! Your content -->        <!-- Cards -->        <div          class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3"        >          <div            class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"            style="              background-image: url(\'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f868ecef-4b4a-4ddf-8239-83b2568b3a6b/de7hhu3-3eae646a-9b2e-4e42-84a4-532bff43f397.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y4NjhlY2VmLTRiNGEtNGRkZi04MjM5LTgzYjI1NjhiM2E2YlwvZGU3aGh1My0zZWFlNjQ2YS05YjJlLTRlNDItODRhNC01MzJiZmY0M2YzOTcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.R0h-BS0osJSrsb1iws4-KE43bUXHMFvu5PvNfoaoi8o\');            "          >            <div              class="absolute inset-0 bg-pink-900 bg-opacity-75 transition duration-300 ease-in-out"            ></div>            <div              class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center"            >              <div>                <h3 class="text-center text-white text-lg">Total Orders</h3>                <h3 class="text-center text-white text-3xl mt-2 font-bold">                  {{ allOrders.length }}                </h3>              </div>            </div>          </div>          <div            class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"            style="              background-image: url(\'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f868ecef-4b4a-4ddf-8239-83b2568b3a6b/de7hhu3-3eae646a-9b2e-4e42-84a4-532bff43f397.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y4NjhlY2VmLTRiNGEtNGRkZi04MjM5LTgzYjI1NjhiM2E2YlwvZGU3aGh1My0zZWFlNjQ2YS05YjJlLTRlNDItODRhNC01MzJiZmY0M2YzOTcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.R0h-BS0osJSrsb1iws4-KE43bUXHMFvu5PvNfoaoi8o\');            "          >            <div              class="absolute inset-0 bg-emerald-900 bg-opacity-75 transition duration-300 ease-in-out"            ></div>            <div              class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center"            >              <div>                <h3 class="text-center text-white text-lg">Pending Orders</h3>                <h3 class="text-center text-white text-3xl mt-2 font-bold">                  {{ totalPendingStatus }}                </h3>              </div>            </div>          </div>          <div            class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out"            style="              background-image: url(\'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f868ecef-4b4a-4ddf-8239-83b2568b3a6b/de7hhu3-3eae646a-9b2e-4e42-84a4-532bff43f397.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y4NjhlY2VmLTRiNGEtNGRkZi04MjM5LTgzYjI1NjhiM2E2YlwvZGU3aGh1My0zZWFlNjQ2YS05YjJlLTRlNDItODRhNC01MzJiZmY0M2YzOTcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.R0h-BS0osJSrsb1iws4-KE43bUXHMFvu5PvNfoaoi8o\');            "          >            <div              class="absolute inset-0 bg-primary bg-opacity-75 transition duration-300 ease-in-out"            ></div>            <div              class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center"            >              <div>                <h3 class="text-center text-white text-lg">Total Earning</h3>                <h3 class="text-center text-white text-3xl mt-2 font-bold">                  {{ totalEarnings | takaCurrency }}                </h3>              </div>            </div>          </div>        </div>        <!-- Table -->        <div class="px-4 sm:px-6 lg:px-8 mt-5">          <div class="sm:flex sm:items-center">            <div class="sm:flex-auto">              <h1 class="text-base font-semibold leading-6 text-gray-900 mt-5">                Orders              </h1>              <p class="mt-2 text-sm text-gray-700">A list of all orders.</p>            </div>            <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">              <button                type="button"                class="btn btn-primary"                (click)="handleAddNewOrderClick()"              >                Add New Order              </button>            </div>          </div>          <div class="mt-8 flow-root">            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">              <div                class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8"              >                <!-- ! ORDER TABLE -->                <table class="min-w-full divide-y divide-gray-300">                  <thead>                    <tr>                      <th                        scope="col"                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"                      >                        Order ID                      </th>                      <th                        scope="col"                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"                      >                        Address                      </th>                      <th                        scope="col"                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"                      >                        Total Price                      </th>                      <th                        scope="col"                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"                      >                        Status                      </th>                      <th                        scope="col"                        class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"                      >                        Details                      </th>                      <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">                        Edit                        <span class="sr-only">Edit</span>                      </th>                    </tr>                  </thead>                  <tbody class="divide-y divide-gray-200 bg-white">                    <tr *ngFor="let order of allOrders">                      <td                        class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0"                      >                        <div class="flex items-center">                          <div class="ml-4">                            <div class="font-medium text-gray-900">                              <span aria-disabled="true" class="disabled"                                >#</span                              >{{ order._id }}                            </div>                          </div>                        </div>                      </td>                      <td                        class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"                      >                        <div class="text-gray-900">                          {{ order.deliveryAddress }}                        </div>                      </td>                      <td                        class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"                      >                        <span                          class="inline-flex items-center rounded-md px-2 py-1"                          >{{ getTotalPrice(order.items) | takaCurrency }}</span                        >                      </td>                      <td                        class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"                      >                        <span                          class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/20"                          *ngIf="order.orderStatus === \'CANCELED\'"                          >{{ order.orderStatus }}</span                        >                        <span                          class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-600/20"                          *ngIf="order.orderStatus === \'PENDING\'"                          >{{ order.orderStatus }}</span                        >                        <span                          class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20"                          *ngIf="order.orderStatus === \'COMPLETED\'"                          >{{ order.orderStatus }}</span                        >                      </td>                      <td                        class="whitespace-nowrap px-3 py-5 text-sm text-gray-500"                      >                        <button                          class="btn btn-primary btn-xs"                          (click)="handleOrderAllItemBtnClick(order._id)"                        >                          See Details                        </button>                      </td>                      <td                        class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"                      >                        <button                          class="btn btn-sm text-primary border-primary bg-transparent hover:bg-secondaryLimeHover hover:border-primary"                          (click)="handleOrderUpdateBtnClick(order._id)"                        >                          Update Status                        </button>                      </td>                    </tr>                    <!-- More people... -->                  </tbody>                </table>              </div>            </div>          </div>        </div>      </div>    </main>  </div></div><!-- ! Order Status Modal --><dialog id="orderModal" class="modal">  <div class="modal-box">    <form method="dialog">      <button        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"        (click)="closeOrderModal()"      >        ✕      </button>    </form>    <div *ngIf="orderDetails">      <div>        <div class="form-control">          <h1 class="text-center mb-2">Order #{{ orderDetails._id }}</h1>          <div            class="input-group"            class="flex gap-5 justify-center items-center"          >            <select              class="select select-primary select-bordered"              (change)="onStatusChange($event)"            >              <option disabled>Order Status</option>              <option value="PENDING">PENDING</option>              <option value="COMPLETED">COMPLETED</option>              <option value="CANCELED">CANCELED</option>            </select>            <button class="btn btn-primary" (click)="handleStatusUpdateClick()">              Update            </button>          </div>        </div>      </div>    </div>  </div></dialog><!-- ! Order All Item Modal --><dialog id="orderAllItemModal" class="modal">  <div class="modal-box">    <form method="dialog">      <button        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"        (click)="closeOrderAllItemModal()"      >        ✕      </button>    </form>    <div *ngIf="orderDetails">      <div>        <div class="form-control">          <h1 class="text-center mb-2">Order #{{ orderDetails._id }}</h1>          <ul class="flex flex-col justify-center items-start w-full gap-2">            <li              *ngFor="let item of orderDetails.items"              class="border-2 border-solid bg-secondaryLimeHover rounded w-full p-2 flex justify-between items-center"            >              <div>                <p>Name: {{ item.name }}</p>                <p>Quantity: {{ item.quantity }}</p>              </div>              <p>Total: {{ item.totalAmount | takaCurrency }}</p>            </li>          </ul>        </div>      </div>    </div>  </div></dialog></div>'
+    var COMPONENTS = [{'name': 'AddToCartModalComponent', 'selector': 'app-add-to-cart-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottomMenuComponent', 'selector': 'app-bottom-menu'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoryListComponent', 'selector': 'app-category-list'},{'name': 'CategoryProductGridComponent', 'selector': 'app-category-product-grid'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductsByCategoryComponent', 'selector': 'app-products-by-category'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'SelectionScreenComponent', 'selector': 'app-selection-screen'},{'name': 'ShopDashboardComponent', 'selector': 'app-shop-dashboard'},{'name': 'ShopInventoryComponent', 'selector': 'app-shop-inventory'},{'name': 'ShopLoginComponent', 'selector': 'app-shop-login'},{'name': 'ShopOrdersComponent', 'selector': 'app-shop-orders'},{'name': 'ShopRegisterComponent', 'selector': 'app-shop-register'},{'name': 'ShopSelectScreenComponent', 'selector': 'app-shop-select-screen'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SuccessComponent', 'selector': 'app-success'},{'name': 'WelcomeScreenComponent', 'selector': 'app-welcome-screen'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ShopOrdersComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ShopOrdersComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

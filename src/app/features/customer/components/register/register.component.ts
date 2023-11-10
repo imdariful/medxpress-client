@@ -12,16 +12,24 @@ import { CustomerServicesService } from '../../services/customer-services.servic
 import { Router } from '@angular/router';
 
 import { HotToastService } from '@ngneat/hot-toast';
+import {
+  getToastErrorMessage,
+  getToastSuccessMessage,
+} from 'src/app/shared/utilityFunctions';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   step = 1;
   private toastService = inject(HotToastService);
   registrationCompleted: boolean = false;
+
+  ngOnInit(): void {
+    this.getLocation();
+  }
 
   /**
    * FormGroup instance for the registration form.
@@ -33,20 +41,35 @@ export class RegisterComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     address: ['', Validators.required],
-    postalCode: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern(/^\d{4}$/), // exactly 4 digits
-      ],
-    ],
     role: ['CUSTOMER'],
+    lat: 23.793802719868392,
+    lng: 90.424322795238,
   });
   constructor(
     private fb: FormBuilder,
     private customerService: CustomerServicesService,
     private router: Router
   ) {}
+
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.registrationForm.patchValue({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+      });
+      console.log(
+        'lat:',
+        this.registrationForm.get('lat')?.value,
+        'lng: ',
+        this.registrationForm.get('lng')?.value
+      );
+    } else {
+      console.error('No support for geolocation');
+      this.toastService.error('Something went wrong', getToastErrorMessage());
+    }
+  }
 
   /**
    * Checks if a given field in the registration form is invalid.
@@ -92,12 +115,14 @@ export class RegisterComponent {
           if (error.status === 409) {
             this.registrationForm.get('email')?.setErrors({ duplicate: true });
             this.toastService.error(
-              'Email already exists. Please use a different email.'
+              'Email already exists. Please use a different email.',
+              getToastErrorMessage()
             );
           } else {
             console.error(error);
             this.toastService.error(
-              'Something went wrong. Please try again later.'
+              'Something went wrong. Please try again later.',
+              getToastErrorMessage()
             );
           }
         },
@@ -125,8 +150,9 @@ export class RegisterComponent {
         email: this.registrationForm.value.email!,
         password: this.registrationForm.value.password!,
         address: this.registrationForm.value.address!,
-        postalCode: this.registrationForm.value.postalCode!,
         role: this.registrationForm.value.role!,
+        lat: this.registrationForm.value.lat!,
+        lng: this.registrationForm.value.lng!,
       };
 
       this.customerService.registerCustomer(customerData).subscribe({
@@ -138,34 +164,18 @@ export class RegisterComponent {
           );
           this.increaseStep();
 
-          this.toastService.success('Registration Successful', {
-            icon: '😀',
-            position: 'top-center',
-            duration: 2000,
-            style: {
-              border: '1px solid #067A46',
-              padding: '16px',
-              color: '#067A46',
-              background: '#D2F895',
-              fontFamily: 'Agrandir-Regular',
-            },
-          });
+          this.toastService.success(
+            'Registration Successful',
+            getToastSuccessMessage()
+          );
         },
         error: (error) => {
           console.error(error);
           this.registrationForm.reset();
-          this.toastService.error('Something Went Wrong', {
-            icon: '☹',
-            position: 'top-center',
-            duration: 2000,
-            style: {
-              border: '1px solid #067A46',
-              padding: '16px',
-              color: '#067A46',
-              background: '#D2F895',
-              fontFamily: 'Agrandir-Regular',
-            },
-          });
+          this.toastService.error(
+            'Something Went Wrong',
+            getToastErrorMessage()
+          );
         },
         complete: () => {
           this.registrationCompleted = true;

@@ -139,7 +139,10 @@ export class CartService {
    * Clear the shopping cart.
    */
   clearCart(): void {
+    console.log('clearing cart ran');
+
     this.items = [];
+
     this.saveToLocalStorage();
   }
 

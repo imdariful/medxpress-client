@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -38,5 +40,12 @@ export class TokenService {
    */
   removeAccessToken(): void {
     this.cookieService.delete(this.accessTokenKey, '/');
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('HTTP Error:', error);
+    return throwError(
+      () => new Error('An error occurred. Please try again later.')
+    );
   }
 }
