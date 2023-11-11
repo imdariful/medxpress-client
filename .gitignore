@@ -42,6 +42,6 @@ testem.log
 Thumbs.db
 
 *.Identifier
-:Zone.Identifier
+*:Zone.Identifier
 
 *.Identifier
