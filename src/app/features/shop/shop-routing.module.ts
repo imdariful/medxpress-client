@@ -6,6 +6,8 @@ import { ShopDashboardComponent } from './components/shop-dashboard/shop-dashboa
 import { ShopSelectScreenComponent } from './components/shop-select-screen/shop-select-screen.component';
 import { ShopOrdersComponent } from './components/shop-orders/shop-orders.component';
 import { ShopInventoryComponent } from './components/shop-inventory/shop-inventory.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ShopReportsComponent } from './components/shop-reports/shop-reports.component';
 
 const routes: Routes = [
   {
@@ -25,7 +27,16 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
+        component: SidebarComponent,
         children: [
+          {
+            path: '',
+            component: ShopDashboardComponent,
+          },
+          {
+            path: 'reports',
+            component: ShopReportsComponent,
+          },
           {
             path: 'orders',
             component: ShopOrdersComponent,
