@@ -18,7 +18,7 @@ export class ShopInventoryComponent implements OnInit {
     private productService: ProductService,
     private toastService: HotToastService,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getStocksByShopId();
@@ -65,13 +65,8 @@ export class ShopInventoryComponent implements OnInit {
     }
   }
 
-  closeStockModal() {
-    const stockModal = document.querySelector('#stockModal');
-    if (stockModal !== null) {
-      stockModal.classList.remove('modal-open');
-      this.addToStockForm.value.quantity = null;
-      console.log(this.addToStockForm.value.quantity);
-    }
+  setStockModal(val: boolean) {
+    this.stockModal = val;
   }
 
   searchStocks(medicineId: string, shopId: string) {
@@ -91,7 +86,9 @@ export class ShopInventoryComponent implements OnInit {
   getStocksByShopId() {
     this.shopService.getStocksByShopId().subscribe({
       next: (data) => {
+        console.log("data", data)
         this.shopAllMedicine = data;
+
       },
       error: (err) => {
         console.error('err', err);
@@ -99,90 +96,42 @@ export class ShopInventoryComponent implements OnInit {
     });
   }
 
+  stockModal = false
   handleAddStockBtnClick(product: any) {
-    this.medicineId = product._id;
+    const { _id, ...res } = product
+    this.medicineId = _id;
     this.shopId = String(this.shopService.getShopId());
+    this.selectedProduct = { medicineId: this.medicineId, shopId: this.shopId, ...res }
+    this.setStockModal(true);
+  }
 
-    this.searchStocks(String(this.medicineId), String(this.shopId));
+  itemQuantity!: number;
 
-    if (this.stock.length > 0) {
-      this.btnText = 'Update Stock';
-    }
-
-    console.log(`
-    Medicine ID: ${this.medicineId},
-    ShopId: ${this.shopId}
-    `);
-
-    this.shopService.getStocksByShopId().subscribe({
+  addtoStock() {
+    this.shopService.createStock({ ...this.selectedProduct, quantity: this.itemQuantity }).subscribe({
       next: (data) => {
-        const selectedProduct = data.find(
-          (stock: any) => stock.medicineId === product._id
-        );
-        if (selectedProduct) {
-          this.selectedProduct = {
-            ...product,
-            quantity: selectedProduct.quantity,
-          };
-          this.addToStockForm.patchValue({
-            quantity: selectedProduct.quantity,
-          });
-        } else {
-          this.selectedProduct = product;
-        }
-
-        const stockModal = document.querySelector('#stockModal');
-        if (stockModal !== null && this.selectedProduct !== null) {
-          stockModal.classList.add('modal-open');
-        }
+        this.shopAllMedicine.unshift(data);
+        this.searchResult = []
+        this.stockModal = false;
+        console.log('Stock added successfully', data);
       },
       error: (err) => {
-        console.error('err', err);
+        console.error('Failed to add stock', err);
       },
     });
   }
 
-  addToStockFormSubmit() {
-    const quantity = this.addToStockForm.get('quantity')?.value;
+  updateStock() {
+    const quantity = this.itemQuantity
 
-    if (this.stock.length > 0) {
-      // If stock exists, update it
-      this.btnText = 'Update Stock';
-
-      if (this.addToStockForm.valid) {
-        console.log('here');
-        console.log(typeof quantity);
-
-        this.shopService.updateStock(this.stock[0], quantity).subscribe({
-          next: (data) => {
-            console.log('Stock updated successfully', data);
-            this.closeStockModal();
-          },
-          error: (err) => {
-            console.error('Failed to update stock', err);
-          },
-        });
-      } else {
-        console.error('Form is not valid');
-      }
-    } else {
-      // Create new stock
-      this.btnText = 'Add To Stock';
-
-      if (this.addToStockForm.valid) {
-        this.shopService
-          .createStock(this.medicineId, quantity, this.shopId)
-          .subscribe({
-            next: (data) => {
-              console.log('Stock added successfully', data);
-            },
-            error: (err) => {
-              console.error('Failed to add stock', err);
-            },
-          });
-      } else {
-        console.error('Form is not valid');
-      }
-    }
+    this.shopService.updateStock(this.stock[0], quantity).subscribe({
+      next: (data) => {
+        console.log('Stock updated successfully', data);
+        this.setStockModal(false);
+      },
+      error: (err) => {
+        console.error('Failed to update stock', err);
+      },
+    });
   }
 }

@@ -106,6 +106,7 @@ export class ShopService {
 
   getShopId(): string | null {
     const token = this.tokenService.getAccessToken();
+    console.log("token", token)
     if (token) {
       const payload = token.split('.')[1];
       const decodedPayload = atob(payload);
@@ -119,12 +120,9 @@ export class ShopService {
     return this.http.get(`${getBaseUrl()}/stocks/shop/${this.getShopId()}`);
   }
 
-  createStock(medicineId: string, quantity: number, shopId: string) {
-    return this.http.post(`${getBaseUrl()}/stocks`, {
-      medicineId,
-      quantity,
-      shopId,
-    });
+  createStock(data: any) {
+    console.log(data)
+    return this.http.post(`${getBaseUrl()}/stocks`, data);
   }
 
   addToStock(medicineId: string, quantity: number): Observable<any> {

@@ -104,7 +104,7 @@
                     class="object-cover object-center group-hover:opacity-75 max-h-[150px]" />
                 </div>
               </div>
-              <h3 class="mt-4 text-sm text-gray-700">Napa</h3>
+              <h3 class="mt-4 text-sm text-gray-700">{{product.name}}</h3>
               <p class="mt-1 text-lg font-medium text-gray-900">
                 {{ +product.price | takaCurrency }}
               </p>
@@ -142,10 +142,11 @@
 </div>
 
 <!-- ! Modal -->
-<dialog id="stockModal" class="modal">
-  <div class="modal-box">
-    <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" (click)="closeStockModal()">
+<!-- <dialog  id="stockModal" class="modal"> -->
+<div *ngIf="stockModal" id="stock_Modal">
+  <div>
+    <form>
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" (click)="setStockModal(false)">
         ✕
       </button>
     </form>
@@ -153,23 +154,24 @@
       <div>
         <div class="form-control">
           <h1 class="text-center mb-2 text-xl">{{ selectedProduct?.name }}</h1>
-          <form [formGroup]="addToStockForm" (ngSubmit)="addToStockFormSubmit()">
+          <!-- <form [formGroup]="addToStockForm" (ngSubmit)="addToStockFormSubmit()"> -->
             <p>Medicine Id: #{{ medicineId }}</p>
             <p>Dosage Form: {{ selectedProduct?.dosage_form }}</p>
             <p>Manufacturer: {{ selectedProduct?.manufacturer }}</p>
             <p>Package Size: {{ selectedProduct?.package_size }}</p>
             <div class="flex flex-col mt-2">
               <label for="quantity">Quantity</label>
-              <input type="number" class="form-control" formControlName="quantity" [value]="quantity" id="quantity"
+              <input type="number" class="form-control" [(ngModel)]="itemQuantity"
                 name="quantity" class="input input-bordered input-primary w-full max-w-xs mt-2" />
             </div>
 
-            <button type="submit" class="btn btn-primary my-3" (click)="closeStockModal()">
+            <button class="btn btn-primary my-3" (click)="addtoStock()">
               Add To Stock
             </button>
-          </form>
+          <!-- </form> -->
         </div>
       </div>
     </div>
   </div>
-</dialog>
+</div>
+<!-- </dialog> -->
