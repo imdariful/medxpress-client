@@ -10,62 +10,52 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { TokenService } from 'src/app/shared/services/token.service';
 import { OrderDetails } from '../models/order.model';
 import { Stock } from '../models/stock.model';
+import { MessageService } from 'src/app/services/message.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShopService {
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(private http: HttpClient, private tokenService: TokenService, private toast: MessageService) { }
 
   getAllOrders() {
     return this.http.get(`${getBaseUrl()}/orders`);
   }
 
-  /*   updateOrderStatus(orderDetails: OrderDetails, status: string) {
-    if (status === 'COMPLETED') {
-      const shopId = this.getShopId();
-      // decrease stock
-      for (let item of orderDetails.items) {
-        this.searchStockByMedicineAndShop(item._id, shopId).subscribe({
-          next: (data) => {
-            const stock = data[0];
-            this.updateStock(stock, stock.quantity - item.quantity).subscribe({
-              next: (data) => {
-                console.log(data);
-              },
-              error: (err) => {
-                console.error(err);
-              },
-            });
-          },
-          error: (err) => {
-            console.error(err);
-          },
-        });
-      }
-    }
+  getOrdersByShopId() {
+    const shopId = this.getShopId()
+    return this.http.get(`${getBaseUrl()}/orders/shop/${shopId}`);
+  }
+  createPathaoOrder(orderDetails: OrderDetails) {
+    return this.http.post(`${getBaseUrl()}/pathao/order`, orderDetails);
+  }
 
-    return this.http.put(`${getBaseUrl()}/orders/${orderDetails._id}`, {
-      ...orderDetails,
-      orderStatus: status,
-    });
-  } */
 
   updateOrderStatus(orderDetails: OrderDetails, status: string) {
+
     if (status === 'COMPLETED') {
       const shopId = this.getShopId();
+      this.http.post(`${getBaseUrl()}/pathao`, orderDetails).subscribe({
+        next: (res: any) => {
+          if (res.code == 200) {
+            this.toast.success('Order Transferred to Pathao')
+          }
+        },
+        error: (err) => {
+          console.error(err);
+        },
+      })
 
       // Check if shopId is not null before making the API call
       if (shopId) {
+
         for (let item of orderDetails.items) {
           this.searchStockByMedicineAndShop(item._id, shopId).subscribe({
             next: (data) => {
               const stock = data[0];
               this.updateStock(stock, stock.quantity - item.quantity).subscribe(
                 {
-                  next: (data) => {
-                    console.log(data);
-                  },
+                  next: (data) => { },
                   error: (err) => {
                     console.error(err);
                   },
@@ -104,9 +94,13 @@ export class ShopService {
     );
   }
 
+  getShop() {
+    const shopId = this.getShopId()
+    return this.http.get(`${getBaseUrl()}/auth/shop/${shopId}`);
+  }
+
   getShopId(): string | null {
     const token = this.tokenService.getAccessToken();
-    console.log("token", token)
     if (token) {
       const payload = token.split('.')[1];
       const decodedPayload = atob(payload);
@@ -121,7 +115,6 @@ export class ShopService {
   }
 
   createStock(data: any) {
-    console.log(data)
     return this.http.post(`${getBaseUrl()}/stocks`, data);
   }
 

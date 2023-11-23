@@ -59,12 +59,6 @@ export class RegisterComponent implements OnInit {
           lng: position.coords.longitude,
         });
       });
-      console.log(
-        'lat:',
-        this.registrationForm.get('lat')?.value,
-        'lng: ',
-        this.registrationForm.get('lng')?.value
-      );
     } else {
       console.error('No support for geolocation');
       this.toastService.error('Something went wrong', getToastErrorMessage());

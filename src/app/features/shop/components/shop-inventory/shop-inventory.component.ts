@@ -22,6 +22,7 @@ export class ShopInventoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStocksByShopId();
+    this.getShop()
   }
 
   shopAllMedicine: any[] = [];
@@ -32,8 +33,12 @@ export class ShopInventoryComponent implements OnInit {
   selectedProduct: any | null = null;
   stock: Stock[] = [];
   shopId: string = '';
-
   btnText: string = 'Add Stock';
+  itemQuantity!: number;
+  stockModal = false
+  shop:any;
+
+
 
   addToStockForm: FormGroup = this.fb.group({
     quantity: null,
@@ -86,7 +91,6 @@ export class ShopInventoryComponent implements OnInit {
   getStocksByShopId() {
     this.shopService.getStocksByShopId().subscribe({
       next: (data) => {
-        console.log("data", data)
         this.shopAllMedicine = data;
 
       },
@@ -96,7 +100,6 @@ export class ShopInventoryComponent implements OnInit {
     });
   }
 
-  stockModal = false
   handleAddStockBtnClick(product: any) {
     const { _id, ...res } = product
     this.medicineId = _id;
@@ -105,7 +108,7 @@ export class ShopInventoryComponent implements OnInit {
     this.setStockModal(true);
   }
 
-  itemQuantity!: number;
+
 
   addtoStock() {
     this.shopService.createStock({ ...this.selectedProduct, quantity: this.itemQuantity }).subscribe({
@@ -113,7 +116,6 @@ export class ShopInventoryComponent implements OnInit {
         this.shopAllMedicine.unshift(data);
         this.searchResult = []
         this.stockModal = false;
-        console.log('Stock added successfully', data);
       },
       error: (err) => {
         console.error('Failed to add stock', err);
@@ -126,11 +128,21 @@ export class ShopInventoryComponent implements OnInit {
 
     this.shopService.updateStock(this.stock[0], quantity).subscribe({
       next: (data) => {
-        console.log('Stock updated successfully', data);
         this.setStockModal(false);
       },
       error: (err) => {
         console.error('Failed to update stock', err);
+      },
+    });
+  }
+
+  getShop() {
+    this.shopService.getShop().subscribe({
+      next: (response) => {
+        this.shop = response;
+      },
+      error: (error) => {
+        console.error(error);
       },
     });
   }

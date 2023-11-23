@@ -45,31 +45,27 @@ export class ProductDetailsComponent implements OnInit {
    * Sets the image source based on the dosage form of the product.
    * @returns void
    */
+
+
+  images:any={
+    'Syrup': 'assets/icons/syrup.svg',
+    'Ophthalmic Suspension': 'assets/icons/suspension.svg',
+    'Powder for Suspension': 'assets/icons/suspension.svg',
+    'Capsule': 'assets/icons/capsule.svg',
+    'Tablet': 'assets/icons/capsule.svg',
+    'IV Infusion': 'assets/icons/injection.svg',
+    'IM/IV Injection': 'assets/icons/injection.svg',
+    'Cream': 'assets/icons/ointment.svg'
+  }
+
   setImage() {
     if (this.product !== undefined) {
-      switch (this.product.dosage_form) {
-        case 'Syrup':
-          this.imgSrc = 'assets/icons/syrup.svg';
-          break;
-        case 'Ophthalmic Suspension' || 'Powder for Suspension':
-          this.imgSrc = 'assets/icons/suspension.svg';
-          break;
-        case 'Capsule' || 'Tablet':
-          this.imgSrc = 'assets/icons/capsule.svg';
-          break;
-        case 'IV Infusion' || 'IM/IV Injection':
-          this.imgSrc = 'assets/icons/injection.svg';
-          break;
-        case 'Cream':
-          this.imgSrc = 'assets/icons/ointment.svg';
-          break;
-        default:
-          this.imgSrc = 'assets/icons/capsule.svg';
-          break;
-      }
+      this.imgSrc = this.images[this.product.dosage_form];
     }
   }
 
+
+  
   /**
    * Initializes the component.
    * Fetches the product by id and sets the product, image and total price.

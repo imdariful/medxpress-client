@@ -52,12 +52,6 @@ export class ShopRegisterComponent implements OnInit {
           lng: position.coords.longitude,
         });
       });
-      console.log(
-        'lat:',
-        this.shopRegistrationForm.get('lat')?.value,
-        'lng: ',
-        this.shopRegistrationForm.get('lng')?.value
-      );
     } else {
       console.log('No support for geolocation');
     }
