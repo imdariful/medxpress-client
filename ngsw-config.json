@@ -31,7 +31,7 @@
     {
       "name": "api",
       "urls": [
-        "https://medxpress-wef4.onrender.com/medicines/find?page=1&limit=20"
+        "http://localhost:3001/medicines/find?page=1&limit=20"
       ],
       "cacheConfig": {
         "maxSize": 100,

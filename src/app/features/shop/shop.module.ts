@@ -10,6 +10,8 @@ import { ShopSelectScreenComponent } from './components/shop-select-screen/shop-
 import { ShopOrdersComponent } from './components/shop-orders/shop-orders.component';
 import { ShopInventoryComponent } from './components/shop-inventory/shop-inventory.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ShopReportsComponent } from './components/shop-reports/shop-reports.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ShopDashboardComponent,
     ShopSelectScreenComponent,
     ShopOrdersComponent,
-    ShopInventoryComponent
+    ShopInventoryComponent,
+    SidebarComponent,
+    ShopReportsComponent,
   ],
   imports: [
     CommonModule,

@@ -8,6 +8,7 @@ import {
   getToastErrorMessage,
   getToastSuccessMessage,
 } from 'src/app/shared/utilityFunctions';
+import { TokenService } from 'src/app/shared/services/token.service';
 
 @Component({
   selector: 'app-shop-register',
@@ -21,6 +22,7 @@ export class ShopRegisterComponent implements OnInit {
     private router: Router,
     private shopService: ShopService,
     private fb: FormBuilder,
+    private tokenService: TokenService,
     toastService: HotToastService // Removed the "inject" function
   ) {
     this.toastService = toastService; // Assigning the toast service in the constructor
@@ -50,12 +52,6 @@ export class ShopRegisterComponent implements OnInit {
           lng: position.coords.longitude,
         });
       });
-      console.log(
-        'lat:',
-        this.shopRegistrationForm.get('lat')?.value,
-        'lng: ',
-        this.shopRegistrationForm.get('lng')?.value
-      );
     } else {
       console.log('No support for geolocation');
     }
@@ -76,7 +72,8 @@ export class ShopRegisterComponent implements OnInit {
       };
 
       this.shopService.registerShop(shopDetails).subscribe({
-        next: (res) => {
+        next: (res: any) => {
+          this.tokenService.saveAccessToken(res.access_token, res.expires_in);
           this.toastService.success(
             'Registration successful!',
             getToastSuccessMessage()

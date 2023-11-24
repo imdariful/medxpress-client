@@ -24,21 +24,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
-    console.log(this.innerWidth);
 
-    console.log('App Component Initialized');
     if (!this.updateService.isEnabled) {
-      console.log('Service Worker is Not Enabled');
       return;
     }
-    console.log('Service Worker is Enabled');
     this.#handleUpdates();
     this.#handleNotifications();
   }
 
   #handleUpdates() {
     this.updateService.versionUpdates.subscribe((event: VersionEvent) => {
-      console.log(event);
       alert(event.type);
 
       if (

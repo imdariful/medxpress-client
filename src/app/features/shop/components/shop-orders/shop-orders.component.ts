@@ -21,6 +21,7 @@ export class ShopOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrders();
+    this.getShop()
   }
 
   allOrders: any = [];
@@ -28,9 +29,21 @@ export class ShopOrdersComponent implements OnInit {
   selectedOrderStatus: string = 'PENDING';
   totalPendingStatus: number = 0;
   totalEarnings: number = 0;
+  shop:any;
 
-  async getAllOrders(): Promise<void> {
-    (await this.shopService.getAllOrders()).subscribe({
+   getShop() {
+    this.shopService.getShop().subscribe({
+      next: (response) => {
+        this.shop = response;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+
+   getAllOrders() {
+     this.shopService.getOrdersByShopId().subscribe({
       next: (response) => {
         this.allOrders = response;
 
@@ -39,7 +52,6 @@ export class ShopOrdersComponent implements OnInit {
         ).length;
 
         this.totalEarnings = this.getTotalEarnings();
-        console.log(this.totalEarnings);
       },
       error: (error) => {
         console.error(error);
@@ -74,7 +86,6 @@ export class ShopOrdersComponent implements OnInit {
 
   handleOrderUpdateBtnClick(id: string) {
     this.orderDetails = this.allOrders.find((order: any) => order._id === id);
-    console.log(this.orderDetails);
     
     const orderModal = document.querySelector('#orderModal');
     if (orderModal != null) {
@@ -106,7 +117,6 @@ export class ShopOrdersComponent implements OnInit {
 
   onStatusChange(event: any) {
     this.selectedOrderStatus = event.target.value;
-    console.log(this.selectedOrderStatus);
   }
 
   handleStatusUpdateClick() {
@@ -132,7 +142,6 @@ export class ShopOrdersComponent implements OnInit {
   }
 
   handleAddNewOrderClick() {
-    //
     this.toastService.error(
       'Need time more to implement',
       getToastErrorMessage()
