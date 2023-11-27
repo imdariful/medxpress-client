@@ -36,6 +36,7 @@ export class ShopInventoryComponent implements OnInit {
   btnText: string = 'Add Stock';
   itemQuantity!: number;
   stockModal = false
+  updateModal = false
   shop:any;
 
 
@@ -73,6 +74,9 @@ export class ShopInventoryComponent implements OnInit {
   setStockModal(val: boolean) {
     this.stockModal = val;
   }
+  setUpdateModal(val: boolean) {
+    this.updateModal = val;
+  }
 
   searchStocks(medicineId: string, shopId: string) {
     this.shopService
@@ -108,6 +112,14 @@ export class ShopInventoryComponent implements OnInit {
     this.setStockModal(true);
   }
 
+  handleUpdateStockBtnClick(product: any) {
+    // const { _id, ...res } = product
+    // this.medicineId = _id;
+    // this.shopId = String(this.shopService.getShopId());
+    this.selectedProduct = product
+    this.setUpdateModal(true);
+  }
+
 
 
   addtoStock() {
@@ -125,10 +137,10 @@ export class ShopInventoryComponent implements OnInit {
 
   updateStock() {
     const quantity = this.itemQuantity
-
-    this.shopService.updateStock(this.stock[0], quantity).subscribe({
+    this.shopService.updateStock(this.selectedProduct, quantity).subscribe({
       next: (data) => {
-        this.setStockModal(false);
+        this.getStocksByShopId();
+        this.setUpdateModal(false);
       },
       error: (err) => {
         console.error('Failed to update stock', err);
